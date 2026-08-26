@@ -25,8 +25,9 @@
 	\agendaentry{Why Active Learning?}%
 	\agendaentry{About Me}%
 	\agendaentry{Discrete Math In Practice: Examples From Machine Learning}%
-	\agendaentry{Virtues Of Discrete Math}%
-	\agendaentry{How To Read Math}%
+	\agendaentry{Why Study Math In The Age of AI?}%
+	%\agendaentry{How To Read A Math Textbook}%
+	\agendaentry{Student Survey}%
 }
 
 \newcommand{\agendaentry}[1]{%
@@ -50,6 +51,47 @@
 	\end{frame}%
 }
 
+
+
+%%%
+% BLOCK COLORS: give alerted/example blocks their own bg, so they stop
+% inheriting the blue bg from `block title` / `block body`.
+%%%
+\definecolor{mDarkBrown}{HTML}{604C38}
+\definecolor{mDarkGreen}{HTML}{0E6B25}
+\setbeamercolor{block title alerted}{bg=orange!25, fg=mDarkBrown}
+\setbeamercolor{block body  alerted}{bg=orange!10, fg=black}
+\setbeamercolor{block title example}{bg=green!22,  fg=mDarkGreen}
+\setbeamercolor{block body  example}{bg=green!8,   fg=black}
+
+
+%%%
+% EVIDENCE CARDS: tinted panel with a coloured accent bar on the left.
+% (tcolorbox is already loaded by the preamble.)
+%%%
+\newtcolorbox{evidence}[1][blue]{%
+  enhanced, colback=#1!5, colframe=#1!65,
+  boxrule=0pt, leftrule=3pt, arc=0pt, outer arc=0pt,
+  left=7pt, right=5pt, top=3pt, bottom=3pt,
+  before skip=3pt, after skip=3pt,
+  fontupper=\small}
+\newcommand{\evsrc}[1]{\par\vspace{1pt}{\tiny\color{black!45}#1}}
+
+%%%
+% TIP CARDS: coloured icon in a gutter, bold headline, small detail beneath.
+%   \tipcard[colour]{\faIcon}{Headline}{Detail line}
+%%%
+
+
+\usepackage{fontawesome5}
+\newcommand{\tipcard}[4][blue]{%
+  \par\medskip\noindent
+  \begin{minipage}[t]{0.95cm}\centering{\color{#1!75}\Large #2}\end{minipage}%
+  \begin{minipage}[t]{\dimexpr\linewidth-1.05cm\relax}\raggedright
+    \textbf{#3}\par{\scriptsize\color{black!70}#4}\par
+  \end{minipage}\par
+}
+\newcommand{\tiphead}[2][blue]{{\color{#1!75}\footnotesize\bfseries\MakeUppercase{#2}}\par\vspace{-2pt}{\color{#1!35}\rule{\linewidth}{1pt}}\par}
 
 
 \begin{document}
@@ -103,12 +145,13 @@
 %\end{frame}
 
 
-
-
 \agendaframe{1}
 
 
 
+\begin{frame}{Room Change}
+Starting Friday 08/28, we will meet in Reid 201.
+\end{frame}
 
 \begin{frame}{What is Discrete Math?}
 \begin{center}
@@ -122,16 +165,104 @@
 \end{frame}
 
 
-\begin{frame}{Syllabus Review}
+\begin{frame}{Course webpage}
 
-\Large \centering
-See \color{blue} \underline{\href{https://montana.instructure.com/courses/20155/pages/home-page}{Canvas}} \color{black} for syllabus.
+\Large 
+\begin{center}
+The \color{blue}\underline{\href{https://github.com/mikewojnowicz/csci246_fall2026}{course webpage}} \color{black} has the syllabus, slides, and more.
+\end{center}
 
+\pause 
+\vfill
+
+\normalsize 
+
+\colorbox{green!30}{\textbf{Ways to find it:}}
+\begin{enumerate}
+	\item See link from \color{blue}\underline{\href{https://montana.instructure.com/courses/37136/pages/home-page}{Canvas}}\color{black}, or
+	\item Go to github.com/mikewojnowicz and look for \alert{csci246\_fall2026}.
+\end{enumerate} 
+\pause 
+\vfill 
+
+\colorbox{red!30}{\textbf{Warning:}} Details on the syllabus will be adjusted throughout the semester.
 \end{frame}
 
 
+
+
+\begin{frame}{Syllabus Review}
+
+\Large \centering
+
+Let's review the \color{blue} \underline{\href{https://github.com/mikewojnowicz/csci246_fall2026/blob/main/syllabus/syllabus.pdf}{syllabus}} \color{black}!
+\end{frame}
+
+
+
+\begin{frame}{How to read a math textbook}
+\begin{figure}
+\includegraphics[width=0.65\textwidth]{images/tips_for_reading_math}
+\end{figure}
+%
+\begin{figure}
+\includegraphics[width=0.65\textwidth]{images/work_through_examples}
+\end{figure}
+%\bottomtext{\hfill Source: \url{https://learningcenter.unc.edu/tips-and-tools/readingmathtexts/}.}
+\end{frame}
+
+
+\begin{frame}{Attending class is positively related to course performance}
+\small 
+\begin{figure}
+\includegraphics[width=.6\textwidth]{images/quiz_scores_by_attendance.png}	
+\caption{\textit{Quiz Scores by Class Attendance.} Shown are scores on CSCI 246 Weekly Quiz \#8 (Friday 10/24/25), broken in two groups, based on those who attended class on Monday 10/27/25.}	
+\end{figure}
+
+%\vfill 
+%\pause 
+%\colorbox{yellow!30}{\textbf{Remark.}} That said, attending class is generally not sufficient. Most students need to attend class \textbf{and} be actively engaged in order to perform well.
+
+\end{frame}
+
 \agendaframe{2}
  
+ 
+ \begin{frame}[t]{}
+
+\vfill
+\begin{center}
+\begin{minipage}{0.88\textwidth}
+
+{\color{black!15}\fontsize{60}{60}\selectfont\textquotedblleft}\\[-1.4em]
+
+{\LARGE\itshape The best way to learn is to do;\\[0.25em]
+the worst way to teach is to talk.\par}
+
+\vspace{0.9em}
+{\raggedleft\small
+--- \textbf{Paul Halmos} (1916--2006), \\
+mathematician and expositor\par}
+
+\end{minipage}
+\end{center}
+\vfill
+
+\pause
+\begin{center}
+\begin{minipage}{0.88\textwidth}
+{\color{black!25}\rule{\linewidth}{0.6pt}}
+\vspace{0.5em}
+
+\raggedright\small True understanding  comes from
+\textbf{engaging with problems actively}, which often requires a
+\alert{shift in perspective} before a new solution becomes visible.
+\end{minipage}
+\end{center}
+\vfill
+
+\end{frame}
+
 \begin{frame}{Why Active Learning?}
 
 
@@ -424,106 +555,229 @@ The solution to this problem used almost every content area we're covering in th
 
 \agendaframe{5}
 
-\begin{frame}{Virtues of developing mathematical reasoning (generally)}
 
-\begin{itemize}
-\item Enhances performance studying \textit{any} domain -- not only computer science, but also cybersecurity, sociology, etc.  \pause 
-\item Enhances performance at work -- often, math gets the job done better. \pause 
-\item \$\$\$ \pause 
-\end{itemize}
 
+\begin{frame}{Why study discrete math \emph{now}?}
+
+\begin{alertblock}{Let's grant the strongest assumption}
+\small
+Assume AI writes correct code --- and even research-level proofs --- better and faster than you.
+\textbf{Don't argue with it. Just assume it.} The interesting question is what's left over.
+\end{alertblock}
+
+\pause
+\vfill
+We say the goal is \textbf{``solve the problem.''} That was never actually the goal:
+
+\vfill
+\begin{center}
+\only<2>{%
+\begin{tikzpicture}
+  \node[draw,rounded corners,fill=gray!12,minimum height=0.9cm,text width=1.9cm,align=center,font=\scriptsize] (a) at (0,0)   {Problem};
+  \node[draw,rounded corners,fill=gray!12,minimum height=0.9cm,text width=1.9cm,align=center,font=\scriptsize] (b) at (4.5,0) {Working system};
+  \draw[->,thick] (a) -- node[above,font=\tiny]{write the code} (b);
+\end{tikzpicture}}%
+\only<3->{%
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[stage/.style={draw,rounded corners,minimum height=0.95cm,text width=1.75cm,align=center,font=\small}]
+  % group backgrounds (drawn first, so the boxes sit on top)
+  \fill[red!7,rounded corners]  (-1.25,-0.95) rectangle (4.25,0.95);
+  \fill[blue!7,rounded corners] ( 4.75,-0.95) rectangle (13.25,0.95);
+  \node[stage,fill=gray!12] (a) at ( 0,0) {Problem};
+  \node[stage,fill=red!18]  (b) at ( 3,0) {Plausible solution};
+  \node[stage,fill=blue!15] (c) at ( 6,0) {\textit{Correct} solution};
+  \node[stage,fill=blue!15] (d) at ( 9,0) {\textit{Understood} solution};
+  \node[stage,fill=blue!15] (e) at (12,0) {\textit{Trusted}, reusable design};
+  \draw[->,thick] (a) -- node[above,font=\scriptsize]{generate} (b);
+  \draw[->,thick] (b) -- node[above,font=\scriptsize]{verify}   (c);
+  \draw[->,thick] (c) -- node[above,font=\scriptsize]{explain}  (d);
+  \draw[->,thick] (d) -- node[above,font=\scriptsize]{accept}   (e);
+  \node[red!75, font=\small,align=center] at (1.5,-1.5) {AI is already excellent here};
+  \node[blue!75,font=\small,align=center] at (9.0,-1.5) {\ldots and this is the part that is still yours};
+\end{tikzpicture}}}
+\end{center}
+
+\vfill
+\pause
+\pause
+\small Only the \textbf{first} stage was ever an explicit goal --- and it is exactly the stage being automated.
+Every stage downstream of it is an act of \textbf{reasoning about correctness}. That is this course.
+
+\bottomtext{\hfill Framing adapted from T. Tao, \textit{Mathematics in the age of AI}, ICM 2026, \texttt{arXiv:2608.16753}.}
 \end{frame}
 
 
-\begin{frame}{Don't like math?:  Tips for success}
+\begin{frame}{What that buys you: studies, life, work}
 
-\begin{itemize}
-	\item Be open-minded!  Don't stereotype yourself. \pause  % Tell story of how a Floridian learned to love Bozeman
-	\item \textit{Growth mindset}: Anyone can improve from where they are.   \pause
-	\item \textit{Culture of confusion}: It's great to be wrong! That's how we learn.  \pause 
-	\item Take solace: We're starting from scratch. (No calculus!) \pause
-	\item Stay on track by doing daily assignments. \pause 
-	\item Use resources (office hours, tutoring, classmates, etc.) \pause 
-	\item Contact me early if you're struggling.  I'm here to help! \pause 
-\end{itemize}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.31\textwidth}
+{\centering\textbf{\alert{Your studies}}\par}
+\vspace{0.4em}
+{\scriptsize\raggedright
+An AI can hand you correct homework. It cannot hand you the \emph{ability} that the homework existed to build.
 
+\vspace{0.4em}
+Induction, invariants, counting, graphs: these are the tools that let you say \textbf{``is right''} instead of \textbf{``looks right.''}\par}
+\end{column}
+\pause
+\begin{column}{0.31\textwidth}
+{\centering\textbf{\alert{Your life}}\par}
+\vspace{0.4em}
+{\scriptsize\raggedright
+Generative models are \emph{ungrounded}: they optimize for output that \emph{appears} satisfactory, not for the property it is supposed to indicate.
+
+\vspace{0.4em}
+So you need a check that does not depend on the answer looking good. \textbf{One counterexample settles it.}\par}
+\end{column}
+\pause
+\begin{column}{0.31\textwidth}
+{\centering\textbf{\alert{Your job}}\par}
+\vspace{0.4em}
+{\scriptsize\raggedright
+Code is going from \textbf{scarce} to \textbf{abundant}. The bottleneck (and the salary) moves downstream.
+
+\vspace{0.4em}
+Paid work becomes: \emph{specify} precisely, \emph{verify}, \emph{explain}, and \textbf{take responsibility} for it.\par}
+\end{column}
+\end{columns}
+
+\pause
+\vfill
+\begin{exampleblock}{Tao's rule of thumb, translated}
+\small
+If you cannot give a clear, correct, properly-attributed talk on your own result, it should not ship.
+\textbf{A result no human can explain is incomplete, even if it verifies.}
+%Similarly for any system, including code.
+\end{exampleblock}
+
+%\begin{exampleblock}{Tao's rule of thumb, in your terms}
+%\small
+%He says: a proof no human can explain is \textbf{incomplete} --- even after a machine verifies it. \\
+%Yours: \textbf{if you can't walk a teammate through your diff, it doesn't merge.} Green CI means nobody
+%has caught a bug \emph{yet}. And every technical interview you will ever sit is this exact test:
+%not ``can you produce code?'' but \textbf{``why does this work?''}
+%\end{exampleblock}
+
+\pause
+\vfill
+{\footnotesize\centering
+\alert{Goodhart's law}: ``When a measure becomes a target, it ceases to be a good measure.'' \\
+Passing the test was always the \emph{measure}. Understanding was always the \emph{target}.\par}
+
+\bottomtext{\hfill T. Tao, \textit{Mathematics in the age of AI}, ICM 2026, \texttt{arXiv:2608.16753}.}
 \end{frame}
+ 
 
 
-
-
+%\begin{frame}{Virtues of developing mathematical reasoning (generally)}
 %
-%\begin{frame}{Virtues of developing mathematical reasoning}
-%    \begin{figure}
-%        \centering
-%        \includegraphics[width=.9\textwidth]{images/icml} 
-%    \end{figure}
-%   \citebottom{\hfill Wojnowicz et al. (2022). \textit{International Conference of Machine Learning (ICML)}. \hfill }
-%	
-%\end{frame}
-
-
-
-%\begin{frame}{Discrete math: Example application}
-%
-%
-%Find subtle DNA copy number alterations to support \textbf{early cancer detection}.
-%
-%\centering \includegraphics[width=.2\textwidth]{images/amplification_deletion} 
-%
-%\citebottom{Image from: Nabavi \& Zare (2022).}
-%
-%\end{frame}
-%
-%
-%\begin{frame}
-%\begin{columns}[T,onlytextwidth]
-%    \begin{column}{0.4\textwidth}
-%        \centering
-%        \vspace{1in}
-%        \Large How to detect changepoints within heavy noise?
-%     \end{column}
-%    \begin{column}{0.6\textwidth}	
-%	 \begin{center}
-%	  \includegraphics[width=0.5\linewidth]{images/sample_0} \\
-%	\includegraphics[width=0.5\linewidth]{images/sample_1}
-%	\end{center}
-%    \end{column}
-%\end{columns}
-%
-%\end{frame}
-%
-%
-%\begin{frame}
-%
-%\large \centering
-%The solution to this problem uses almost every content area we're covering in this course
-%
-%\vfill 
 %\begin{itemize}
-%	\item Discrete probability 
-%	\item Counting
-%	\item Complexity (Big-O notation)
-%	\item Recursions
-%	\item Graph theory
-%	\item Proof techniques
+%\item Enhances performance studying \textit{any} domain -- not only computer science, but also cybersecurity, sociology, etc.  \pause 
+%\item Enhances performance at work -- often, math gets the job done better. \pause 
+%\item \$\$\$ \pause 
 %\end{itemize}
+%
 %\end{frame}
+
+\begin{frame}{Virtues of developing mathematical reasoning}
+
+\begin{evidence}[blue]
+\textbf{It transfers to \emph{other} subjects.} Over one year, students taking post-compulsory
+mathematics improved at \textbf{conditional reasoning} more than matched literature students ---
+with \emph{no instruction in logic at all}.
+\evsrc{Attridge \& Inglis, \textit{PLoS ONE} 8(7), 2013.}
+\end{evidence}
+
+\pause
+\begin{evidence}[orange]
+\textbf{It is exactly what AI does \emph{not} hand you.} Given an AI assistant, developers wrote
+\alert{less secure} code --- and were \alert{more likely to believe it was secure}. Those who
+\textbf{trusted the AI least and interrogated it most} wrote the fewest vulnerabilities.
+\evsrc{Perry, Srivastava, Kumar \& Boneh, \textit{ACM CCS}, 2023.}
+\end{evidence}
+
+\pause
+\begin{evidence}[green]
+\textbf{It pays.} For the marginal student, \textbf{one extra high-school math course $\Rightarrow$ $\sim$10\% higher earnings}
+--- about half the return to an entire year of schooling --- via a shift into more cognitively skilled work.
+\evsrc{Goodman, \textit{J.\ Labor Economics} 37(4), 2019. \quad Joensen \& Nielsen, \textit{JHR} 44(1), 2009: 20--25\% per advanced course.}
+\end{evidence}
+
+%\pause
+%\vspace{1pt}
+%{\centering\scriptsize
+%Developers predicted AI would speed them up \alert{24\%}, felt \alert{20\%} faster, were measured \alert{19\% slower}. \\
+%\textbf{Feeling productive is not evidence. Mathematics is how you get evidence.} \\
+%{\tiny\color{black!45}METR randomized trial, 2025 --- early-2025 models; METR notes 2026 tools likely fare better.}\par}
+\end{frame}
+
+
+%\begin{frame}{Don't like math?:  Tips for success}
+%
+%\begin{itemize}
+%	\item Take solace: We're starting from scratch. (No calculus!) \pause
+%	\item Be open-minded!  Don't stereotype yourself. \pause  % Tell story of how a Floridian learned to love Bozeman
+%	\item Stay on track by doing daily assignments. \pause 
+%	\item Use resources (office hours, tutoring, classmates, etc.) \pause 
+%	\item Reach out early if you're struggling.  I'm here to help! \pause 
+%	\item \textit{Growth mindset}: Anyone can improve from where they are.   \pause
+%	\item \textit{Culture of confusion}: It's great to be wrong! That's how we learn.  \pause 
+%\end{itemize}
+%
+%\end{frame}
+
+\begin{frame}{Don't like math? Tips for success}
+
+\begin{columns}[T,onlytextwidth]
+
+\begin{column}{0.48\textwidth}
+\tiphead[blue]{How to think about it}
+\tipcard[blue]{\faSeedling}{We start from scratch}{No calculus needed. Nobody is behind on day one.}
+\pause
+\tipcard[blue]{\faBrain}{Don't stereotype yourself}{``I'm not a math person'' is a prediction, not a fact.}
+\pause
+\tipcard[blue]{\faChartLine}{Growth mindset}{Anyone can improve from wherever they are starting.}
+\pause
+\tipcard[blue]{\faComments}{Culture of confusion}{It's \emph{great} to be wrong out loud. That is how we learn.}
+\end{column}
+
+\pause
+\begin{column}{0.48\textwidth}
+\tiphead[orange]{What to actually do}
+\tipcard[orange]{\faCalendarCheck}{Do the daily assignments}{Small and steady beats heroic and late.}
+\pause
+\tipcard[orange]{\faUsers}{Use the resources}{Office hours, tutoring, classmates, study groups.}
+\pause
+\tipcard[orange]{\faLifeRing}{Reach out \emph{early}}{I'm here to help!}
+\end{column}
+
+\end{columns}
+
+%\pause
+%\vfill
+%{\centering\large\alert{\textbf{I'm here to help!}}\par}
+\end{frame}
+
+
+
 
 
 
 \agendaframe{6}
 
-\begin{frame}
-\begin{figure}
-\includegraphics[width=0.7\textwidth]{images/tips_for_reading_math}
-\end{figure}
-%
-\begin{figure}
-\includegraphics[width=0.7\textwidth]{images/work_through_examples}
-\end{figure}
-\bottomtext{\hfill Source: \url{https://learningcenter.unc.edu/tips-and-tools/readingmathtexts/}.}
+\begin{frame}{Introductory Survey}
+
+\begin{enumerate}
+	\item What is your name and major?
+	\item What is the most exciting thing about your major?
+	\item What do you hope will happen in this class?
+	\item What are some concerns you have about this class?
+	\item Anything else I should know?
+\end{enumerate}
+	
 \end{frame}
+
+
 
 
 
