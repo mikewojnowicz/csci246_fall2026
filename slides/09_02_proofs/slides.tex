@@ -1,0 +1,303 @@
+\documentclass[10pt]{beamer}
+
+%%%
+% PREAMBLE FOR THIS DOC 
+%%%
+%https://tex.stackexchange.com/questions/68821/is-it-possible-to-create-a-latex-preamble-header
+\usepackage{/Users/miw267/Repos/latex_preamble/beamer_preamble}
+
+
+\usepackage{tabularx}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+
+%%%
+% AGENDA TOPICS
+%%%
+\agendatopic[review]{Follow-up}
+\agendatopic[practice-quiz]{Practice Quiz}
+\agendatopic[proof-templates]{Two Proof Templates}
+
+
+
+%%%
+% DOCUMENT
+%%%
+
+\begin{document}
+
+%\maketitle
+
+%% Title page frame
+%\begin{frame}
+%    \titlepage 
+%\end{frame}
+
+
+
+
+
+\title{Wednesday 09/02/2026: Proofs}
+\author{CSCI 246: Discrete Structures}
+\date{Textbook reference: Sec. 5, Scheinerman}
+
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+
+\begin{frame}
+
+\begin{mygreenbox}[title=Announcements]
+\begin{itemize}
+\item \textbf{Attendance Sheet} - Please sign the attendance sheet.
+\item \textbf{Recruiting help during group exercises} - Please grab me or Madhav (the TA) if you'd like help.  Also feel free to reach out to another group. Finally, feel free to consult the textbook.
+\item \textbf{Weekly quiz this Friday} - It will cover definitions (Sec 3) and theorems (Sec 4).  Be sure that you've done the readings and know how to do the group exercises. 
+\end{itemize}
+
+\end{mygreenbox}
+
+\vfill  \vfill 
+
+
+\begin{myyellowbox}[title=Today's Agenda]
+\begin{itemize}
+	\item Theorems: Review group exercises on theorems ($\approx$ 15 mins)
+	\item Proofs: Practice quiz, mini-lecture ($\approx$ 15 mins)
+	\item Proofs: Group exercises ($\approx$ 20 mins) 
+\end{itemize}
+
+
+\end{myyellowbox}
+\vfill 
+
+\end{frame}
+
+
+\begin{frame}{Study Guide For Quiz 1}
+
+
+\begin{myredbox}[title=Readings (1 question)]
+Sec. 3 (Definitions)
+\begin{itemize}
+\item Be familiar with the definitions (understand what they say and how to apply them).  
+\end{itemize}
+Sec. 4 (Theorems)
+\begin{itemize}
+\item Understand these truth tables: \texttt{if-then, iff, and, or, not}.
+\item Understand vacuous truths.
+\end{itemize}
+%Sec 5 (Proofs)
+%\begin{itemize}
+%\item Know how to prove Props 5.2, 5.3, 5.5, and 5.6.
+%\end{itemize}
+
+\end{myredbox}
+
+\vfill 
+
+\begin{myyellowbox}[title=Group exercises (2 questions)]
+Know how to do all of the group exercises from these sections, except for the Bonus problem from Sec 4.
+\end{myyellowbox}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%
+\agendaframe{review}
+
+\begin{frame}[standout]
+iPAD: Review group exercises on theorems	
+\end{frame}
+
+
+\begin{frame}{Conversational English is ambiguous about logical direction}
+
+Let \blue{$B$} = \texttt{you eat that} and \red{$A$} = the outcome.  Both sentences below
+have the \textit{identical} form \qq{\red{A} if \blue{B}} --- but listeners read them differently.
+
+\vfill
+\pause
+\begin{evidence}[blue]
+\textbf{\qq{You'll get a stomachache if you eat that.}}
+\vspace{-0.2em}
+
+Read as \blue{$B \implies A$} only.  Stomachaches have other causes, so \textit{not}
+eating it guarantees nothing.
+\end{evidence}
+
+\pause
+\begin{evidence}[orange]
+\textbf{\qq{You'll get dessert if you eat that.}}
+\vspace{-0.2em}
+
+Read as \red{$A \iff B$}.  Every child hears the half that was never said:
+\textit{and if you don't, you don't.}
+\end{evidence}
+
+\pause
+\vfill
+{\centering English leaves the direction to \textbf{context}.  Mathematics does not ---
+which is why theorems say \qq{if and only if} \textbf{out loud}.\par}
+
+\evsrc{\hfill Hearing \qq{if} as \qq{iff} is called \textit{conditional perfection}:
+Geis \& Zwicky, \textit{Linguistic Inquiry} 2(4), 1971.}
+
+\end{frame}
+
+
+\begin{frame}{Resolving a puzzle from earlier}
+\footnotesize 
+\begin{myyellowbox}[title=Puzzle]
+In Sec. 5 (Proofs), we showed that  \textit{zero is divisible by zero} ($0|0$). How can we make sense of this? Many of us have been told that we ``can't divide by 0". \end{myyellowbox}
+\pause 
+\vfill 
+	\begin{mydef}[title=Reminder of Definition 3.2 (\textbf{Divisible})]
+	Let $a$ and $b$ be integers.  We say that $a$ is \textit{divisible} by $b$ provided there is an integer $c$ such that $bc=a$. The notation for this is $b|a$. 
+	\end{mydef}
+\vfill 
+\begin{myredbox}[title=Observations]   
+\begin{itemize}
+\item  Although $\frac{b}{a}$ is a \textbf{number},  the above shows that $b|a$ is a \textbf{proposition}: 
+\item 	We don’t have $0|1$ (\texttt{False}), but we do have $0|0$ (\texttt{True}).   
+\end{itemize}
+\end{myredbox}
+
+\begin{myyellowbox}[title=Resolution to Puzzle]
+\begin{itemize}
+\item $\frac{x}{0}$ is problematic, since not all $x$ are divisible by 0.   ($0|x$ is \texttt{False} for all integers $x$ except $x=0$.)
+\item If we take $x=0$, we do have $0|0$, but we don't know what number  $\frac{0}{0}$ equals (i.e. $c$ in the definition could be any integer).  %[In calc, this is an \text{indeterminate form}.]
+\end{itemize}
+
+\end{myyellowbox}
+
+%In calculus, \#1 is considered infinity, and \#2 is considered an indeterminate form.
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%
+\agendaframe{practice-quiz}
+\begin{frame}{Practice Quiz}
+
+\vfill 
+
+ \begin{quiz}[title=Practice Quiz Question]
+Prove that the the sum of two even integers is even.\\
+Use the appropriate proof template from the textbook. 
+\end{quiz}
+
+
+\vfill \vfill 
+
+%You may want to use the following definitions.
+
+\begin{mydef}[title=Scheinerman Definition 3.1 (\textbf{Even})]
+An integer is called \textit{even} provided it is divisible by two.
+\end{mydef}
+
+
+\begin{mydef}[title=Scheinerman Definition 3.2 (\textbf{Divisible})]
+Let $a$ and $b$ be integers.  We say that $a$ is \textit{divisible} by $b$ provided there is an integer $c$ such that $bc=a$.  We also say that $b$ \textit{divides} $a$, or $b$ is a \textit{factor} of $a$, or $b$ is a \textit{divisor} of $a$.  The notation for this is $b|a$. 
+\end{mydef}
+
+
+\end{frame}
+
+\begin{frame}[standout]
+iPad: Sketch solution
+\end{frame}
+
+
+\begin{frame}{Terminology}
+\vfill
+\begin{center}
+{\Huge
+$\text{If } \explaintermbrace{antecedent}{\red{A}} \text{ then } \explaintermbrace{consequent}{\blue{B}}$
+}
+\end{center}
+\vfill
+\end{frame}
+
+
+\begin{frame}{Solution Sketch}
+\textbf{Proposition.} The sum of two even integers is even.
+
+\textbf{Proof.}
+
+\begin{tabularx}{\textwidth}{|L{3cm}|X|}
+\hline \textbf{Annotation} & \textbf{Main Text} \\ \hline
+ \hlorange{Convert Prop. to ``if-then" form} &  \hlorange{We show that if $x$ and $y$ are even integers, then $x+y$ is even.} \\ \hline
+\hlblue{State antecedent} & \hlblue{Let $x$ and $y$ be even integers} \\ \hline
+\hlgreen{Unravel defs.} & \hlgreen{Then by Defs. 3.1 and 3.2, there exist integers $a,b$ such that $x=2a$ and $y=2b$.} \\ \hline
+\hlred{*** The glue ***} & \hlred{What goes here?!?!} \\ \hline
+ \hlgreen{Unravel defs.} & \hlgreen{So there is an integer $c$ such that $x+y=2c$.} \\ \hline
+  \hlblue{State consequent} & \hlblue{Hence, $x+y$ is even.} \\ \hline
+\hline
+\end{tabularx}
+\end{frame}
+
+
+\begin{frame}{Solution}
+\textbf{Proposition.} The sum of two even integers is even.
+
+\textbf{Proof.}
+
+\begin{tabularx}{\textwidth}{|L{3cm}|X|}
+\hline \textbf{Annotation} & \textbf{Main Text} \\ \hline
+ \hlorange{Convert Prop. to ``if-then" form} &  \hlorange{We show that if $x$ and $y$ are even integers, then $x+y$ is even.} \\ \hline
+\hlblue{State antecedent} & \hlblue{Let $x$ and $y$ be even integers} \\ \hline
+\hlgreen{Unravel defs.} & \hlgreen{Then by Defs. 3.1 and 3.2, there exist integers $a,b$ such that $x=2a$ and $y=2b$.} \\ \hline
+\hlred{*** The glue ***} &   \hlred{Hence, $x+y = 2a+2b = 2(a+b)$.} \\ \hline
+ \hlgreen{Unravel defs.} & \hlgreen{So there is an integer $c \; \red{=a+b}$ such that $x+y=2c$.} \\ \hline
+  \hlblue{State consequent} & \hlblue{Hence, $x+y$ is even.} \\ \hline
+\hline
+\end{tabularx}
+\end{frame}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%
+\agendaframe{proof-templates}
+
+\begin{frame}
+
+\begin{mybluebox}[title=Proof Template 1: Direct proof of an if-then theorem]
+
+\begin{enumerate}
+	\item Write down the if-then statement you're trying to prove. \pause  
+	\item At the beginning of the proof, write down the \textit{antecedent} (the A in  \texttt{if A then B}) as your assumption. \pause 
+	\item  At the end of the proof, write down the \textit{consequent} (the B in  \texttt{if A then B}) as your conclusion. \pause 
+	\item Unravel the definitions, working forward from the beginning of the proof and backward from the end of the proof. \pause 
+	\item Forge a link between the two halves of the argument.
+\end{enumerate}
+	
+\end{mybluebox}
+	
+\end{frame}
+
+
+\begin{frame}
+
+\begin{mybluebox}[title=Proof Template 2: Direct proof of an if-and-only-if theorem]
+
+To prove a statement of the form \qq{A iff B}:
+\begin{itemize}
+\item ($\implies$) Prove \qq{If A, then B}.
+\item ($\impliedby$) Prove \qq{If B, then A}.
+\end{itemize}
+
+	
+\end{mybluebox}
+	
+\end{frame}
+
+
+\end{document}
