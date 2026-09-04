@@ -1,0 +1,182 @@
+\documentclass[10pt]{beamer}
+
+%%%
+% PREAMBLE FOR THIS DOC 
+%%%
+%https://tex.stackexchange.com/questions/68821/is-it-possible-to-create-a-latex-preamble-header
+\usepackage{/Users/miw267/Repos/latex_preamble/beamer_preamble}
+
+
+
+%%% TRY TO RESHOW TOC AT EACH SECTION START (with current section highlighted)
+% Reference: https://tex.stackexchange.com/questions/280436/how-to-highlight-a-specific-section-in-beamer-toc
+\newcommand\tocforsect[2]{%
+  \begingroup
+  \edef\safesection{\thesection}
+  \setcounter{section}{#1}
+  \tableofcontents[#2,currentsection]
+  \setcounter{section}{\safesection}
+  \endgroup
+}
+
+
+%%%% HERES HOW TO DO IT CORRECTLY
+% FIRST IN .STY FILE, DO
+%\usetheme[sectionpage=none]{metropolis}
+% THEN AT EACH SECTION DO
+%\begin{frame}{Outline}
+%  \tableofcontents[currentsection]	
+%\end{frame}
+
+
+
+%\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}[frame number]{}
+
+
+%%%
+% DOCUMENT
+%%%
+
+\begin{document}
+
+%\maketitle
+
+%% Title page frame
+%\begin{frame}
+%    \titlepage 
+%\end{frame}
+
+
+
+
+
+\title{Friday 09/04/2026: Counterexample}
+\author{CSCI 246: Discrete Structures}
+\date{Textbook reference: Sec. 6, Scheinerman}
+
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+
+\begin{frame}
+\small 
+
+
+\begin{myyellowbox}[title=Today's Agenda]
+\begin{itemize}
+	\item Weekly quiz (15 mins)
+	\item Review previous group exercises ($\approx$ 15 mins)
+	\item Mini-lecture ($\approx$ 5 mins)
+	\item Group exercises ($\approx$ 15 mins)	
+\end{itemize}
+\end{myyellowbox}
+
+%\vspace{-.2cm}
+
+\begin{mygreenbox}[title=Quiz Set up]
+\begin{itemize}
+\item \textbf{Sheet of paper}: Please bring your own sheet of paper to class each day for quizzes if possible. However, if you don't have any, you are welcome to take a blank sheet of paper from the stack in the front of the room.
+\item \textbf{Write your last name on the back}: Please write your first and last name on the front of the page where you will do your work.  Then, on the BACK of the page, please write your last name in large letters. This will help us return the graded quizzes efficiently.
+\item \textbf{Rules of conduct}: For all quizzes in the course, you should use only paper and pencil.  Please close your computers and textbooks, and put away your cellphones.     
+\end{itemize}
+\end{mygreenbox}
+
+
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}[standout]
+Question: How do you give a counterexample to \\
+\qq{A implies B}? 	
+\end{frame}
+
+
+\begin{frame}{Unidirectional implication: Counterexample}
+\colorbox{blue!30}{\textbf{Recall.}} Here's the truth table for unidirectional implication.
+\begin{center}
+\begin{tikzpicture}
+\node[inner sep=0pt] (tbl) {%
+\renewcommand{\arraystretch}{1.35}%
+\begin{tabular}{cc|c}
+\alert{A} & \alert{B} & $\overbrace{\alert{A} \implies \alert{B}}^{\text{If \alert{A}, then \alert{B}}}$ \\
+\hline
+T & T & \green{T} \\
+T & F & \red{F} \\
+F & T & \green{T}  \\
+F & F & \green{T}  \\
+\end{tabular}};
+\only<2->{%
+  \draw[black, line width=2pt] ([yshift=-0.23cm]tbl.center) ellipse (1.9cm and 0.32cm);
+  \node[anchor=west, font=\Large] (lbl) at (2.65,-0.23) {counterexamples live here};
+  \draw[black, line width=1.2pt, ->] (lbl.west) -- ++(-0.6,0);
+}
+\end{tikzpicture}
+\end{center}
+
+\vfill 
+\only<3->{So we want to try to find a case where the antecedent (\alert{A})  holds, but the consequent (\alert{B}) is false.}
+\only<4->{Let's try to apply this.}
+
+\vfill 
+\only<5>{\colorbox{blue!30}{\textbf{Proposition.}} If you live in Montana, then you live in Bozeman.}
+\only<6->{\colorbox{blue!30}{\textbf{Proposition.}} If
+  $\underbrace{\text{you live in Montana}}_{\alert{A}}$, then
+  $\underbrace{\text{you live in Bozeman}}_{\alert{B}}$.}
+\vfill 
+
+\only<7->{\colorbox{blue!30}{\textbf{Counterexample.}}} \only<8->{Matt lives in Helena. So he lives in Montana (\alert{A} is true) but not in Bozeman (\alert{B} is False).}
+
+\end{frame}
+
+\begin{frame}[standout]
+Question: How do you give a counterexample to \\
+\qq{A if and only if B}? 	
+\end{frame}
+
+
+
+\begin{frame}{Bidirectional implication: Counterexample}
+\colorbox{blue!30}{\textbf{Recall.}} Here's the truth table for bidirectional implication.
+\begin{center}
+\begin{tikzpicture}
+\node[inner sep=0pt] (tbl) {%
+\renewcommand{\arraystretch}{1.35}%
+\begin{tabular}{cc|c}
+\alert{A} & \alert{B} & $\overbrace{\alert{A} \iff \alert{B}}^{\text{\alert{A} if and only if \alert{B}}}$ \\
+\hline
+T & T & \green{T} \\
+T & F & \red{F} \\
+F & T & \red{F}  \\
+F & F & \green{T}  \\
+\end{tabular}};
+\only<2->{%
+  \draw[black, line width=2pt] ([yshift=-0.56cm]tbl.center) ellipse (2.55cm and 0.72cm);
+  \node[anchor=west, font=\Large] (lbl) at (3.3,-0.56) {counterexamples live here};
+  \draw[black, line width=1.2pt, ->] (lbl.west) -- ++(-0.6,0);
+}
+\end{tikzpicture}
+\end{center}
+
+\vfill 
+\only<3->{So we want to try to find a case where the truth values for \alert{A} and \alert{B} don't match. Let's try to apply this.}
+
+\vfill 
+\only<4>{\colorbox{blue!30}{\textbf{Proposition.}} A state is Montana if and only if it borders Canada.}   
+\only<5->{\colorbox{blue!30}{\textbf{Proposition.}}   $\underbrace{\text{A state is Montana}}_{\alert{A}}$ if and only if 
+  $\underbrace{\text{it borders Canada}}_{\alert{B}}$.}
+\vfill 
+
+\only<6->{\colorbox{blue!30}{\textbf{Counterexample.}} Michigan borders Canada (\alert{B} is true) but it is not Montana (\alert{A} is False).}
+
+\end{frame}
+
+
+
+\end{document}
