@@ -70,8 +70,8 @@
 \vfill 
 \begin{myredbox}[title=Announcements]
 \begin{itemize}
-	\item Early-access version of the slides should are posted to the course repo before class starts. (The early-access version will not yet contain the group exercises or, if relevant, a quiz).
-	\item The full version of the slides are posted to the course repo after class ends. \textbf{Starting today, the full slide deck will be posted to the repo \emph{automatically} at 3pm.}
+	\item The mini-lecture portion of the slides should are posted to the course repo before class starts.
+	\item The full version of the slides (with group exercises and, if relevant, the quiz) are posted to the course repo after class ends. \textbf{Starting today, the full slide deck will be posted to the repo \emph{automatically} at 3pm.}
 \end{itemize}
 \end{myredbox} 
 \vfill 
@@ -81,14 +81,41 @@
 	\item Quiz ($\approx$ 15 mins)
 	\item Review of Boolean Algebra ($\approx$ 10 mins)
 	\item Mini-lecture: Lists ($\approx$ 10 mins)
-	\item Group exercises ($\approx$ 10 mins)
+	\item Group exercises ($\approx$ 15 mins)
 \end{itemize}
 
 \end{myyellowbox}
 \end{frame}
 
 
+\begin{frame}
+\small 
+ \begin{myredbox}[title=Weekly Quiz \#2] 
+\begin{enumerate}
+	\item  \textit{(Sec. 5 -- Proofs.)}  Prove the following statement: \textit{An integer is odd if and only if it is the sum of two consecutive integers.}
+	\item  \textit{(Sec. 6 -- Counterexample.)}  Disprove the following conjecture: \textit{An integer $x$ is positive if and only if $x + 1$ is positive.}
+	\item  \textit{(Sec. 6 -- Counterexample.)}  Disprove the following conjecture: \textit{Let $a$ and $b$ be integers.  If $a \mid b$ and $b \mid a$, then $a=b$.}
+\end{enumerate}
+\end{myredbox}
 
+\vfill 
+\begin{mygreenbox}[title=Reference Material: Scheinerman Definition 3.2] Let $x$ and $y$ be integers.  We say $x$ is \textit{divisible} by $y$, written $y \mid x$, provided there is an integer $c$ such that $yc=x$. 	
+\end{mygreenbox}
+
+
+\end{frame}
+
+
+
+\begin{frame}[standout]
+Review of Boolean algebra	
+\end{frame}
+
+
+
+\begin{frame}[standout]
+Mini-lecture: Lists	
+\end{frame}
 
 
 
@@ -99,8 +126,6 @@
 \pause \vfill 
 \Large \colorbox{blue!30}{\textbf{Solution.}} \blue{There are $4 \times 2 \times 4 = 32$ possibilities.}
 \end{center}
-
-
 \end{frame}
 
 
@@ -180,15 +205,46 @@ A \textbf{list} is an ordered sequence of objects.
 
 
 \begin{frame}{Counting lists}
-\colorbox{yellow!30}{\textbf{Poll.}} What mathematical principle is at play here? 
-\pause \vfill 
+
+\only<1->{\colorbox{yellow!30}{\textbf{Poll.}} What mathematical principle is at play here?
+\vfill
+} 
+ 
+\only<2->{
 \begin{mygreenbox}[title= \textbf{Multiplication Principle} (Theorem 8.2 from Scheinerman)]
 Consider the two-element lists for which there are $n$ choices for the first element, and for each choice of the first element there are $m$ choices for the second element. Then the number of such lists is $nm$.
 \end{mygreenbox}
-\pause \vfill 
+\vfill 
+}
+
+\only<3-4>{
 \colorbox{red!30}{\textbf{Objection.}} But wait, our fast food problem required us to form a list with \alert{three} entries: burger, side, and drink ?!
-\pause \vfill 
+\vfill 
+}
+
+\only<4>{
 \colorbox{green!30}{\textbf{Solution.}} We can apply the multiplication principle \alert{iteratively}.   So, for example, if we want to form three-element lists for which there are $n$,$m$, and $k$ choices for the 1st, 2nd, and 3rd elements respectively, then there are $nmk$ such lists. 
+\vfill 
+}
+\only<5>{
+\begin{mybluebox}[title=The multiplication principle is a nested \texttt{for} loop]
+\small
+\begin{center}
+\ttfamily
+\begin{tabular}{@{}l@{\qquad}l@{}}
+count = 0 & \\
+{\color{blue!70!black}for} burger {\color{blue!70!black}in} burgers: & {\color{black!50}\# 4 choices} \\
+\hspace*{2em}{\color{blue!70!black}for} side {\color{blue!70!black}in} sides: & {\color{black!50}\# 2 choices} \\
+\hspace*{4em}{\color{blue!70!black}for} drink {\color{blue!70!black}in} drinks: & {\color{black!50}\# 4 choices} \\
+\hspace*{6em}count += 1 & {\color{black!50}\# runs once per meal} \\
+print(count) & {\color{black!50}\# 32} \\
+\end{tabular}
+\end{center}
+\vspace{-0.3em}
+The innermost line runs once per \textbf{list} (burger, side, drink), and each loop
+\textbf{multiplies} the count by its number of choices: $4 \times 2 \times 4 = 32$.
+\end{mybluebox}
+}
 \end{frame}
 
 \begin{frame}{Counting lists: Drawing items from a fixed pool}
@@ -275,16 +331,15 @@ is called a \textbf{falling factorial} and is read as \qq{$n$ falling $k$}.
 
 
 \begin{frame}{Practice Reading Quiz}
-
  \begin{myredbox}[title=Practice Reading Quiz (Lists)]
 Five students in our class are randomly selected to form an emergency rock band.  The rock band will have a singer, a guitarist, a bassist, a drummer, and a keyboardist.  How many different rock bands can be formed in this way?  
-\vfill
-Notes: (1) Our class has 39 students. (2) If different students play different instruments, it counts as a "different band".
 \end{myredbox}
 \vfill
 \pause 
-
-
+Notes: (1) Our class has 39 students. (2) If different students play different instruments (singing counts as an instrument), it counts as a "different band".
+\vfill
+\pause 
+\small
 
  \begin{mygreenbox}[title=Solutions]
 
@@ -292,7 +347,7 @@ Let $N$ be the number of rock bands that can be formed.
 
 \begin{enumerate}
 	\item Suppose repetitions are permitted.  That is, one student can play multiple instruments.  Then \pause $N=39^5$. \pause 
-	\item Suppose repetitions are forbidden. That is, no student plays more than one instrument (singing counts as an instrument).    Then \pause $N=(39)_5 = 39 \times 38 \times 37 \times 36 \times 35$.
+	\item Suppose repetitions are forbidden. That is, no student plays more than one instrument.    Then \pause $N=(39)_5 = 39 \times 38 \times 37 \times 36 \times 35$.
 \end{enumerate}
 
 \end{mygreenbox}
@@ -359,5 +414,173 @@ Bootstrap: \emph{with} replacement ($n^k$).  Train/test split: \emph{without} ($
 
 \end{frame}
 
+
+
+\begin{frame}{Random Group Assignments}
+\begin{columns}
+\begin{column}{0.33\textwidth}
+Ashley, Isabelle: 1 \\ 
+Bailey, Tanna: 13 \\ 
+Blaisdell, Olyver: 11 \\ 
+Brown, Ashton: 4 \\ 
+Brown, Jonathan: 5 \\ 
+Cardenas, Dominic: 11 \\ 
+Cutler, George: 6 \\ 
+Fabik, Roland: 2 \\ 
+Fellows, Audrey: 4 \\ 
+Fitzgerald, Ryan: 3 \\ 
+Fuller, Ryan: 5 \\ 
+Griffen, Clara: 9 \\ 
+Grutsch, Tanner: 13 \\\end{column}
+\begin{column}{0.33\textwidth}
+Hager, Nathan: 9 \\ 
+Horner, Jayden: 3 \\ 
+Johnson, Jaret: 7 \\ 
+Kintzel, Samantha: 10 \\ 
+Lameres, Alexis: 7 \\ 
+Lee, Holden: 12 \\ 
+Mayala, Reece: 4 \\ 
+McLean, Connor: 12 \\ 
+Mcbride, Daniel: 6 \\ 
+Miller, Maverick: 2 \\ 
+Moss, Emily: 1 \\ 
+Mousseau, Matthew: 8 \\ 
+Neuman, Evan: 9 \\\end{column}
+\begin{column}{0.33\textwidth}
+Putnam, John: 6 \\ 
+Ramos, Vydel: 5 \\ 
+Rathbun, Jedidiah: 1 \\ 
+Roberts, Matthew: 11 \\ 
+Roller, Nathan: 10 \\ 
+Ryan, Otis: 8 \\ 
+Shevtsov, Timothy: 2 \\ 
+Sinclair, Aidan: 12 \\ 
+Smith, Charles: 13 \\ 
+Stensland, Emma: 8 \\ 
+Thiessen, Logan: 3 \\ 
+Thompson, Jaiden: 7 \\ 
+Vath, Ethan: 10 \\\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Group exercises: Lists}
+\footnotesize 
+
+    \begin{minipage}{0.85\textwidth} % Left side (text)
+	\begin{enumerate}
+	\item I want to create two playlists on my cell phone by downloading from a collection of 500 songs. One playlist is called "Exercise" and the other is called "Relaxing".  I want 20 different songs on each list.  How many different ways can I load songs onto my phone if I allow a song to be on both playlists?  And how many different ways can I load the songs if I want the two lists to have no overlap? 
+	\item A padlock has digits 0 through 9 arranged in a circle on its face. A combination for this padlock is four digits long. Because of the internal mechanics of the lock, no pair of consecutive numbers in the combination can be the same or one place apart on the face.  For example, 0-2-7-1 is a valid combination, but neither 0-4-4-7 (repeated digit 4) nor 3-0-9-5 (adjacent digits 0-9) are permitted.  How many combinations are possible?
+	\item Four cards are drawn from a standard deck of 52 cards. In how many ways can this be done if the cards are all of different values (e.g., no two 5s or two jacks) and all of different suits?  (For this problem, the order in which the cards are drawn matters, so drawing $A \spadesuit-K \heartsuit - 3 \diamondsuit - 6 \clubsuit$ is not the same as drawing $6 \clubsuit -K \heartsuit - 3 \diamondsuit - A \spadesuit$, even though the same cards are selected.) 
+	\item Let $n$ be a positive integer. Prove that $n^2 = (n)_2 + n$ in two different ways: (1) algebraically, and (2) by list counting.
+	\end{enumerate}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.15\textwidth} % Right side (image)
+        \centering
+		\includegraphics[width=0.9\textwidth]{images/padlock}
+    \end{minipage}
+    
+
+
+\vfill 
+\centering
+
+\end{frame}
+
+
+%\begin{frame}
+%
+%To derive the solutions, it may help to apply the theorems below. 
+%
+%\vfill 
+%
+%\begin{myyellowbox}[title= \textbf{Multiplication Principle} (Theorem 8.2 from Scheinerman)]
+%Consider the two-element lists for which there are $n$ choices for the first element, and for each choice of the first element there are $m$ choices for the second element. Then the number of such lists is $nm$.
+%\end{myyellowbox}
+%\vfill 
+%
+%\begin{mygreenbox}[title= Theorem 8.6 from Scheinerman]
+%The number of lists of length $k$ whose elements are chosen from a pool of $n$ elements 
+%%
+%\begin{align*}
+%= \begin{cases}
+% n^k, & \text{if repetitions are permitted} \\
+% (n)_k, & \text{if repetitions are forbidden}	
+% \end{cases}
+%\end{align*}
+%\end{mygreenbox}
+%
+%	
+%\end{frame}
+
+
+\begin{frame}{Solution to \#1}
+\small
+\textbf{Problem.} I want to create two playlists on my cell phone by downloading from a collection of 500 songs. One playlist is called "Exercise" and the other is called "Relaxing".  I want 20 different songs on each list.  How many different ways can I load songs onto my phone if I allow a song to be on both playlists?  And how many different ways can I load the songs if I want the two lists to have no overlap? 
+
+\vfill 
+
+\textbf{Solution.}
+\begin{itemize}
+\item[a)] By Theorem 8.6 of Scheinerman, there are $(500)_{20} = 500 \cdot 499 \cdot 498 \cdots 481$ ways to construct either the Exercise playlist, and likewise for the Relaxing playlist.  So applying the multiplication principle to the two types of playlists, the total number of ways to load the songs is $(500)_{20} \cdot (500)_{20}$ (which can be written as $((500)_{20})^2$).
+\item[b)] By Theorem 8.6 of Scheinerman, the solution is $(500)_{40} = 500 \cdot 499 \cdot 498 \cdots 461$.  Alternatively, one could argue that there are $(500)_{20}$ ways to construct the first playlist and $(480)_{20}$ ways to construct the second playlist; hence, by the multiplication principle the total number of ways to load the songs is  $(500)_{20} \cdot (480)_{20}$. Note that these two answers are equal; that is  $(500)_{40} = (500)_{20} \cdot (480)_{20}$.
+\end{itemize}
+
+%\vfil 
+%\textbf{Remark.} We can derive the solution from Theorem 8.6 of Scheinerman 
+% 
+\end{frame}
+
+
+
+\begin{frame}{Solution to \#2}
+\textbf{Problem.} A padlock has digits 0 through 9 arranged in a circle on its face. A combination for this padlock is four digits long. Because of the internal mechanics of the lock, no pair of consecutive numbers in the combination can be the same or one place apart on the face.  For example, 0-2-7-1 is a valid combination, but neither 0-4-4-7 (repeated digit 4) nor 3-0-9-5 (adjacent digits 0-9) are permitted.  How many combinations are possible?
+
+\vfill 
+
+\textbf{Solution.}  By the multiplication principle, the total number of solutions is $10 \cdot 7 \cdot 7 \cdot 7$.
+
+\end{frame}
+
+
+\begin{frame}{Solution to \#3}
+\footnotesize 
+\textbf{Problem.} Four cards are drawn from a standard deck of 52 cards. In how many ways can this be done if the cards are all of different values (e.g., no two 5s or two jacks) and all of different suits?  (For this problem, the order in which the cards are drawn matters, so drawing $A \spadesuit-K \heartsuit - 3 \diamondsuit - 6 \clubsuit$ is not the same as drawing $6 \clubsuit -K \heartsuit - 3 \diamondsuit - A \spadesuit$, even though the same cards are selected.) 
+
+\vfill 
+
+\textbf{Solution.} The number of ways this can be done is $13 \cdot 4 \cdot 12 \cdot 3 \cdot 11 \cdot 2 \cdot 10 \cdot 1$. By the multiplication principle, the number of choices for the first card is $C_1 \defeq 13 \cdot 4$, since there are 13 values and 4 suits available.  (See the table below.)  After that choice, we cross out one value (column) and one suit (row).  So by the multiplication principle again, the number of choices for the second card is $C_2 \defeq  12 \cdot 3$.  Continuing in this manner, the number of choices for the third card is $C_3 \defeq  11 \cdot 2$ and for the fourth card is $C_4 \defeq  10 \cdot 1$.   Then, applying the multiplication principle again, the number of ways to draw all four cards is $C_1 \cdot C_2 \cdot C_3 \cdot C_4$.
+
+
+\vfill 
+
+\begin{table}
+\centering
+\begin{tabular}{c|ccccccccccccc}
+\textbf{Suits} & \multicolumn{13}{c}{\textbf{Values}} \\
+& A & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & J & Q & K \\
+\hline 
+$\spadesuit$ & (A, $\spadesuit$) & (2, $\spadesuit$)  & (3, $\spadesuit$)  &  \multicolumn{9}{c}{$\cdots$}  \\
+$\heartsuit$  & (A, $\heartsuit$) &  \multicolumn{12}{c}{$\cdots$} \\
+$\diamondsuit$ & (A, $\diamondsuit$) &  \multicolumn{12}{c}{$\cdots$} \\
+$\clubsuit$ &  (A, $\clubsuit$) &  \multicolumn{12}{c}{$\cdots$} \\
+\end{tabular}
+\end{table}
+
+
+
+\end{frame}
+
+
+\begin{frame}{Solution to \#4}
+\textbf{Problem.} Let $n$ be a positive integer. Prove that $n^2 = (n)_2 + n$ in two different ways: (1) algebraically, and (2) by list counting.
+\vfill 
+\textbf{Solution}
+\begin{enumerate}
+	\item By applying the definition of the falling factorial and doing simple algebra, we see that $(n)_2 +n = n(n-1) +n = n^2 - n + n = n^2$.
+	\item We can think of $(n)_2 = n(n-1)$ as the number of lists in a chart with $n$ rows and $n-1$ columns.  Now suppose we add another column.  This gives us $n$ additional lists, making the total number of lists $(n)_2 + n$. But the new chart now has $n$ rows and $n$ columns, so it contains $n \cdot n =n^2$ lists.
+\end{enumerate}
+\end{frame}
 
 \end{document}
