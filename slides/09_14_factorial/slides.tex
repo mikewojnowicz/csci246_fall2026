@@ -141,7 +141,7 @@ I discarded the first question since I didn't provide the definition for odd.
 \begin{myredbox}[title=Quiz Logistics]
 
 \begin{itemize}
-\item Going forward, if you finish the quiz early, you will need to be \underline{silent} until everyone else is finished.  Violators will receive a zero. \pause 
+\item Going forward, if you finish the quiz early, you will need to be \underline{silent} until everyone else is finished.  \pause %Violators will receive a zero. \pause 
 \item Both quiz grades have been posted to Canvas. \pause 
 \item The weekly quizzes are equally weighted.  The denominator is chosen for convenience.  \pause 
 \item Quiz feedback has been posted to the repo.
@@ -471,5 +471,148 @@ The right-hand side uses \alert{product notation}, which is useful more generall
 
 
 
+
+\begin{frame}{Random group assignments}
+\begin{columns}
+\begin{column}{0.33\textwidth}
+Ashley, Isabelle: 8 \\ 
+Bailey, Tanna: 9 \\ 
+Blaisdell, Olyver: 10 \\ 
+Brown, Ashton: 4 \\ 
+Brown, Jonathan: 12 \\ 
+Cardenas, Dominic: 3 \\ 
+Cutler, George: 13 \\ 
+Fabik, Roland: 12 \\ 
+Fellows, Audrey: 9 \\ 
+Fitzgerald, Ryan: 7 \\ 
+Fuller, Ryan: 1 \\ 
+Griffen, Clara: 2 \\ 
+Grutsch, Tanner: 2 \\\end{column}
+\begin{column}{0.33\textwidth}
+Hager, Nathan: 6 \\ 
+Horner, Jayden: 6 \\ 
+Johnson, Jaret: 5 \\ 
+Kintzel, Samantha: 6 \\ 
+Lameres, Alexis: 13 \\ 
+Lee, Holden: 7 \\ 
+Mayala, Reece: 7 \\ 
+McLean, Connor: 4 \\ 
+Mcbride, Daniel: 3 \\ 
+Miller, Maverick: 8 \\ 
+Moss, Emily: 5 \\ 
+Mousseau, Matthew: 12 \\ 
+Neuman, Evan: 11 \\\end{column}
+\begin{column}{0.33\textwidth}
+Putnam, John: 8 \\ 
+Ramos, Vydel: 13 \\ 
+Rathbun, Jedidiah: 1 \\ 
+Roberts, Matthew: 11 \\ 
+Roller, Nathan: 2 \\ 
+Ryan, Otis: 1 \\ 
+Shevtsov, Timothy: 9 \\ 
+Sinclair, Aidan: 4 \\ 
+Smith, Charles: 10 \\ 
+Stensland, Emma: 3 \\ 
+Thiessen, Logan: 10 \\ 
+Thompson, Jaiden: 5 \\ 
+Vath, Ethan: 11 \\\end{column}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}{Group exercises}
+\begin{enumerate}
+    \item \; % First item with split layout
+    \vspace{-.5cm}
+    \begin{columns}[t] % top-aligned columns
+        \begin{column}{0.7\textwidth}
+            \qquad \quad Your friend Sandy has six different books of classical literature, 
+            eight different \textit{romantasy} (i.e. romance fantasy) books, 
+            and five different self-help books.
+            \begin{itemize}
+                \item[a)] In how many different ways can Sandy's books be arranged on a bookshelf?
+                \item[b)] In how many different ways can Sandy's books be arranged on the bookshelf 
+                          if all books of the same category are grouped together? 
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \vspace{0pt} % aligns top with text
+            \includegraphics[width=\linewidth]{images/romantasy}
+        \end{column}
+    \end{columns}
+
+    \item Evaluate $\frac{100!}{98!}$ without calculating $100!$ or $98!$.
+
+    \item Calculate the following products:
+        \begin{itemize}
+            \item[a)] $\prod_{k=1}^n \frac{k+1}{k}$. \quad (Reduce this product.)
+            \item[b)] $\prod_{k=1}^n (2k-1)$. \quad (Give an English description.)
+        \end{itemize}
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#1}
+
+\footnotesize 
+\textbf{Problem.} Your friend Sandy has six different books of classical literature, eight different \textit{romantasy} (i.e. romance fantasy) books, and five different self-help books.
+	\begin{itemize}
+	\item[a)] In how many different ways can Sandy's books be arranged on a bookshelf?
+	\item[b)] In how many different ways can Sandy's books be arranged on the bookshelf if all books of the same category are grouped together? 
+	\end{itemize}
+\vfill 
+
+\textbf{Solution.}
+
+	\begin{itemize}
+	\item[a)] By the definition of factorial, there are $(6+8+5)! = 19!$ different ways to arrange the books. \pause 
+	\item[b)] By the definition of factorial, there are $6!$ ways to arrange the classical literature books, $8!$ ways to arrange the romantasy books, and $5!$ ways to arrange the self-help books.   So by the multiplication principle, there are $6!8!5!$ ways to arrange the books, if we assume a particular ordering of the categories (e.g. classical $\rightarrow$ romantasy $\rightarrow$ self-help).  \only<2>{\textit{(Are we done?)}} \only<3->{Now again by the definition of factorial, there are $3!$ ways to arrange the categories.} \only<4>{\textit{(So what do we do now?)}} \only<5>{Hence, by the multiplication principle again, there are  $3!6!8!5!$ ways to arrange the books overall.}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#2}
+
+
+\textbf{Problem.}   Evaluate $\frac{100!}{98!}$ without calculating $100!$ or $98!$.
+\vfill 
+
+\textbf{Solution.}
+
+\[ \df{100!}{98!} = \df{100 \cdot 99 \cdot 98!}{98!} = \df{100 \cdot 99 \cdot \cancel{98!}}{\cancel{98!}} = 100 \cdot 99 = 9900.\]
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#3}
+\footnotesize 
+
+\textbf{Problem.}  Calculate the following products:
+	\begin{itemize}
+	\item[a)] $\prod_{k=1}^n \frac{k+1}{k}$.  \qquad (Reduce this product to a simpler expression.)
+	\item[b)] $\prod_{k=1}^n (2k-1)$.  \qquad  (This product has a simple English-language description.  What is it?)
+	\end{itemize}
+\vfill 
+
+\textbf{Solution.}
+	\begin{itemize}
+	\item[a)] 
+	\begin{align*}
+	\prod_{k=1}^n \frac{k+1}{k} &= \frac{2}{1} \cdot \frac{3}{2} \cdots \frac{n}{n-1} \cdot \frac{n+1}{n}  \\
+	&= \frac{\cancel{2}}{1} \cdot \frac{\cancel{3}}{\cancel{2}} \cdots \frac{\cancel{n}}{\cancel{n-1}} \cdot \frac{n+1}{\cancel{n}} \\
+	&= n+1
+	\end{align*}
+	\pause 
+	\vspace{-.5cm}
+	\item[b)] 
+	\begin{align*}
+	\prod_{k=1}^n (2k-1) &= (2 \cdot 1 -1) \cdot (2 \cdot 2 -1) \cdot (2 \cdot 3 -1) \cdots  (2 \cdot n -1) \\
+	&= 1 \cdot 3 \cdot 5 \cdots 2n-1
+	\end{align*}
+	%
+	\pause \only<3>{\textit{So what's the interpretation?}} \only<4>{This is the product of the first $n$ odd numbers. (The $k$-th factor is the $k$-th odd  number.)}
+	\end{itemize}
+
+\end{frame}
 
 \end{document}
