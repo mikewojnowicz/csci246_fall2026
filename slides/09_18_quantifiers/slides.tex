@@ -67,15 +67,14 @@
 %\end{mygreenbox} 
 %\vfill 
 
-%\begin{myredbox}[title=Announcements]
-%\begin{itemize}
-%	\item Weekly Quiz Grades (up to \#3) are available on Canvas.  Reminder: Two weekly quiz scores will be dropped.
-%	\item SmartyCats tutoring costs \$2 per appointment and requires pre-registration at the SmartyCats website.
-%	\item Please make sure you sign the attendance sheet before leaving today. I'll try passing it around.
-%\end{itemize}
-%
-%\end{myredbox}
-%\vfill 
+\begin{myredbox}[title=Announcements]
+\begin{itemize}
+	\item Reminder: If you finish the quiz early, please be \underline{silent} until everyone else is finished (so as to not distract students who are still thinking).
+	\item Reminder: Mike's office hours are canceled until he returns from out of town Friday 9/25.  Madhav's office hours and SmartyCats tutoring are running as normal. Feel free to contact Mike by email if you'd like.  
+\end{itemize}
+
+\end{myredbox}
+\vfill 
 
 
 
@@ -83,8 +82,9 @@
 \begin{myyellowbox}[title=Today's Agenda]
 \begin{itemize}
 	\item Weekly Quiz ($\approx$ 15 mins)
+	\item Review group exercises ($\approx$ 10 mins)
 	\item Mini-lecture ($\approx$ 15 mins)
-	\item Group exercises ($\approx$ 15 mins)
+	\item Group exercises ($\approx$ 10 mins)
 \end{itemize}
 
 \end{myyellowbox}
@@ -93,6 +93,31 @@
 \end{frame}
 
 
+\begin{frame}
+%\small 
+ \begin{myredbox}[title=Weekly Quiz \#3] 
+\begin{enumerate}
+	\item  \textit{(Sec. 7 -- Boolean Algebra.)} DeMorgan's laws are:
+	\[ \lnot (x \land y) = (\lnot x) \lor (\lnot y) \quad \text{and} \quad \lnot (x \lor y) = (\lnot x) \land (\lnot y). \]
+	Prove the first of these (using truth tables). For reference: $\lnot$ means \qq{not}, $\land$ means \qq{and}, and $\lor$ means \qq{or}.
+	\item  \textit{(Sec. 8 -- Lists.)}  We have a club with 20 members. We want to elect an executive board consisting of a president, a vice president, a secretary, and a treasurer.  How many ways can we do this (assuming no member of the club can fill two offices)?
+    \item \textit{(Sec. 9 -- Factorial.)}
+%    \vspace{-.5cm}
+%    \begin{columns}[t] % top-aligned columns
+%        \begin{column}{0.7\textwidth}
+%            \qquad \quad 
+Your friend Sandy has 6 different books of classical literature,  7 different \textit{romantasy} (i.e. romance fantasy) books, and 8 different self-help books. (a) In how many different ways can Sandy's books be arranged on a bookshelf? (b) In how many different ways can Sandy's books be arranged on the bookshelf if all books of the same category are grouped together? 
+%        \end{column}
+%        \begin{column}{0.3\textwidth}
+%            \vspace{0pt} % aligns top with text
+%            \includegraphics[width=\linewidth]{images/romantasy}
+%        \end{column}
+%    \end{columns}
+\end{enumerate}
+\end{myredbox}
+
+
+\end{frame}
 
 
 
@@ -507,6 +532,161 @@ You might want to express that with high probability it works for all valid inpu
       \centering \includegraphics[width=.20\textwidth]{images/needle_in_haystack.jpeg} 
 \end{tabular}
 
+\end{frame}
+
+
+
+
+
+\begin{frame}{Random group assignments}
+%%% TABLE 1: by last name
+\begin{columns}
+\begin{column}{0.33\textwidth}
+Ashley, Isabelle: 2 \\ 
+Bailey, Tanna: 3 \\ 
+Blaisdell, Olyver: 4 \\ 
+Brown, Ashton: 13 \\ 
+Brown, Jonathan: 3 \\ 
+Cardenas, Dominic: 12 \\ 
+Cutler, George: 8 \\ 
+Fabik, Roland: 9 \\ 
+Fellows, Audrey: 5 \\ 
+Fitzgerald, Ryan: 4 \\ 
+Fuller, Ryan: 7 \\ 
+Griffen, Clara: 7 \\ 
+Grutsch, Tanner: 13 \\\end{column}
+\begin{column}{0.33\textwidth}
+Hager, Nathan: 11 \\ 
+Horner, Jayden: 1 \\ 
+Johnson, Jaret: 2 \\ 
+Kintzel, Samantha: 1 \\ 
+Lameres, Alexis: 8 \\ 
+Lee, Holden: 6 \\ 
+Mayala, Reece: 5 \\ 
+McLean, Connor: 6 \\ 
+Mcbride, Daniel: 11 \\ 
+Miller, Maverick: 10 \\ 
+Moss, Emily: 4 \\ 
+Mousseau, Matthew: 10 \\ 
+Neuman, Evan: 12 \\\end{column}
+\begin{column}{0.33\textwidth}
+Putnam, John: 6 \\ 
+Ramos, Vydel: 1 \\ 
+Rathbun, Jedidiah: 2 \\ 
+Roberts, Matthew: 3 \\ 
+Roller, Nathan: 9 \\ 
+Ryan, Otis: 7 \\ 
+Shevtsov, Timothy: 11 \\ 
+Sinclair, Aidan: 12 \\ 
+Smith, Charles: 9 \\ 
+Stensland, Emma: 13 \\ 
+Thiessen, Logan: 5 \\ 
+Thompson, Jaiden: 10 \\ 
+Vath, Ethan: 8 \\\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Group Exercises: Quantifiers}
+
+\footnotesize 
+\begin{minipage}{0.56\textwidth}
+    1. Label each sentence below about the integers as true or false. 
+    \begin{itemize}
+        \item[a.] $\forall x, \forall y, x+y=0.$ 
+        \item[b.] $\forall x, \exists y: x+y=0.$
+        \item[c.] $\exists x: \forall y, x+y=0.$
+        \item[d.] $\exists x, \exists y: x+y=0.$
+        \item[e.] $\forall x, \forall y, xy=0.$
+        \item[f.] $\forall x, \exists y: xy=0.$
+        \item[g.] $\exists x: \forall y, xy=0.$
+        \item[h.] $\exists x, \exists y: xy=0.$
+    \end{itemize}
+    2. The notation $\exists!$ can be read "there is a unique." Label each sentence below true or false.
+    \vspace{-0.5cm}
+    \begin{itemize}
+        \item[a.] $\exists! x \in \mathbb{N}: x^2=4.$ 
+        \item[b.] $\exists! x \in \mathbb{Z}: x^2=4.$ 
+        \item[c.] $\exists! x \in \mathbb{N}: x^2=3.$ 
+        \item[d.] $\exists! x \in \mathbb{Z}: \forall y \in \mathbb{Z}, xy=x.$ 
+        \item[e.] $\exists! x \in \mathbb{Z}: \forall y \in \mathbb{Z}, xy=y.$ 
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.38\textwidth}
+    3. For each sentence below, write the negation of the sentence, but place the $\lnot$ symbol as far to the right as possible. Then rewrite the negation in English.  The first problem is done for you.
+    \begin{itemize}
+    
+        \item[a.] $\forall x \in \mathbb{Z}, x \text{ is odd.} $  \alert{Solution: $\exists x \in \mathbb{Z}: \lnot (x \text{ is odd}.)$. In English: "There is an integer which is not odd."}
+        \item[b.] $\forall x \in \mathbb{Z}, x<0.$ 
+        \item[c.] $\exists x \in \mathbb{Z}: x=x+1.$
+        \item[d.] $\exists x \in \mathbb{N}: x>10.$
+        \item[e.] $\forall x \in \mathbb{N}, x+x=2x.$
+        \item[f.] $\exists x \in \mathbb{Z}: \forall y \in \mathbb{Z}, x>y.$
+        \item[g.]  $\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z}, x=y.$
+        \item[h.] $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z}: x+y=0.$
+    \end{itemize}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}{Solutions to Group Exercises \#1}
+
+ Label each sentence below about the integers as true or false. 
+    \begin{itemize}
+        \item[a.] $\forall x, \forall y, x+y=0.$   \red{False.}  (Counter-example: $x=1, y=1$.)
+        \item[b.] $\forall x, \exists y: x+y=0.$  \forestgreen{True.}  (Set $y=-x$.) 
+        \item[c.] $\exists x: \forall y, x+y=0.$   \red{False.}  (Counter-example: If $x=0$, set $y=1$. If $x \neq 0$, set $y=0$.)
+        \item[d.] $\exists x, \exists y: x+y=0.$  \forestgreen{True.}  (Set $x=1,y=-1$.)
+        \item[e.] $\forall x, \forall y, xy=0.$  \red{False.}   (Counterexample: set $x=y=1$.)
+        \item[f.] $\forall x, \exists y: xy=0.$  \forestgreen{True.}  (Set $y=0$.)
+        \item[g.] $\exists x: \forall y, xy=0.$  \forestgreen{True.}  (Set $x=0$.)
+        \item[h.] $\exists x, \exists y: xy=0.$  \forestgreen{True.}  (Set $x=y=0$.)
+    \end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}{Solutions to Group Exercises \#2}
+
+The notation $\exists!$ can be read "there is a unique." Label each sentence below true or false.
+
+    \begin{itemize}
+        \item[a.] $\exists! x \in \mathbb{N}: x^2=4.$   \forestgreen{True.}  ($x=2$ is the only solution to the equation in the natural numbers.)
+        \item[b.] $\exists! x \in \mathbb{Z}: x^2=4.$   \red{False.}   ($x=2$ and $x=-2$ are two different integers which solve the equation.)
+        \item[c.] $\exists! x \in \mathbb{N}: x^2=3.$   \red{False.}   (There is no solution to the equation in the set of natural numbers.)
+        \item[d.] $\exists! x \in \mathbb{Z}: \forall y \in \mathbb{Z}, xy=x.$   \forestgreen{True.}  ($x=0$ is the only solution to the equation in the integers.)
+        \item[e.] $\exists! x \in \mathbb{Z}: \forall y \in \mathbb{Z}, xy=y.$  \forestgreen{True.}  ($x=1$ is the only solution to the equation in the integers.)
+    \end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Solutions to Group Exercises \#3 a-d}
+\small 
+For each sentence below, write the negation of the sentence, but place the $\lnot$ symbol as far to the right as possible. Then rewrite the negation in English.  
+    \begin{itemize}    
+        \item[a.] $\forall x \in \mathbb{Z}, x \text{ is odd.} $   \alert{Solution: $\exists x \in \mathbb{Z}: \lnot (x \text{ is odd})$.  In English: "There is an integer which is not odd." Alternatively, we could write the negated proposition as $\exists x \in \mathbb{Z}: (x \text{ is even})$.  In English: "There is an integer which is even."  Note: the negated proposition is}\,\forestgreen{True.} 
+        \item[b.] $\forall x \in \mathbb{Z}, x<0.$  \alert{Solution: $\exists x \in \mathbb{Z}: \lnot (x<0.)$.   In English: "There is an integer which is not less than zero."  Alternatively, we could write $\exists x \in \mathbb{Z}: x \geq 0$. In English: "There is an integer which is greater than or equal to zero."   Note: the negated proposition is}\,\forestgreen{True.} 
+        \item[c.] $\exists x \in \mathbb{Z}: x=x+1.$  \alert{Solution: $\forall x \in \mathbb{Z}: \lnot (x=x+1)$. That is, $\forall x \in \mathbb{Z}: (x \neq x+1)$. In English: "No integer equals one plus itself." Note: the negated proposition is}\,\forestgreen{True.} 
+        \item[d.] $\exists x \in \mathbb{N}: x>10.$  \alert{Solution: $\forall x \in \mathbb{N}: \lnot (x>10)$. Alternatively, $\forall x \in \mathbb{N}: x \leq 10.$ In English: "Each natural number is less than or equal to 10."  Note: the negated proposition is}\, \red{False.} 
+        \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Solutions to Group Exercises \#3 e-h}
+\small 
+For each sentence below, write the negation of the sentence, but place the $\lnot$ symbol as far to the right as possible. Then rewrite the negation in English. 
+    \begin{itemize}
+     \item[e.] $\forall x \in \mathbb{N}, x+x=2x.$  \alert{Solution: $\exists x \in \mathbb{N}: \lnot (x+x=2x)$.  That is, $\exists x \in \mathbb{N}: x+x \neq 2x)$.  In English: "There is a natural number such that the sum of the number with itself does not equal double itself."  Note: the negated proposition is}\, \red{False.} 
+        \item[f.] $\exists x \in \mathbb{Z}: \forall y \in \mathbb{Z}, x>y.$  \alert{Solution: $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} : \lnot (x>y)$.   That is, $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z} : x\leq y$ In English: "For all integers, there is another integer which is at least as large as it."  Note: the negated proposition is}\, \forestgreen{True}.  
+        \item[g.]  $\forall x \in \mathbb{Z}, \forall y \in \mathbb{Z}, x=y.$  \alert{Solution: $\exists x \in \mathbb{Z}, \exists y \in \mathbb{Z} : \lnot (x=y)$.   That is, $\exists x \in \mathbb{Z}, \exists y \in \mathbb{Z} : x\neq y$. In English: "There are two integers which do not equal each other."  Note: the negated proposition is}\, \forestgreen{True}.  
+        \item[h.] $\forall x \in \mathbb{Z}, \exists y \in \mathbb{Z}: x+y=0.$  \alert{Solution: $\exists x \in \mathbb{Z}: \forall y \in \mathbb{Z} : \lnot (x+y=0)$.   That is, $\exists x \in \mathbb{Z}: \forall y \in \mathbb{Z} : (x+y \neq 0)$.  In English: "There is an integer such that the sum with all other integers does not equal zero."  Note: the negated proposition is}\, \red{False}.  
+
+        \end{itemize}
 \end{frame}
 
 
