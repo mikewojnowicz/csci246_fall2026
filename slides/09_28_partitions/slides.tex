@@ -430,6 +430,45 @@ In gist, we can take elements in the same cell to be related to each other.
 
 
 
+\begin{frame}{Application: Machine Learning}
+\footnotesize
+
+Why \qq{close enough} does not give equivalence classes
+
+\begin{mygreenbox}[title=A tempting rule]
+Machine learning often measures how \textbf{different} two things are. One such measure is
+\textit{KL divergence}.  Tempting rule: $x \sim y$ if $x$ and $y$ are \textbf{close enough}.
+\end{mygreenbox}
+
+\pause
+\begin{center}
+\begin{tikzpicture}[xscale=1.6, yscale=0.6]
+  \foreach \x/\n in {0/A, 1/B, 2/C}{
+     \fill[black!75] (\x,0) circle (2.4pt);
+     \node[below, font=\scriptsize\bfseries] at (\x,-0.12) {\n};}
+  \draw[->,thick,green!45!black] (0,0.1) to[bend left=50] node[above,font=\tiny]{close \greencheck} (1,0.1);
+  \draw[->,thick,green!45!black] (1,0.1) to[bend left=50] node[above,font=\tiny]{close \greencheck} (2,0.1);
+  \draw[->,thick,red!80!black] (0,-0.5) to[bend right=30] node[below,font=\tiny]{far apart \redx} (2,-0.5);
+\end{tikzpicture}
+\end{center}
+
+\pause
+\begin{myredbox}[title=Transitivity fails]
+Small differences \textbf{add up}: $A \sim B$ and $B \sim C$, but $A \not\sim C$.
+Not an equivalence relation $\Rightarrow$ \alert{no partition}.
+\end{myredbox}
+
+\pause
+\begin{mybluebox}[title=What we do instead]
+\begin{itemize}\itemsep0pt
+	\item \textbf{Chain them:} $A\!-\!B$ close and $B\!-\!C$ close $\Rightarrow$ all three in one group.
+	\item \textbf{Assign them:} each item goes to its \textbf{nearest} representative.
+\end{itemize}
+\end{mybluebox}
+
+\end{frame}
+
+
 %%%%% OUTLINE
 \agendaframe{count}
 
@@ -471,6 +510,119 @@ Let $R$ be an equivalence relation on a finite set $A$. If all the equivalence c
 \colorbox{blue!30}{\textbf{Remark.}} You'll practice applying this theorem during the group exercises.
 \end{frame}
 
+
+
+\begin{frame}[standout]
+Group exercises
+\end{frame}
+
+\begin{frame}
+\small 
+%%% TABLE 1: by last name
+\begin{columns}
+\begin{column}{0.33\textwidth}
+Ashley, Isabelle: 6 \\ 
+Bailey, Tanna: 7 \\ 
+Blaisdell, Olyver: 9 \\ 
+Brown, Ashton: 5 \\ 
+Brown, Jonathan: 4 \\ 
+Cardenas, Dominic: 6 \\ 
+Cutler, George: 11 \\ 
+Fabik, Roland: 10 \\ 
+Fellows, Audrey: 13 \\ 
+Fitzgerald, Ryan: 4 \\ 
+Fuller, Ryan: 10 \\ 
+Griffen, Clara: 12 \\ 
+Grutsch, Tanner: 12 \\\end{column}
+\begin{column}{0.33\textwidth}
+Hager, Nathan: 3 \\ 
+Horner, Jayden: 1 \\ 
+Johnson, Jaret: 9 \\ 
+Kintzel, Samantha: 2 \\ 
+Lameres, Alexis: 12 \\ 
+Lee, Holden: 10 \\ 
+Mayala, Reece: 1 \\ 
+McLean, Connor: 5 \\ 
+Mcbride, Daniel: 2 \\ 
+Miller, Maverick: 2 \\ 
+Moss, Emily: 13 \\ 
+Mousseau, Matthew: 8 \\ 
+Neuman, Evan: 11 \\\end{column}
+\begin{column}{0.33\textwidth}
+Putnam, John: 11 \\ 
+Ramos, Vydel: 7 \\ 
+Rathbun, Jedidiah: 3 \\ 
+Roberts, Matthew: 8 \\ 
+Roller, Nathan: 9 \\ 
+Ryan, Otis: 13 \\ 
+Shevtsov, Timothy: 8 \\ 
+Sinclair, Aidan: 7 \\ 
+Smith, Charles: 3 \\ 
+Stensland, Emma: 5 \\ 
+Thiessen, Logan: 6 \\ 
+Thompson, Jaiden: 4 \\ 
+Vath, Ethan: 1 \\\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Group exercises}
+\footnotesize 
+
+\begin{minipage}{0.66\textwidth}
+\begin{enumerate}
+\item How many different anagrams (including nonsensical words) can be made from each of the following? (a) \texttt{STAPLE}, (b)  \texttt{SUCCESS}, (c) \texttt{MISSISSIPPI}.
+\item The integers 1 through 25 are arranged in a 5x5 array (we use each number from 1 to 25 exactly once). All that matters is which numbers are in which column and how they are arranged in the columns.  It does not matter in what order the columns appear. (See the figure.  The two arrays shown should be considered the same.) How many different such arrays can be formed?
+\item Twelve people join hands for a circle dance. 
+(a) In how many different ways can they do this? (b) Suppose six of these people are men, and the other six are women. In how many different ways can they join hands for a circle dance, assuming they alternate in gender around the circle?
+\end{enumerate}
+\end{minipage}
+\hfill 
+\begin{minipage}{0.31\textwidth}
+\includegraphics[width=0.7\textwidth]{images/partition_group_exercise.png}	
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#1}
+\textbf{Problem.} How many different anagrams (including nonsensical words) can be made from each of the following? (a) \texttt{STAPLE}, (b)  \texttt{SUCCESS}, (c) \texttt{MISSISSIPPI}.
+\vfill 
+\textbf{Solution.}
+
+\begin{itemize}
+\item[a.] $6!$. \quad  \textit{Justification}:  This is a simple permutation.  There are 6 choices for the first letter, 5 choices for the second letter, and so forth. We have done counting problems like this earlier in the course.  See Scheinerman Theorem 8.2 and/or Theorem 8.6.    
+\item[b.] $\frac{7!}{2!3!}$. \quad  \textit{Justification:}  The number of ways to permute 7 distinct items is 7!, by the same logic as in part (a).  However, there are 3 S's, and rearrangements of those letters lead to an equivalent anagram.  Similarly for the 2 C's.  Hence, the solution follows from Scheinerman Theorem 16.6. 
+\item [c.] $\frac{11!}{4!4!2!}$.  \quad  \textit{Justification:} The justification is similar as to that in part (b.)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#2}
+\begin{minipage}{0.66\textwidth}
+\textbf{Problem.} The integers 1 through 25 are arranged in a 5x5 array (we use each number from 1 to 25 exactly once). All that matters is which numbers are in which column and how they are arranged in the columns.  It does not matter in what order the columns appear. (See the figure.  The two arrays shown should be considered the same.) How many different such arrays can be formed?\\
+\vfill 
+\textbf{Solution.} There are $25!$ different ways to fill out the grid, by the same logic as in Problem 1a.  Once a grid layout is determined, there are $5!$ ways to rearrange the columns, all of which are to be considered equivalent. Hence, the number of distinct solutions is $\frac{25!}{5!}$, by Scheinerman Theorem 16.6.
+\end{minipage}
+\hfill 
+\begin{minipage}{0.31\textwidth}
+\includegraphics[width=0.7\textwidth]{images/partition_group_exercise.png}	
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#3}
+\scriptsize 
+\textbf{Problem.} Twelve people join hands for a circle dance. 
+(a) In how many different ways can they do this? (b) Suppose six of these people are men, and the other six are women. In how many different ways can they join hands for a circle dance, assuming they alternate in gender around the circle?
+\vfill 
+\textbf{Solution.} These problems deal with \textit{permutations on a circle.} 
+
+\begin{itemize}
+\item[a.] $\frac{12!}{12}$. \quad  \textit{Justification}:  By the same logic as in Problem 1a, there are $12!$ different ways to arrange 12 people in a line. We will convert the line into a circle by joining the two ends together.  But before doing that, note that if everyone from the line moved 1 spot to the right (with the person from the end going to the first spot), then we'd end up with an equivalent arrangement for the circle.  In fact, we'd get an equivalent arrangement for the circle if the line was shifted to the right any number of spots from 0 to 11.   Hence, to create a circle, we treat any arrangement on the line as a member of an equivalence class of size 12.  So the solution follows from Scheinerman Theorem 16.6.
+\item[b.] $\frac{2 \cdot 6! \cdot 6!}{12}$. \quad  \textit{Justification:}  First, suppose we are arranging the 12 people on a line, but with alternating gender.  By the same logic as in Problem 1a, there are 6! ways to permute the men and 6! ways to permute the women.  Moreover, there are two ways to have the people alternate (a man first, in which case the alternation has the form \texttt{MFMFMFMFMFMF}, or a woman first, in which case the alternation has the form \texttt{FMFMFMFMFMFM}).  Hence, by the multiplication principle (Scheinerman Theorem 8.2), the total number of solutions on the line is $2 \cdot 6! \cdot 6!$.   But as with Problem 3a, when we convert the line to a circle, we create equivalence classes of size 12. Hence, applying Scheinerman Theorem 16.6, we divide by 12 and obtain the solution.  
+\end{itemize}
+
+
+\end{frame}
 
 
 \end{document}
