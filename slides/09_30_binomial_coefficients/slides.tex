@@ -147,7 +147,7 @@ Binomial Coefficients
 \begin{enumerate}
 	\item How many ways are these to rank (sort) these five albums?
 	\item How many ways are there to pick a favorite and second favorite album?
-	\item How many ways are there to pick 2 albums for a road trip to Helena?
+	\item How many ways are there to pick 2 (different) albums for a road trip to Helena?
 \end{enumerate}
 }
 \end{frame}
@@ -261,8 +261,8 @@ To see this, let's use the shorthand:
 $\;20 \div 2 = 10\;$ ways to pick two albums. \vfill}
 \only<2->{\footnotesize \textbf{Notation:} We write this as $\frac{(5)_2}{2}$.}  \only<3->{Alternatively, we can write $\frac{(5)_2}{2!}$. \alert{(Why?)} \vfill} 
 \only<4->{Expanding the falling factorial, we can write this as $\frac{5!}{3!2!}$. \vfill}
-\only<5->{We use a special notation for this: $\binom{5}{3}$.}
-\only<6->{This represents the number of ways to pick 3 things from 5.}
+\only<5->{We use a special notation for this: $\binom{5}{2}$.}
+\only<6->{This represents the number of ways to pick 2 things from 5.}
 \only<7>{Remember, here \alert{order does not matter.}}
 \end{frame}
 
@@ -484,7 +484,7 @@ Let $k$ and $n$ be integers with $0 < k <n$. Then
 \vfill 
 \begin{myyellowbox}[title=\text{Poll: What is the intuition?}]
 \pause 
-Pick one of the elements to be \enquote{fire}. 
+Pick one of the elements to be \enquote{fire} (in the slang sense). 
 \begin{itemize}
 \item If we include the fire element in our selected subset, we have  $\binom{n-1}{k-1}$ ways to complete the subset.
 \item If we don't include the fire element in our selected subset, then we have $ \binom{n-1}{k}$ ways to form the subset.
