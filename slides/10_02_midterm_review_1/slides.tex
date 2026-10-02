@@ -289,4 +289,80 @@ Vath, Ethan: 12 \\\end{column}
 \end{frame}
 
 
+
+
+
+\begin{frame}{Solution: Group exercise \#1}
+\textbf{Problem.} Prove that the product of two even integers is even.
+\vfill 
+\textbf{Solution.}   We show that if $z=xy$ where $x$ and $y$ are even, then $z$ is even.   Let $x$ and $y$ be even.  Then $x=2a$ where $a$ is an integer and $y=2b$ where $b$ is an integer.  So $z=xy=(2a)(2b)=(4ab)=2(2ab)$. Hence $z=2c$ for some integer $c$ (namely $c= 2ab$).  Hence $z$ is even. 
+
+\vfill
+\begin{mygreenbox}[title={Reference: Definition}]
+An integer is called \textbf{even} if it is divisible by 2. (That is, an integer $z$ is even if there is an integer $c$ such that $z=2c$.)
+\end{mygreenbox}
+
+\end{frame}
+
+\begin{frame}{Solution: Group exercise \#2}
+\textbf{Problem.} Let $x$ be an integer. Prove that $0 \mid x$ if and only if $x=0$.
+\vfill 
+\textbf{Solution.}  First we show that if $0 \mid x$ then $x=0$.  Let $0 \mid x$. Then there is an integer $c$ such that $0c=x$.  So $x=0$.
+
+Now we show that if $x=0$ then $0 \mid x$.  Let $x=0$.  Let $c$ be any integer (e.g. $c=7$).  Then $x=0c$. Hence, there is an integer $c$ such that $0c=x$.  Hence $0 \mid x$. 
+
+\vfill
+\begin{mygreenbox}[title={Reference: Definition}]
+Let $a,b$ be integers.  We say that $a$ is \textbf{divisible} by $b$, written $b \mid a$, if there is an integer $c$ such that $bc=a$. 
+\end{mygreenbox}
+
+\end{frame}
+
+
+
+\begin{frame}{Solution: Group exercise \#3 }
+\textbf{Problem.} Disprove: If $p$ and $q$ are prime, then $p+q$ is composite.
+	\vfill
+\textbf{Solution.} We give a counterexample where $p$ and $q$ are prime, but $p+q$ is not composite.  Let $p=2$ and $q=3$.  Then $p$ and $q$ are both prime. ($2>1$ and the only positive divisors of $2$ are 1 and $2$, and  $3>1$ and the only positive divisors of $3$ are 1 and $3$.). However, $p+q=5$, which is prime  ($5>1$ and the only positive divisors of $5$ are 1 and $5$), and therefore not composite.
+\vfill 
+\begin{mygreenbox}[title={Reference: Definitions}]
+\begin{itemize}
+	\item An integer $p$ is called \textbf{prime} if $p>1$ and the only positive divisors of $p$ are 1 and $p$.
+	\item A positive integer $a$ is called \textbf{composite} if there is an integer $b$ such that  $1<b<a$ and $b \mid a$.
+\end{itemize}
+	
+\end{mygreenbox}
+
+\end{frame}
+
+
+\begin{frame}{Solution: Group exercise \#4}
+\textbf{Problem.}   Let $A = \set{x \in \mathbb{Z} : 4 \mid x}$ and let $B = \set{x \in \mathbb{Z} : 2 \mid x}$. Show that $A \subseteq B$. 
+\vfill
+\textbf{Solution.} We will show that if $x \in A$, then $x \in B$. Let $x \in A$.  Then $4 \mid x$. So there is an integer $c$ such that $x=4c$.  So $x=2(2c)$.  So $x=2d$ for some integer $d$ (namely $d=2c$). So $2 \mid x$.  So $x \in B$.
+
+\vfill
+\begin{mygreenbox}[title={Reference: Definition}]
+Let $a,b$ be integers.  We say that $a$ is \textbf{divisible} by $b$, written $b \mid a$, if there is an integer $c$ such that $bc=a$. We call $b$ a \textbf{divisor} of $a$.	
+\end{mygreenbox}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Solution: Group exercise \#5}
+\textbf{Problem.}   Let $A = \set{n \in \mathbb{Z} : 3 \mid n}$ and let $B = \set{n \in \mathbb{Z} : 3 \mid (n+6)}$. Show that $A=B$. 
+\vfill
+\textbf{Solution.} First we show that if $x \in A$, then $x \in B$. Let $x \in A$.  Then $3 \mid x$.   So $x=3c$ for some integer $c$. So $x+6=3c+6$. So $x+6=3(c+2)$. So $x+6=3d$ for some integer $d$, namely $d=c+2$.   So $3 \mid (x+6)$. So $x \in B$.
+
+Now we show that if $x \in B$, then $x \in A$. Let $x \in B$. So $3 \mid (x+6)$.  So $3c=x+6$ for some integer $c$.   So $3c-6=x$. So $3(c-2)=x$.  So $3d=x$ for some integer $d$ (namely $d=c-2$).   So $x \in A$. 
+\vfill
+\begin{mygreenbox}[title={Reference: Definition}]
+Let $a,b$ be integers.  We say that $a$ is \textbf{divisible} by $b$, written $b \mid a$, if there is an integer $c$ such that $bc=a$. We call $b$ a \textbf{divisor} of $a$.	
+\end{mygreenbox}
+
+\end{frame}
+
+
 \end{document}
