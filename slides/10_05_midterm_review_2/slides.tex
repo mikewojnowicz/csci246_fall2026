@@ -1,0 +1,253 @@
+\documentclass[10pt]{beamer}
+
+%%%
+% PREAMBLE FOR THIS DOC 
+%%%
+%https://tex.stackexchange.com/questions/68821/is-it-possible-to-create-a-latex-preamble-header
+\usepackage{/Users/miw267/Repos/latex_preamble/beamer_preamble}
+
+\usetikzlibrary{matrix}
+
+
+
+% \album{image file}{url}{artist}{album}
+\newcommand{\album}[4]{%
+  \begin{minipage}[t]{0.185\textwidth}\centering
+    \href{#2}{\includegraphics[width=\linewidth]{#1}}\\[0.3em]
+    {\small\bfseries #3}\\{\small #4}
+  \end{minipage}}
+  
+\newcommand{\albumtiny}[4]{%
+  \begin{minipage}[t]{0.185\textwidth}\centering
+    \href{#2}{\includegraphics[width=\linewidth]{#1}}\\[0.3em]
+    {\tiny \bfseries #3}\\{\tiny #4}
+  \end{minipage}}
+  
+  
+%%%
+% DOCUMENT
+%%%
+
+\begin{document}
+
+%\maketitle
+
+%% Title page frame
+%\begin{frame}
+%    \titlepage 
+%\end{frame}
+
+
+
+
+
+\title{10/05/2026: Midterm Review Part 2: More Proofs}
+\author{CSCI 246: Discrete Structures}
+
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+
+\begin{frame}
+
+\begin{myredbox}[title=Announcements]
+\begin{itemize}
+	\item Let's review some midterm logistics.
+	\item If you prepared for today's optional quiz retake, you're 1/5 of the way done studying for the midterm!  Yippee!
+\end{itemize}
+\end{myredbox}
+\vfill 
+
+
+\begin{myyellowbox}[title=Today's Agenda]
+\begin{itemize}	
+	
+	\item Midterm discussion (5 mins)
+	\item Optional Quiz Retake (20 mins)
+	\item Group exercises (25 mins)
+%	%
+%	\begin{itemize}
+%	\footnotesize 
+%	\item Review induction 
+%	\end{itemize}
+%	%
+\end{itemize}
+
+%	Rationale for group exercises: we got shortchanged on time last couple days, and I already did a lot of lectures, so I want you to practice. Next problems quiz will cover relations and functions: Hamkins and 
+%	
+\end{myyellowbox}
+\vfill 
+
+\end{frame}
+
+
+
+\begin{frame}[standout]
+Group exercises
+\end{frame}
+
+\begin{frame}
+\begin{columns}
+\begin{column}{0.33\textwidth}
+Ashley, Isabelle: 7 \\ 
+Bailey, Tanna: 7 \\ 
+Blaisdell, Olyver: 5 \\ 
+Brown, Ashton: 1 \\ 
+Brown, Jonathan: 2 \\ 
+Cardenas, Dominic: 2 \\ 
+Cutler, George: 11 \\ 
+Fabik, Roland: 8 \\ 
+Fellows, Audrey: 10 \\ 
+Fitzgerald, Ryan: 8 \\ 
+Fuller, Ryan: 6 \\ 
+Griffen, Clara: 4 \\ 
+Grutsch, Tanner: 12 \\\end{column}
+\begin{column}{0.33\textwidth}
+Hager, Nathan: 11 \\ 
+Horner, Jayden: 7 \\ 
+Johnson, Jaret: 3 \\ 
+Kintzel, Samantha: 1 \\ 
+Lameres, Alexis: 9 \\ 
+Lee, Holden: 5 \\ 
+Mayala, Reece: 6 \\ 
+McLean, Connor: 12 \\ 
+Mcbride, Daniel: 10 \\ 
+Miller, Maverick: 2 \\ 
+Moss, Emily: 8 \\ 
+Mousseau, Matthew: 3 \\ 
+Neuman, Evan: 13 \\\end{column}
+\begin{column}{0.33\textwidth}
+Putnam, John: 5 \\ 
+Ramos, Vydel: 10 \\ 
+Rathbun, Jedidiah: 9 \\ 
+Roberts, Matthew: 13 \\ 
+Roller, Nathan: 4 \\ 
+Ryan, Otis: 3 \\ 
+Shevtsov, Timothy: 1 \\ 
+Sinclair, Aidan: 11 \\ 
+Smith, Charles: 6 \\ 
+Stensland, Emma: 13 \\ 
+Thiessen, Logan: 9 \\ 
+Thompson, Jaiden: 4 \\ 
+Vath, Ethan: 12 \\\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Group exercises}
+\footnotesize
+\textbf{New group exercises on proofs.}
+\vspace{-.3em}
+\begin{enumerate}
+	\item  Prove that the product of two even integers is even.
+	\item  Let $x$ be an integer. Prove that $0 \mid x$ if and only if $x=0$.
+	\item Disprove: If $p$ and $q$ are prime, then $p+q$ is composite.
+	\item Let $A = \set{x \in \mathbb{Z} : 4 \mid x}$ and let $B = \set{x \in \mathbb{Z} : 2 \mid x}$. Show that $A \subseteq B$. 
+	\item Let $A = \set{n \in \mathbb{Z} : 3 \mid n}$ and let $B = \set{n \in \mathbb{Z} : 3 \mid (n+6)}$. Show that $A=B$. 
+\end{enumerate}
+\vfill 
+\vspace{-.5em}
+\textbf{Practicing some of the older group exercises on proofs.}
+\vspace{-.3em}
+\begin{enumerate}
+\item A \textbf{tautology} is a Boolean expression that evaluates to \texttt{TRUE} for all possible values of its variables. Use truth tables to show the following is a tautology:
+\[ (x \implies y) \land (y \implies z) \implies (x \implies z) \]
+%\item For each of the following relations defined on the integers, please state whether the relation is reflexive, symmetric, and/or transitive:  (a) $\leq$ (less than or equal to), (b) $\mid$ (divides). Please justify your answer for part (b).
+\item Let $n$ be a positive integer. Prove that congruence modulo $n$ is an equivalence relation on the set of integers.
+\item The distributive properties for sets are
+\[ A \cup (B \cap C) = (A \cup B) \cap (A \cup C), \qquad \text{and} \qquad A \cap (B \cup C) = (A \cap B) \cup (A \cap C). \]
+Prove the second property.
+\end{enumerate}
+%\vfill
+%\small 
+%\begin{mygreenbox}[title={Reference: Definitions}]
+%\begin{itemize}
+%	\item Let $a,b$ be integers.  We say that $a$ is \textbf{divisible} by $b$, written $b \mid a$, if there is an integer $c$ such that $bc=a$. We call $b$ a \textbf{divisor} of $a$.
+%	\item An integer is called \textbf{even} if it is divisible by 2. (That is, an integer $x$ is even if there is an integer $c$ such that $x=2c$.)
+%	\item An integer $p$ is called \textbf{prime} if $p>1$ and the only positive divisors of $p$ are 1 and $p$.
+%	\item A positive integer $a$ is called \textbf{composite} if there is an integer $b$ such that  $1<b<a$ and $b \mid a$.
+%\end{itemize}
+%	
+%\end{mygreenbox}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}{Solution: Group exercise \#1}
+\textbf{Problem.} Prove that the product of two even integers is even.
+\vfill 
+\textbf{Solution.}   We show that if $z=xy$ where $x$ and $y$ are even, then $z$ is even.   Let $x$ and $y$ be even.  Then $x=2a$ where $a$ is an integer and $y=2b$ where $b$ is an integer.  So $z=xy=(2a)(2b)=(4ab)=2(2ab)$. Hence $z=2c$ for some integer $c$ (namely $c= 2ab$).  Hence $z$ is even. 
+
+\vfill
+\begin{mygreenbox}[title={Reference: Definition}]
+An integer is called \textbf{even} if it is divisible by 2. (That is, an integer $z$ is even if there is an integer $c$ such that $z=2c$.)
+\end{mygreenbox}
+
+\end{frame}
+
+\begin{frame}{Solution: Group exercise \#2}
+\textbf{Problem.} Let $x$ be an integer. Prove that $0 \mid x$ if and only if $x=0$.
+\vfill 
+\textbf{Solution.}  First we show that if $0 \mid x$ then $x=0$.  Let $0 \mid x$. Then there is an integer $c$ such that $0c=x$.  So $x=0$.
+
+Now we show that if $x=0$ then $0 \mid x$.  Let $x=0$.  Let $c$ be any integer (e.g. $c=7$).  Then $x=0c$. Hence, there is an integer $c$ such that $0c=x$.  Hence $0 \mid x$. 
+
+\vfill
+\begin{mygreenbox}[title={Reference: Definition}]
+Let $a,b$ be integers.  We say that $a$ is \textbf{divisible} by $b$, written $b \mid a$, if there is an integer $c$ such that $bc=a$. 
+\end{mygreenbox}
+
+\end{frame}
+
+
+
+\begin{frame}{Solution: Group exercise \#3 }
+\textbf{Problem.} Disprove: If $p$ and $q$ are prime, then $p+q$ is composite.
+	\vfill
+\textbf{Solution.} We give a counterexample where $p$ and $q$ are prime, but $p+q$ is not composite.  Let $p=2$ and $q=3$.  Then $p$ and $q$ are both prime. ($2>1$ and the only positive divisors of $2$ are 1 and $2$, and  $3>1$ and the only positive divisors of $3$ are 1 and $3$.). However, $p+q=5$, which is prime  ($5>1$ and the only positive divisors of $5$ are 1 and $5$), and therefore not composite.
+\vfill 
+\begin{mygreenbox}[title={Reference: Definitions}]
+\begin{itemize}
+	\item An integer $p$ is called \textbf{prime} if $p>1$ and the only positive divisors of $p$ are 1 and $p$.
+	\item A positive integer $a$ is called \textbf{composite} if there is an integer $b$ such that  $1<b<a$ and $b \mid a$.
+\end{itemize}
+	
+\end{mygreenbox}
+
+\end{frame}
+
+
+\begin{frame}{Solution: Group exercise \#4}
+\textbf{Problem.}   Let $A = \set{x \in \mathbb{Z} : 4 \mid x}$ and let $B = \set{x \in \mathbb{Z} : 2 \mid x}$. Show that $A \subseteq B$. 
+\vfill
+\textbf{Solution.} We will show that if $x \in A$, then $x \in B$. Let $x \in A$.  Then $4 \mid x$. So there is an integer $c$ such that $x=4c$.  So $x=2(2c)$.  So $x=2d$ for some integer $d$ (namely $d=2c$). So $2 \mid x$.  So $x \in B$.
+
+\vfill
+\begin{mygreenbox}[title={Reference: Definition}]
+Let $a,b$ be integers.  We say that $a$ is \textbf{divisible} by $b$, written $b \mid a$, if there is an integer $c$ such that $bc=a$. We call $b$ a \textbf{divisor} of $a$.	
+\end{mygreenbox}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Solution: Group exercise \#5}
+\textbf{Problem.}   Let $A = \set{n \in \mathbb{Z} : 3 \mid n}$ and let $B = \set{n \in \mathbb{Z} : 3 \mid (n+6)}$. Show that $A=B$. 
+\vfill
+\textbf{Solution.} First we show that if $x \in A$, then $x \in B$. Let $x \in A$.  Then $3 \mid x$.   So $x=3c$ for some integer $c$. So $x+6=3c+6$. So $x+6=3(c+2)$. So $x+6=3d$ for some integer $d$, namely $d=c+2$.   So $3 \mid (x+6)$. So $x \in B$.
+
+Now we show that if $x \in B$, then $x \in A$. Let $x \in B$. So $3 \mid (x+6)$.  So $3c=x+6$ for some integer $c$.   So $3c-6=x$. So $3(c-2)=x$.  So $3d=x$ for some integer $d$ (namely $d=c-2$).   So $x \in A$. 
+\vfill
+\begin{mygreenbox}[title={Reference: Definition}]
+Let $a,b$ be integers.  We say that $a$ is \textbf{divisible} by $b$, written $b \mid a$, if there is an integer $c$ such that $bc=a$. We call $b$ a \textbf{divisor} of $a$.	
+\end{mygreenbox}
+
+\end{frame}
+
+
+\end{document}
