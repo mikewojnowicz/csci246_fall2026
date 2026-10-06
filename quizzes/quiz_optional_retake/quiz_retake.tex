@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+
+\graphicspath{{../slides/09_11_lists/images/}{../slides/09_21_set_operations/images/}{../slides/09_28_partitions/images/}}
+
+\newcommand{\set}[1]{\{ #1 \}}
+\newcommand{\half}{\frac{1}{2}}
+
+
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[enumerate,2]{label=(\alph*)}
+
+\title{Optional Quiz Retake}
+\author{CSCI 246}
+\date{October 5, 2026}
+
+\begin{document}
+\maketitle
+
+
+\section*{Instructions}
+If desired, you may choose \textbf{one} quiz to retake below. If you get a higher score than on your first attempt, your original score will be replaced with your new score.  If you get a lower score, your original score will stay as it was.  \\
+
+\noindent \textbf{Note:} this sheet is two-sided. There is reference material on the back.
+
+\section*{Quiz 1 Retake: Definitions and theorems}
+
+\begin{enumerate}
+\item Please determine which of the following are true or false; use Definition 3.2 to explain your answers: (a) $3 \mid 100$, (b) $3 \mid 99$, (c) $-3 \mid 3$, (d) $0 \mid 4$, (e) $4 \mid 0$, (f) $0 \mid 0$.
+\item Consider these two statements: (i) If A, then B, (ii) If (not B), then (not A). Under what circumstances are these statements true? When are they false? Explain whether these statements are identical or not. [Note: (ii) is called the \textbf{contrapositive} of (i).]
+\end{enumerate}
+
+%--------------------------------------------------------------------
+\section*{Quiz 2 Retake: Proofs and counterexample}
+
+\begin{enumerate}
+\item Let $x$ be an integer. Prove that $0 \mid x$ if and only if $x=0$.
+\item Disprove: If $p$ and $q$ are prime, then $p+q$ is composite.
+\end{enumerate}
+
+%--------------------------------------------------------------------
+\section*{Quiz 3 Retake: Boolean Algebra, Lists, and Factorial}
+
+\begin{enumerate}
+\item A \textbf{tautology} is a Boolean expression that evaluates to \texttt{TRUE} for all possible values of its variables. For example, the expression $x \lor \lnot x$ evaluates to \texttt{TRUE} both when $x=\texttt{TRUE}$ and $x=\texttt{FALSE}$. Use truth tables to show the following is a tautology:
+\[ (x \implies y) \land (y \implies z) \implies (x \implies z) \]
+\item I want to create two playlists on my cell phone by downloading from a collection of 500 songs. One playlist is called ``Exercise'' and the other is called ``Relaxing''. I want 20 different songs on each list. How many different ways can I load songs onto my phone if I allow a song to be on both playlists? And how many different ways can I load the songs if I want the two lists to have no overlap?
+\item Evaluate $\frac{100!}{98!}$ without calculating $100!$ or $98!$.
+\end{enumerate}
+
+%--------------------------------------------------------------------
+\section*{Quiz 4 Retake: Sets, Quantifiers, Set Operations}
+
+\begin{enumerate}
+\item  Let $A= \set{x \in \mathbb{Z}: 4 \mid x}$ and $B= \set{x \in \mathbb{Z}: 2 \mid x}$. Prove that $A \subseteq B$.
+\item Label each sentence below about the integers as true or false.
+\begin{enumerate}
+\item $\forall x, \forall y, x+y=0.$
+\item $\forall x, \exists y: x+y=0.$
+\item $\exists x: \forall y, x+y=0.$
+\item $\exists x, \exists y: x+y=0.$
+\end{enumerate}
+\item Let $A=\set{1,2,3,4,5}$ and $B=\set{4,5,6,7}$. Please compute (a) $A \cup B$, (b) $A \cap B$, (c) $A - B$, (d) $B-A$, (e) $A \,\triangle\, B$, (f) $A \times B$, and (g) $B \times A$.
+\end{enumerate}
+
+%--------------------------------------------------------------------
+\section*{Quiz 5 Retake: Relations, Equivalence Relations, Partitions}
+
+\begin{enumerate}
+\item For each of the following relations defined on the integers, please state whether the relation is reflexive, symmetric, and/or transitive:  (a) $\leq$ (less than or equal to), (b) $\mid$ (divides). Please justify your answer for part (b).
+\item Which of the following are equivalence relations?
+\begin{enumerate}
+\item $\mid$ on $\mathbb{Z}$.
+\item $\leq$ on $\mathbb{Z}$.
+\item $\set{1,2,3} \times \set{1,2,3}$ on the set $\set{1,2,3}$.
+\end{enumerate}
+\item \underline{Ten} people join hands for a circle dance. (a) In how many different ways can they do this? (b) Suppose five of these people are men, and the other five are women. In how many different ways can they join hands for a circle dance, assuming they alternate in gender around the circle?
+\end{enumerate}
+
+
+\section*{Reference Material}
+
+\begin{itemize}
+\item \textbf{Definition} (Divisible). Let $a$ and $b$ be integers. We say $a$ is \textit{divisible} by $b$, written $b \mid a$, provided there is an integer $c$ such that $bc=a$.
+\item \textbf{Definition} (Prime). An integer $p$ is called \textit{prime} provided that $p>1$ and the only positive divisors of $p$ are $p$ and $1$.
+\item \textbf{Definition} (Composite). An integer $a$ is called \textit{composite} provided that there is an integer $b$ such that $1<b<a$ and $b \mid a$.
+\end{itemize}
+
+\end{document}
