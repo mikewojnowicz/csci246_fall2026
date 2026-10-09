@@ -341,6 +341,151 @@ Now:
 Group exercises
 \end{frame}
 
+\begin{frame}
+%%% TABLE 1: by last name
+\begin{columns}
+\begin{column}{0.33\textwidth}
+Ashley, Isabelle: 4 \\ 
+Bailey, Tanna: 9 \\ 
+Blaisdell, Olyver: 3 \\ 
+Brown, Ashton: 3 \\ 
+Brown, Jonathan: 11 \\ 
+Cardenas, Dominic: 12 \\ 
+Cutler, George: 8 \\ 
+Fabik, Roland: 7 \\ 
+Fellows, Audrey: 6 \\ 
+Fitzgerald, Ryan: 1 \\ 
+Fuller, Ryan: 12 \\ 
+Griffen, Clara: 9 \\ 
+Grutsch, Tanner: 7 \\\end{column}
+\begin{column}{0.33\textwidth}
+Hager, Nathan: 8 \\ 
+Horner, Jayden: 13 \\ 
+Johnson, Jaret: 9 \\ 
+Kintzel, Samantha: 5 \\ 
+Lameres, Alexis: 2 \\ 
+Lee, Holden: 1 \\ 
+Mayala, Reece: 12 \\ 
+McLean, Connor: 3 \\ 
+Mcbride, Daniel: 2 \\ 
+Miller, Maverick: 4 \\ 
+Moss, Emily: 8 \\ 
+Mousseau, Matthew: 7 \\\end{column}
+\begin{column}{0.33\textwidth}
+Neuman, Evan: 6 \\ 
+Putnam, John: 5 \\ 
+Ramos, Vydel: 2 \\ 
+Rathbun, Jedidiah: 10 \\ 
+Roberts, Matthew: 13 \\ 
+Roller, Nathan: 11 \\ 
+Ryan, Otis: 4 \\ 
+Shevtsov, Timothy: 1 \\ 
+Sinclair, Aidan: 5 \\ 
+Stensland, Emma: 10 \\ 
+Thiessen, Logan: 6 \\ 
+Thompson, Jaiden: 10 \\ 
+Vath, Ethan: 11 \\\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Group exercises}
+\begin{enumerate}
+	\item State the contrapositive of each of the following statements.
+	\begin{itemize}
+	\item[a.] If it is raining, then the ground is wet.
+	\item[b.] If the battery is fully charged, the car will start.
+	\item[c.] If $n^2$ is even, then $n$ is even. 
+	\end{itemize}
+	\item Prove by contraposition that if $n^2$ is even, then $n$ is even. 
+	\item What is the contrapositive of a contrapositive of an if-then statement?
+	\item Prove by contradiction that consecutive numbers cannot be both even.
+
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#1}
+\colorbox{red!30}{\textbf{Problem.}} State the contrapositive of each of the following statements.
+	\begin{itemize}
+	\item[a.] If it is raining, then the ground is wet.
+	\item[b.] If the battery is fully charged, the car will start.
+	\item[c.] If $n^2$ is even, then $n$ is even.
+
+	\end{itemize}
+\vfill 
+\colorbox{green!30}{\textbf{Solution.}}
+	\begin{itemize}
+	\item[a.] If the ground is not wet, then it is not raining.
+	\item[b.] If the car does not start, then the battery is not fully charged.
+	\item[c.] If $n$ is odd, then $n^2$ is odd.
+
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#2}
+
+
+\colorbox{red!30}{\textbf{Problem.}} Prove by contraposition that if $n^2$ is even, then $n$ is even. 
+
+\vfill 
+\colorbox{green!30}{\textbf{Solution.}}
+
+\textbf{Contrapositive.} If $n$ is odd, then $n^2$ is odd.
+\vfill 
+ 
+\textbf{Proof of contrapositive.} Write $n=2k+1$ for some integer $k$.   Then
+%
+\begin{align*}
+n^2= (2k+1)^2 = 4k^2 + 4k+ 1 = 2(2k^2+2k) + 1,	
+\end{align*}
+%
+which is of the form $2m+1$, i.e. odd.    Thus the contrapositive is true, so the original claim holds.
+
+\vfill 
+\pause 
+
+\colorbox{blue!30}{\textbf{Remark.}} The direct route (\qq{If $n^2$ is even, then $n$ is even.}) is awkward to attempt directly; the contrapositive is immediate by simple algebra.
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#3}
+
+
+\colorbox{red!30}{\textbf{Problem.}} What is the contrapositive of a contrapositive of an if-then statement?
+
+\vfill 
+\colorbox{green!30}{\textbf{Solution.}}
+
+\textbf{Original statement.} If $P$ then $Q$.
+
+\vfill 
+\textbf{Contrapositive.} If $\lnot Q$, then $\lnot P$.
+\vfill 
+ 
+\textbf{Contrapositive of contrapositive.} If $\lnot \lnot P$, then $\lnot \lnot Q$. In other words, we recover the original statement.
+\vfill 
+ 
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#4}
+
+
+\colorbox{red!30}{\textbf{Problem.}} Prove by contradiction that consecutive numbers cannot be both even.
+
+\vfill 
+\colorbox{green!30}{\textbf{Solution.}} Suppose by way of contradiction that $x$ and $x+1$ are both even.  Then by definition of even, $x=2a$ and $x+1=2b$ for some integers $a$ and $b$.  By substitution, we have
+%
+\begin{align*}
+2a+1=2b \implies 2b-2a=1 \implies b-a = \half. 	
+\end{align*}
+%
+But it's impossible for the difference of two integers to be $\half$. $\Rightarrow\Leftarrow$.
+
+\end{frame}
 
 
 \end{document}
