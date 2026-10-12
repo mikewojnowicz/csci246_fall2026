@@ -327,4 +327,153 @@ $\leastElement = 2^k + (\text{distinct powers of 2, each less than } 2^k)$ is a 
 \begin{frame}[standout]
 Group exercises
 \end{frame}
+
+\begin{frame}
+\begin{columns}
+\begin{column}{0.33\textwidth}
+Ashley, Isabelle: 1 \\ 
+Bailey, Tanna: 5 \\ 
+Blaisdell, Olyver: 11 \\ 
+Brown, Ashton: 11 \\ 
+Brown, Jonathan: 6 \\ 
+Cardenas, Dominic: 12 \\ 
+Cutler, George: 2 \\ 
+Fabik, Roland: 9 \\ 
+Fellows, Audrey: 2 \\ 
+Fitzgerald, Ryan: 12 \\ 
+Fuller, Ryan: 9 \\ 
+Griffen, Clara: 4 \\ 
+Grutsch, Tanner: 11 \\\end{column}
+\begin{column}{0.33\textwidth}
+Hager, Nathan: 6 \\ 
+Horner, Jayden: 3 \\ 
+Johnson, Jaret: 3 \\ 
+Kintzel, Samantha: 2 \\ 
+Lameres, Alexis: 13 \\ 
+Lee, Holden: 5 \\ 
+Mayala, Reece: 10 \\ 
+McLean, Connor: 7 \\ 
+Mcbride, Daniel: 10 \\ 
+Miller, Maverick: 8 \\ 
+Moss, Emily: 3 \\ 
+Mousseau, Matthew: 8 \\\end{column}
+\begin{column}{0.33\textwidth}
+Neuman, Evan: 13 \\ 
+Putnam, John: 8 \\ 
+Ramos, Vydel: 7 \\ 
+Rathbun, Jedidiah: 1 \\ 
+Roberts, Matthew: 9 \\ 
+Roller, Nathan: 7 \\ 
+Ryan, Otis: 4 \\ 
+Shevtsov, Timothy: 6 \\ 
+Sinclair, Aidan: 5 \\ 
+Stensland, Emma: 12 \\ 
+Thiessen, Logan: 4 \\ 
+Thompson, Jaiden: 1 \\ 
+Vath, Ethan: 10 \\\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Group exercises}
+\begin{enumerate}
+	\item Use proof by smallest counterexample to show that $n < 2^n$ for all $n \in \mathbb{N}$.  
+	\item Use proof by smallest counterexample to show that 
+	\[ 1+2+3+ \cdots + n = \half n^2 + \half n\]
+	for all positive integers $n$.
+\end{enumerate}
+
+\end{frame}
+
+
+
+\begin{frame}{Solution to group exercise \#1}
+\small 
+\colorbox{red!30}{\textbf{Problem.}}  Use proof by smallest counterexample to show that $n < 2^n$ for all $n \in \mathbb{N}$.
+\vfill 
+\colorbox{green!30}{\textbf{Solution.}}  Suppose, for the sake of contradiction, that the statement is false.  Let $X \subseteq \mathbb{N}$ be the set of counterexamples to the statement.   Since we have supposed the statement is false, $X \neq \emptyset$.  So by the Well Ordering Principle, $X$ contains a smallest element, $\leastElement$.  \\
+\vspace{.25cm}
+\textit{(Basis step)}. We know that $\leastElement> 0$ since $0 < 2^0 = 1$. 
+
+Since $\leastElement>0$, the statement must be true for $\leastElement-1$; that is:
+\[\leastElement-1 < 2^{\leastElement-1} \]
+But
+\begin{align*}
+\leastElement-1 &< 2^{\leastElement-1} 	 \\
+\implies \leastElement &<2^{\leastElement-1} + 1 \\
+\implies \leastElement &< (2^{\leastElement-1}) 2 \\
+\implies \leastElement &<2^\leastElement.
+\end{align*}
+%
+So the statement is true for $\leastElement$. \; $\Rightarrow\Leftarrow$.
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#2}
+\footnotesize  
+
+\colorbox{red!30}{\textbf{Problem.}}  Use proof by smallest counterexample to show that $1+2+3+ \cdots + n = \half n^2 + \half n$ for all positive integers $n$.
+
+\vfill 
+\colorbox{green!30}{\textbf{Solution.}}  Suppose, for the sake of contradiction, that the statement is false.  Let $X \subseteq \mathbb{N}$ be the set of counterexamples to the statement.   Since we have supposed the statement is false, $X \neq \emptyset$.  So by the Well Ordering Principle, $X$ contains a smallest element, $\leastElement$.  \\
+\vspace{.25cm}
+\textit{(Basis step)}.  We know that $\leastElement > 1$ since $1 = \half \cdot 1^2 + \half \cdot 1$.   
+
+Since $\leastElement>1$, the statement must be true for $\leastElement-1$; that is:
+\[  1+2+3+ \cdots + \leastElement-1 = \half (s-1)^2 + \half (s-1) \] 
+
+So, adding $s$ to the LHS and RHS, we have 
+
+\begin{align*}
+1+2+3+ \cdots + \leastElement-1 + \red{s}  &= \half (s-1)^2 + \half (s-1) + \red{s} \\
+&= \half (s^2 - 2s + 1) + \half s - \half +s \\
+&=\half s^2 + \cancel{-s} + \cancel{\half}  + \half s + \cancel{-\half} + \cancel{s} \\
+&= \half s^2 + \half s 
+\end{align*}
+%
+So the statement is true for $\leastElement$. \; $\Rightarrow\Leftarrow$.
+\end{frame}
+
+\begin{frame}[standout]
+Appendix 
+\end{frame}
+
+
+\begin{frame}
+\footnotesize 
+
+\begin{mybluebox}[title=\text{Optional Remark About Group Exercise \#2}]
+In class,  group exercise \# 2 was presented slightly differently as:
+
+\vspace{.5cm}
+
+\textit{Use proof by smallest counterexample to show that $1+2+3+ \cdots + n = \binom{n+1}{2}$ for all positive integers $n$.} 
+
+\vspace{.5cm}
+
+However, note that
+\[\binom{n+1}{2} = \frac{(n+1)!}{2! (n-1)!} = \frac{(n+1)n }{2} = \half n^2 + \half n \]
+ 
+\vspace{.5cm}
+ 
+So the original version simplifies to the current version.
+
+\end{mybluebox}
+\end{frame}
+
+ 
+%\[\binom{n+1}{2} = \frac{(n+1)!}{2! (n-1)!} = \frac{(n+1) n }{2} = \half n^2 + \half n \qquad \scriptcircled{*}\] 
+%\vfill 
+%\colorbox{green!30}{\textbf{Solution.}}  Suppose, for the sake of contradiction, that the statement is false.  Let $X \subseteq \mathbb{N}$ be the set of counterexamples to the statement.   Since we have supposed the statement is false, $X \neq \emptyset$.  So by the Well Ordering Principle, $X$ contains a smallest element, $\leastElement$.  \\
+%\vspace{.25cm}
+%\textit{(Basis step)}.  We know that $\leastElement \neq 1$ since $1 = \binom{2}{2}$.  
+%
+%Since $\leastElement>1$, the statement must be true for $\leastElement-1$; that is:
+%\[  1+2+3+ \cdots + \leastElement-1 = \binom{\leastElement}{2} = \frac{\leastElement!}{2!(\leastElement-2)!} = \half (\leastElement)(\leastElement-1) = \half \leastElement^2- \half \leastElement. \] 
+%Now adding $\leastElement$ to the LHS and RHS, we get
+%\[ 1+2+3+ \cdots + \leastElement = \half \leastElement^2 + \half \leastElement \stackrel{By \; \scriptcircled{*}}{=} \binom{\leastElement+1}{2}  \] 
+%
+%So the statement is true for $\leastElement$. \; $\Rightarrow\Leftarrow$.
+
+
 \end{document}
