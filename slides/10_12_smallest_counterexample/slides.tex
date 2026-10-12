@@ -396,16 +396,24 @@ Vath, Ethan: 10 \\\end{column}
 \textit{(Basis step)}. We know that $\leastElement> 0$ since $0 < 2^0 = 1$. 
 
 Since $\leastElement>0$, the statement must be true for $\leastElement-1$; that is:
-\[\leastElement-1 < 2^{\leastElement-1} \]
-But
+%\[\ \]
+%But
+%\begin{align*}
+%\leastElement-1 &< 2^{\leastElement-1} 	 \\
+%\implies \leastElement &<2^{\leastElement-1} + 1 \\
+%\implies \leastElement &< (2^{\leastElement-1}) 2 \\
+%\implies \leastElement &<2^\leastElement.
+%\end{align*}
+%
 \begin{align*}
-\leastElement-1 &< 2^{\leastElement-1} 	 \\
-\implies \leastElement &<2^{\leastElement-1} + 1 \\
-\implies \leastElement &< (2^{\leastElement-1}) 2 \\
-\implies \leastElement &<2^\leastElement.
+\leastElement-1 &< 2^{\leastElement-1} \\
+\intertext{But then} 
+\leastElement &< 2^{\leastElement-1} + 1 && \text{(add 1 to both sides)} \\
+&\leq 2^{\leastElement-1} + 2^{\leastElement-1} && \text{(since } 1 \leq 2^{\leastElement-1} \text{, because } \leastElement - 1 \geq 0) \\
+&= 2^{\leastElement}.
 \end{align*}
 %
-So the statement is true for $\leastElement$. \; $\Rightarrow\Leftarrow$.
+So $s < 2^s$. So the statement is true for $\leastElement$. \; $\Rightarrow\Leftarrow$.
 \end{frame}
 
 
