@@ -510,8 +510,8 @@ There is also a \alert{strong} version.
 Let $A$ be a set of natural numbers. If
 \begin{itemize}
 	\item $0 \in A$, and 
-	\only<2>{\item $\forall k \in \mathbb{N}, \; \set{0,1,2,\cdots, k} \in A \implies k+1 \in A$}
-	\only<3->{\item $\forall k \in \mathbb{N}, \; \alert{\set{0,1,2,\cdots, k} \in A} \implies k+1 \in A$}
+	\only<2>{\item $\forall k \in \mathbb{N}, \; \set{0,1,2,\cdots, k} \subset A \implies k+1 \in A$}
+	\only<3->{\item $\forall k \in \mathbb{N}, \; \alert{\set{0,1,2,\cdots, k} \subset A} \implies k+1 \in A$}
 \end{itemize}
 then $A=\mathbb{N}$.
 \end{mygreenbox}
@@ -561,16 +561,14 @@ def factorial(n):
         return 1
     else:
         return n * factorial(n - 1)
-
-print(factorial(5))
 \end{python}
 %}
 \pause 
 \item \textbf{Analyzing algorithm complexity:} To determine the complexity -- e.g. $\mathcal{O}(n \log n)$ -- of recursive algorithms (like mergesort, quicksort, binary search),  we often use induction on  $n$.
 \pause 
 \item \textbf{Proving properties of data structures:} Many structures (like linked lists, binary trees, heaps, etc.) are defined inductively.
-\pause 
-\item \textbf{Proving correctness of loops}: You show that some property holds before the loop. Then show if it holds at one iteration, it still holds at the next. 
+%\pause 
+%\item \textbf{Proving correctness of loops}: You show that some property holds before the loop. Then show if it holds at one iteration, it still holds at the next. 
 \end{enumerate}
 \end{frame}
 
