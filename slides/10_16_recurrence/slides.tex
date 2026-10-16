@@ -90,6 +90,30 @@ Quiz retakes are in the front of the room, grouped into four bins (A-G, H-L, M-R
 \end{frame}
 
 
+
+\begin{frame}
+
+ \begin{myredbox}[title=\text{Weekly Quiz \#6}] 
+\begin{enumerate}
+	\item \textit{(Sec. 17 -- Binomial Coefficients)} Evaluate $\binom{5}{0}, \binom{5}{1}$ and $\binom{5}{2}$.
+	
+	\item \textit{(Sec. 20 -- Contradiction and contraposition.)}   Prove by contraposition that if $n^2$ is even, then $n$ is even. 
+ 
+	\item \textit{(Extra credit opportunity: You will get 10\% extra credit on your midterm if you can answer this proof question \underline{perfectly.})}   Let $x$ be an integer. Prove that $0 \mid x$ if and only if $x=0$.
+\end{enumerate}
+\end{myredbox}
+\vfill 
+\begin{mygreenbox}[title=\text{Reference Material: Definition}]
+Let $n,k \in \mathbb{N}$.  The symbol $\binom{n}{k}$ denotes the number of $k$-element subsets of an $n$-element set.
+\end{mygreenbox}
+
+%\vfill 
+%\begin{mygreenbox}[title=\text{Reference Material: Beginning of Proof by Well-Ordering Principle} }]
+%Suppose, for the sake of contradiction, that the statement is false.  Let $X \subseteq \mathbb{N}$ be the set of counterexamples to the statement. Since we have suppp
+%\end{mygreenbox}
+
+\end{frame}
+
 \begin{frame}[standout]
 Mini-lecture on recurrence
 \end{frame}
@@ -377,6 +401,290 @@ Thm 23.17 shows how to find a polynomial expression to generate the first few te
 \begin{frame}[standout]
 Group exercises
 \end{frame}
+
+\begin{frame}{Random group assignments}
+\begin{columns}
+\begin{column}{0.33\textwidth}
+Ashley, Isabelle: 7 \\ 
+Bailey, Tanna: 11 \\ 
+Blaisdell, Olyver: 12 \\ 
+Brown, Ashton: 4 \\ 
+Brown, Jonathan: 5 \\ 
+Cardenas, Dominic: 3 \\ 
+Cutler, George: 12 \\ 
+Fabik, Roland: 9 \\ 
+Fellows, Audrey: 2 \\ 
+Fitzgerald, Ryan: 10 \\ 
+Fuller, Ryan: 10 \\ 
+Griffen, Clara: 8 \\ 
+Grutsch, Tanner: 7 \\\end{column}
+\begin{column}{0.33\textwidth}
+Hager, Nathan: 9 \\ 
+Horner, Jayden: 5 \\ 
+Johnson, Jaret: 11 \\ 
+Kintzel, Samantha: 1 \\ 
+Lameres, Alexis: 6 \\ 
+Lee, Holden: 1 \\ 
+Mayala, Reece: 8 \\ 
+McLean, Connor: 10 \\ 
+Mcbride, Daniel: 7 \\ 
+Miller, Maverick: 6 \\ 
+Moss, Emily: 13 \\ 
+Mousseau, Matthew: 2 \\\end{column}
+\begin{column}{0.33\textwidth}
+Neuman, Evan: 11 \\ 
+Putnam, John: 8 \\ 
+Ramos, Vydel: 4 \\ 
+Rathbun, Jedidiah: 5 \\ 
+Roberts, Matthew: 12 \\ 
+Roller, Nathan: 3 \\ 
+Ryan, Otis: 13 \\ 
+Shevtsov, Timothy: 1 \\ 
+Sinclair, Aidan: 9 \\ 
+Stensland, Emma: 6 \\ 
+Thiessen, Logan: 2 \\ 
+Thompson, Jaiden: 3 \\ 
+Vath, Ethan: 4 \\\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Group exercises}
+\begin{enumerate} 
+	\item Solve the Tower of Hanoi recursion.
+	\vfill \vfill
+	\item Solve each of the following recurrence relations by giving an explicit formula for $a_n$.  For each, please calculate $a_9$.
+	\vspace{.5cm}
+	\begin{tabular}{cll}
+	\toprule 
+	\textbf{Problem} & \textbf{Recurrence relation} & \textbf{Initial condition} \\
+	\midrule 
+	1a. & $a_n = 3 a_{n-1} -1$ & $ a_0=10$ \\
+	1b. &  $a_n = a_{n-1} + 5$ & $  a_0=10$ \\
+	1c. & $a_n = 8 a_{n-1} - 15a_{n-2}$ & $a_0=1, \; a_1=4$ \\
+	1d. & $a_n = 4 a_{n-1} -4 a_{n-2}$ & $a_0=5, \; a_1=1$ \\
+	\bottomrule
+	\end{tabular}
+	\vfill \vfill 
+	\item Some so-called intelligence tests often include problems in which a series of numbers is presented and the subject is required to find the next term of the sequence.  For example, the sequence might begin 1,2,4,8.  No doubt the examiner is looking for 16 as the next term. \\
+	\vspace{.25cm}
+	Show how to \enquote{outsmart} the intelligence test by finding a polynomial expression (of degree 3) for $a_n$ such that $a_0=1, a_1=2, a_2=4, a_3=8$, but $a_4=15$.
+
+\end{enumerate}
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{Solution to group exercise \#1}
+\footnotesize 
+ 
+\colorbox{red!30}{\textbf{Problem.}} Solve the Tower of Hanoi recursion.  
+\vfill 
+
+\colorbox{blue!30}{\textbf{Remark.}} Recall that the Tower of Hanoi recursion is 
+\begin{align}
+m_k = 2 m_{k-1} + 1,
+\label{eq:hanoi_recursion}	
+\end{align}
+
+where $m_k$ is the minimum number of moves needed to transfer a tower of $k$ disks from one pole to another. 
+\vfill 
+
+\colorbox{green!30}{\textbf{Solution.}} By Prop 23.1, we know the solution satisfies
+\begin{align}
+ m_k = c_1 2^k + c_2
+ \label{eq:hanoi_solution}	
+\end{align}
+
+for some constants $c_1, c_2$.  From the structure of the Tower of Hanoi problem, we have the initial condition $m_1=1$. Propagating this through the recursion in \Eqref{eq:hanoi_recursion}, we obtain $m_2=3$.  By substitution into the form of the solution in \Eqref{eq:hanoi_solution}, we obtain
+%
+\begin{align*}
+1 &= 2c_1 + c_2 \\
+3 &= 4c_1 + c_2	
+\end{align*}
+%
+Solving this system of equations yields $c_1=1, c_2=-1$, and so
+\[m_k = 2^k - 1.\]
+
+\end{frame}
+
+
+
+\begin{frame}{Solution to group exercise \#2: Overview}
+\footnotesize 
+Group exercise \#1 asks us to deduce explicit formulas for $a_n$ from recurrence relations.  
+
+\vfill 
+
+\colorbox{green!30}{\textbf{First Order Recurrence.}} A first order recurrence takes the form
+\[ a_n = s a_{n-1}+ t\]
+The explicit solution depends on the context 
+\[
+\begin{array}{cccccc}
+\textbf{Context} && \textbf{Solution} && \textbf{Justification} \\
+\text{If } s \neq 1 & & a_n = c_1 s^n + c_2 && \text{Prop 23.1} \\
+\text{If } s =1 & & a_n = a_0 + nt && \text{Prop 23.3} 
+\end{array}
+\]
+
+\vfill 
+
+\colorbox{green!30}{\textbf{Second Order Recurrence.}}  A second order recurrence takes the form
+\[ a_n = s_1 a_{n-1} + s_2 a_{n-2} \]
+The explicit solution depends on the context. First, we solve the quadratic formula $x^2 - s_1 x - s_2 =0$ to find roots $r_1$ and $r_2$.
+\[
+\begin{array}{cccccc}
+\textbf{Context} && \textbf{Solution} && \textbf{Justification} \\
+\text{If } r_1 \neq r_2  & & a_n = c_1 r_1^n + c_2 r_2^n && \text{Thm 23.5} \\
+\text{If } r_1 = r_2 \defeq r & & a_n = c_1 r^n + c_2 n r^n && \text{Thm 23.9} 
+\end{array}
+\]
+
+\vfill 
+
+\colorbox{red!30}{\textbf{Remark.}} Whenever the solution involves unknown constants (denoted $c_1$ and $c_2$), you must solve for them. You do this by plugging in the first two values for the sequence ($a_0$ and $a_1$) along with other known values (some subset of $\set{s^n, t, r_1^n, r_2^n, r^n, nr^n}$) to form a system of two equations with two unknowns.  Then solve the system (e.g. using substitution).   
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#2a}
+
+\colorbox{red!30}{\textbf{Problem.}} Solve the recurrence relation $a_n = 3 a_{n-1} -1$ with initial condition $a_0=10$ to give an explicit formula for $a_n$. 
+
+\vfill 
+	
+\colorbox{green!30}{\textbf{Solution.}} By Prop 23.1, the solution takes the form 
+%
+\begin{align*}
+a_n &= c_1 s^n + c_2 \\
+\implies a_n &= c_1 \cdot 3^n + c_2
+\end{align*}
+%
+Substituting in the provided initial condition $a_0=10$ and the next term of the sequence $a_1 =29$, we obtain the system of equations
+%
+\begin{align*}
+10 &= c_1 + c_2 \\
+29 &= 3c_1 + c_2
+\end{align*}
+%
+Solving this system yields $c_1 = 9.5$ and $c_2 = 0.5$.  Hence, the final solution is
+\[ a_n = 9.5 \cdot 3^n + 0.5 \]
+
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#2b}
+
+\colorbox{red!30}{\textbf{Problem.}} Solve the recurrence relation  $a_n = a_{n-1} + 5$  with initial condition $a_0=10$ to give an explicit formula for $a_n$. 
+
+\vfill 
+	
+\colorbox{green!30}{\textbf{Solution.}} By Prop 23.2, the solution takes the form 
+%
+\begin{align*}
+a_n = a_0 + nt
+\end{align*}
+%
+Substituting in the provided initial condition $a_0=10$ and the given $t=5$, we obtain the final solution 
+\[ a_n = 10 + 5n \]
+
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#2c}
+\footnotesize
+\colorbox{red!30}{\textbf{Problem.}} Solve the recurrence relation $a_n = 8 a_{n-1} - 15a_{n-2}$  with initial conditions $a_0=1$ and $a_1=4$ to give an explicit formula for $a_n$. 
+\vfill  \vfill 
+\colorbox{green!30}{\textbf{Solution.}} First, we solve the quadratic formula 
+%
+\begin{align*}
+& x^2 - s_1 x - s_2 =0  \\
+\implies & x^2 - 8 x + 15 =0  \\
+\implies & (x-5)(x-3) =0  
+\end{align*}
+%
+Hence the roots are $r_1=5$ and $r_2=3$.  Since these roots are distinct, we apply Thm 23.5, which tell us that the solution takes the form 
+%
+\begin{align*}
+a_n &= c_1 r_1^n + c_2 r_2^n \\
+\implies a_n &= c_1 5^n + c_2 3^n 
+\end{align*}
+%
+Substituting in the provided initial conditions  $a_0=1$ and $a_1=4$, we obtain the system of equations
+%
+\begin{align*}
+1 &= c_1 + c_2 \\
+4 &= 5c_1 + 3c_2
+\end{align*}
+%
+Solving this system yields $c_1 = \half$ and $c_2 = \half$.  Hence, the final solution is
+\[ a_n = \half \cdot  5^n + \half \cdot 3^n  \]
+
+
+\end{frame}
+
+\begin{frame}{Solution to group exercise \#2d}
+\footnotesize
+\colorbox{red!30}{\textbf{Problem.}} Solve the recurrence relation $a_n = 4 a_{n-1} -4 a_{n-2}$  with initial conditions $a_0=5$ and $a_1=1$ to give an explicit formula for $a_n$. 
+\vfill  \vfill 
+\colorbox{green!30}{\textbf{Solution.}} First, we solve the quadratic formula 
+%
+\begin{align*}
+& x^2 - s_1 x - s_2 =0  \\
+\implies & x^2 - 4 x + 4 =0  \\
+\implies & (x-2)(x-2) =0  
+\end{align*}
+%
+Hence the roots are $r_1=2$ and $r_2=2$.  Since these roots are identical, we apply Thm 23.9, which tell us that the solution takes the form 
+%
+\begin{align*}
+a_n &= c_1 r^n + c_2 n r^n \\
+\implies a_n &= c_1 2^n + c_2 n 2^n 
+\end{align*}
+%
+Substituting in the provided initial conditions  $a_0=5$ and $a_1=1$, we obtain the equations
+%
+\begin{align*}
+5 &= c_1  \\
+1 &= 2c_1 + 2c_2
+\end{align*}
+%
+Solving these equations yields $c_1 = 5$ and $c_2 = -4.5$.  Hence, the final solution is
+\[ a_n = 5 \cdot  2^n -4.5 \cdot n 2^n  \]
+
+
+\end{frame}
+
+
+\begin{frame}{Solution to group exercise \#3}
+\small 
+\colorbox{red!30}{\textbf{Problem.}} [...] Show how to \enquote{outsmart} the intelligence test by finding a polynomial expression (of degree 3) for $a_n$ such that $a_0=1, a_1=2$, $a_2=4, a_3=8$, but $a_4=15$. \\
+\vfill 
+\colorbox{green!30}{\textbf{Solution.}} We apply Scheinerman Theorem 23.17.
+\vspace{-.25cm}
+\[
+\begin{array}{ccccccccccc}
+a:& & 1 &     & 2 &     & 4 &     & 8 &  &15 \\
+\Delta a:& &  & 1    &  & 2    &  &  4   &  & 7  & \\
+\Delta^2 a:& &  &     & 1 &     & 2 &     &  3 &   & \\
+\Delta^3 a:& &  &     &  &  1   & &   1  &   &   & \\
+\Delta^4 a:& &  &     &  &     & 0 &     &   &   & \\
+\end{array}
+\]
+Hence $k=3$ and 
+%
+\begin{align*}
+a_n &= a_0 \binom{n}{0} +	\Delta a_0 \binom{n}{1} + 		\Delta^2 a_0 \binom{n}{2} + 		\Delta^3 a_0 \binom{n}{3} \\
+&= 1 \binom{n}{0} +	1  \binom{n}{1} + 		1 \binom{n}{2} + 		1 \binom{n}{3} && \scripttext{(Substitute coefs from table)} \\
+&= \big[1 \cdot 1\big] +	 \big[1 \cdot n\big]  + 		\big[1 \cdot \frac{n (n-1)}{2}\big] + 		\big[1 \cdot \frac{n (n-1) (n-2)}{6}\big] && \scripttext{(Expand binomial coefs.)} \\
+&= \frac{1}{6} n^3 + \frac{5n}{6} + 1 && \scripttext{(Algebra)}
+\end{align*}
+
+
+\end{frame}
+
 
 
 \end{document}
