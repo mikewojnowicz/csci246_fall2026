@@ -368,23 +368,6 @@ where $r_1, r_2$ are roots of $x^2 - s_1x - s_2 =0$.
 %\end{frame}
 
 
-\begin{frame}{Fun Note: Recurrences are discrete-time differential equations}
-\footnotesize
-\begin{tabular}{@{}l l l@{}}
- & \textbf{Continuous time} (differential eq.) & \textbf{Discrete time} (recurrence) \\
- & $x'(t) = k\,x(t)$ \; $\Rightarrow$ \; $x(t) = x(0)\,e^{kt}$ & $a_n = s\,a_{n-1}$ \; $\Rightarrow$ \; $a_n = a_0\, s^n$ \\
-\end{tabular}
-
-\vspace{.1cm}
-Below, each coordinate of obeys $a_n = 1.6\, a_{n-1} - 0.8\, a_{n-2}$, which gives \textbf{spirals}.
-
-\begin{center}
-\transduration<2-24>{0.3}
-\foreach \f [count=\s] in {00,01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}{%
-  \only<\s>{\includegraphics[width=0.82\textwidth]{images/vector_field/frame_\f.png}}%
-}
-\end{center}
-\end{frame}
 
 
 \begin{frame}{Most important results from the textbook -- Part 2}
@@ -396,6 +379,25 @@ Thm 23.17 shows how to find a polynomial expression to generate the first few te
 \includegraphics[width=\textwidth]{images/theorem.png}	
 \end{center}
 	
+\end{frame}
+
+
+\begin{frame}{Fun Note: Recurrences are discrete-time differential equations}
+\footnotesize
+\begin{tabular}{@{}l l l@{}}
+ & \textbf{Continuous time} (differential eq.) & \textbf{Discrete time} (recurrence) \\
+ & $x'(t) = k\,x(t)$ \; $\Rightarrow$ \; $x(t) = x(0)\,e^{kt}$ & $a_n = s\,a_{n-1}$ \; $\Rightarrow$ \; $a_n = a_0\, s^n$ \\
+\end{tabular}
+
+\vfill 
+Below, each coordinate obeys $a_n = 1.6\, a_{n-1} - 0.8\, a_{n-2}$, which gives \textbf{spirals}.
+
+\begin{center}
+\transduration<2-24>{0.3}
+\foreach \f [count=\s] in {00,01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}{%
+  \only<\s>{\includegraphics[width=0.82\textwidth]{images/vector_field/frame_\f.png}}%
+}
+\end{center}
 \end{frame}
 
 \begin{frame}[standout]
