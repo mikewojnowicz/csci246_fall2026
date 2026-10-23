@@ -667,7 +667,7 @@ Show by induction that $n^2-n$ is even for any natural number $n$ (that is, for 
 
 \vspace{0.5cm}
 
-\textbf{Induction step.} Now we \underline{assume} the proposition holds at index $k$ (this is called the \alert{induction hypothesis}), and we \underline{need to show} it holds at index $k+1$.  That is, we assume $k^2-k$ is even, and we need to show that $(k+1)^2-(k+1)$ is even.  We have
+\textbf{Induction step.} Now we \underline{assume} the proposition holds at index $k \geq 0$ (this is called the \alert{induction hypothesis}), and we \underline{need to show} it holds at index $k+1$.  That is, we assume $k^2-k$ is even, and we need to show that $(k+1)^2-(k+1)$ is even.  We have
 %
 \begin{align*}
 (k+1)^2-(k+1) &= (k^2+2k+1) - (k+1) \\
@@ -692,7 +692,7 @@ Hence, $k^2-k$ is even $\implies (k+1)^2-(k+1)$ is even.
 
 \vspace{0.5cm}
 
-\textbf{Induction step.} Now we \underline{assume} the proposition holds at index $k$ (this is called the \alert{induction hypothesis}), and we \underline{need to show} it holds at index $k+1$.  That is, we \underline{assume} $2^k<k!$ (this is called the \alert{induction hypothesis}), and we \underline{need to show} $2^{k+1}<(k+1)!$ We have
+\textbf{Induction step.} Now we \underline{assume} the proposition holds at index $k \geq 4$ (this is called the \alert{induction hypothesis}), and we \underline{need to show} it holds at index $k+1$.  That is, we \underline{assume} $2^k<k!$ (this is called the \alert{induction hypothesis}), and we \underline{need to show} $2^{k+1}<(k+1)!$ We have
 %
 \begin{align*}
 2^{k+1} &= 2 \cdot 2^k \\
@@ -719,7 +719,7 @@ Show by induction that $f_0 + \cdots + f_n = f_{n+2} -1$ in the Fibonacci sequen
 
 \vspace{0.25cm}
 
-\textbf{Induction step.} Now we \underline{assume} the proposition holds at index $k$ (this is called the \alert{induction hypothesis}), and we \underline{need to show} it holds at index $k+1$.  That is, we assume $f_0 + \cdots + f_k = f_{k+2} -1$, and we need to show that $f_0 + \cdots + f_{k+1} = f_{k+3} -1$.  We have
+\textbf{Induction step.} Now we \underline{assume} the proposition holds at index $k \geq 0$ (this is called the \alert{induction hypothesis}), and we \underline{need to show} it holds at index $k+1$.  That is, we assume $f_0 + \cdots + f_k = f_{k+2} -1$, and we need to show that $f_0 + \cdots + f_{k+1} = f_{k+3} -1$.  We have
 %
 \begin{align*}
 f_0 + \cdots + f_{k+1} &= (f_0 + \cdots + f_k) + f_{k+1} \\
@@ -745,7 +745,7 @@ Show by induction that $f_n < 2^n$ in the Fibonacci sequence.
 
 \vspace{0.25cm}
 
-\textbf{Induction step.} Here we use strong induction. We \underline{assume} the proposition holds at indices $1, 2, \hdots k$ (this is the \alert{(strong) induction hypothesis}), and we \underline{need to show} it holds at index $k+1$.  That is, we assume $f_j < 2^j$ for $j=1,\hdots, k$, and we need to show that $f_{k+1} < 2^{k+1}$.  We have
+\textbf{Induction step.} Here we use strong induction. We \underline{assume} the proposition holds at indices $0,1, \hdots, k$ for $k \geq 0$ (this is the \alert{(strong) induction hypothesis}), and we \underline{need to show} it holds at index $k+1$.  That is, we assume $f_j < 2^j$ for $j=0,1,\hdots, k$, and we need to show that $f_{k+1} < 2^{k+1}$.  We have
 %
 \begin{align*}
 f_{k+1} &= f_k + f_{k-1} && \scripttext{(by def. Fibonacci number)}	\\
