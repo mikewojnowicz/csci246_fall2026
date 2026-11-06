@@ -427,7 +427,7 @@ for i in range(3, n):
       \vspace{.2cm}
 	\begin{python}[basicstyle=\ttfamily\tiny, numbers=none, columns=fullflexible, keepspaces=true]
 	for k in range(1,n):
-		for j in range(1, k):
+		for j in range(1, k+2):
     		x = a[k] + b[j]
 	\end{python}
 \end{minipage}
@@ -481,8 +481,8 @@ for i in range(3, n):
 \footnotesize 
 
 	\begin{python}[basicstyle=\ttfamily\normalsize, numbers=none]
-	for k in range(1,n):
-		for j in range(1, k):
+	for k in range(1,n):  #k=1,2,...,n-1
+		for j in range(1, k+2): #j=1,2,...,k+1
     		x = a[k] + b[j]
 	\end{python}
 \vfill 
