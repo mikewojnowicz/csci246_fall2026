@@ -276,6 +276,56 @@ P(\mathcal{I} \cond \mathcal{P}) = \frac{P(\mathcal{I} \cap \mathcal{P})}{P(\mat
 \end{frame}
 
 
+
+\begin{frame}{Bayes Rule}
+\small
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+
+\colorbox{yellow!30}{\textbf{Poll.}} Is $P(A \mid B)$ always equal to $P(B \mid A)$?  Justify your answer.
+
+\vfill
+\only<2->{
+\colorbox{blue!30}{\textbf{Example.}} Let $A$ = \qq{it's below 40\textdegree F} and $B$ = \qq{it's snowing}.  What is each conditional probability?
+}
+
+\only<3->{
+$P(A \mid B) \approx 100\%$, \pause but $P(B \mid A) \approx 9\%$. {\footnotesize (Bozeman airport, hourly observations, 2015--2024)}
+}
+
+\vfill
+
+\only<4->{\colorbox{red!30}{\textbf{But people treat them as equal!}}  Let $A$ = \qq{data at least this extreme} and $B$ = \qq{the null hypothesis is true}.  A p-value is $P(A \mid B)$, but is often read as $P(B \mid A)$.}  \only<5->{This helps explain the replication crisis: Amgen scientists confirmed only 6 of 53 landmark cancer studies.}
+
+\vfill
+\only<6->{
+\colorbox{yellow!30}{\textbf{Question.}} How do we convert from one to the other?}
+
+\only<7->{
+\colorbox{green!30}{\textbf{Bayes' rule!}}
+\[ P(A \mid B) = \frac{P(B \mid A)\,P(A)}{P(B)} \]
+}
+
+%\[ \alt<11->{P(\text{Hypothesis} \mid \text{Data}) = \frac{P(\text{Data} \mid \text{Hypothesis})\,P(\text{Hypothesis})}{P(\text{Data})}}{P(A \mid B) = \frac{P(B \mid A)\,P(A)}{P(B)}} \]
+
+\only<8-9>{
+\colorbox{yellow!30}{\textbf{Question.}} Where does this come from?} \only<9-9>{Apply the definition of conditional probability twice.}
+
+\only<10-11>{
+\colorbox{yellow!30}{\textbf{Question.}} How does this apply to the weather example?}
+\only<11>{
+\[P(\text{snow} \mid \text{below 40\textdegree F}) = \frac{P(\text{below 40\textdegree F} \mid \text{snow})\,P(\text{snow})}{P(\text{below 40\textdegree F})} = \frac{(1.00)(0.038)}{0.436} \approx 9\% \]
+}
+
+\only<12-13>{
+\colorbox{yellow!30}{\textbf{Question.}} How does this apply to the science example?}
+\only<13>{
+\[P(\text{Hypothesis} \mid \text{Data}) = \frac{P(\text{Data} \mid \text{Hypothesis})\,P(\text{Hypothesis})}{P(\text{Data})}  \]
+}
+
+\end{frame}
+
+
 \begin{frame}{Monte Hall Problem}
 \small 
 \begin{center}
@@ -287,9 +337,9 @@ There are three doors on the set for a game show. Behind one door is a car and b
 
 You get to pick a door to open. The host of the show then opens one of the other doors and reveals a goat.  What should you do if you want to maximize your chance of winning the car: stay with your original door  or switch -- or would the likelihood of winning be the same either way?
 \vfill \vfill 
-%\pause 
-%\colorbox{yellow!50}{Try it!} \quad 
-%\scriptsize  \url{https://www.mathwarehouse.com/monty-hall-simulation-online/}
+\pause 
+\colorbox{yellow!50}{Try it!} \quad 
+\scriptsize  \url{https://www.mathwarehouse.com/monty-hall-simulation-online/}
 \end{frame}
 
 \begin{frame}{Solution to Monte Hall Problem}
@@ -309,38 +359,85 @@ We can perform repeated experiments (on a computer or in vivo), and find that th
 \end{frame}
 
 
-\begin{frame}
-\small
-\begin{mybluebox}[title=\text{The Monty Hall Problem}]
-A car is behind one of three doors, goats behind the others.  You pick door 1; the host, who knows where the car is, opens door 3 to show a goat.  Should you switch to door 2?
-\end{mybluebox}
+%\begin{frame}
+%\small
+%\begin{mybluebox}[title=\text{The Monty Hall Problem}]
+%A car is behind one of three doors, goats behind the others.  You pick door 1; the host, who knows where the car is, opens door 3 to show a goat.  Should you switch to door 2?
+%\end{mybluebox}
+%
+%\onslide<2->{
+%\colorbox{green!30}{\textbf{Solution.}}
+%Let $C_i$ = \qq{car is behind door $i$} and $H_3$ = \qq{host opens door 3}.
+%}
+%
+%\[
+%\renewcommand{\arraystretch}{1.1}
+%\begin{array}{lccc}
+%\uncover<3->{ & C_1 & C_2 & C_3 \\ \hline}
+%\uncover<3->{P(C_i)} & \uncover<3->{\frac13} & \uncover<3->{\frac13} & \uncover<3->{\frac13} \\
+%\uncover<4->{P(H_3 \mid C_i)} & \uncover<5->{\frac12} & \uncover<6->{1} & \uncover<7->{0} \\
+%\uncover<8->{P(H_3 \cap C_i) = P(H_3 \mid C_i)\,P(C_i)} & \uncover<9->{\frac16} & \uncover<10->{\frac13} & \uncover<11->{0}
+%\end{array}
+%\]
+%%\onslide<4->{{\footnotesize (The host picks door 2 or 3 at random if the car is behind door 1, must pick door 3 if it's behind door 2, and never reveals the car.)}}
+%
+%\onslide<12->
+%Since the $C_i$ are disjoint, $P(H_3) = P(H_3 \cap C_1) + P(H_3 \cap C_2) + P(H_3 \cap C_3) = \frac16 + \frac13 + 0 = \frac12$.  
+%
+%Hence
+%\[ P(C_2 \mid H_3) = \frac{P(C_2 \cap H_3)}{P(H_3)} = \frac{1/3}{1/2} = \alert{\frac23}
+%   \quad \text{and} \quad
+%   P(C_1 \mid H_3) = \frac{1/6}{1/2} = \frac13. \]
+%
+%\onslide<13->
+%\textbf{Answer.} Switch!  Switching wins $\frac23$ of the time; staying wins only $\frac13$.
+%\end{frame}
 
-\onslide<2->{
-\colorbox{green!30}{\textbf{Solution.}}
-Let $C_i$ = \qq{car is behind door $i$} and $H_3$ = \qq{host opens door 3}.
-}
 
-\[
-\renewcommand{\arraystretch}{1.1}
-\begin{array}{lccc}
-\uncover<3->{ & C_1 & C_2 & C_3 \\ \hline}
-\uncover<3->{P(C_i)} & \uncover<3->{\frac13} & \uncover<3->{\frac13} & \uncover<3->{\frac13} \\
-\uncover<4->{P(H_3 \mid C_i)} & \uncover<5->{\frac12} & \uncover<6->{1} & \uncover<7->{0} \\
-\uncover<8->{P(H_3 \cap C_i) = P(H_3 \mid C_i)\,P(C_i)} & \uncover<9->{\frac16} & \uncover<10->{\frac13} & \uncover<11->{0}
-\end{array}
-\]
-%\onslide<4->{{\footnotesize (The host picks door 2 or 3 at random if the car is behind door 1, must pick door 3 if it's behind door 2, and never reveals the car.)}}
+\begin{frame}{The Monty Hall Problem}
+\footnotesize
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
 
-\onslide<12->
-Since the $C_i$ are disjoint, $P(H_3) = P(H_3 \cap C_1) + P(H_3 \cap C_2) + P(H_3 \cap C_3) = \frac16 + \frac13 + 0 = \frac12$.  
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.58\textwidth}
+For concreteness, let's assume we pick door 1 and the host opens door 3.
 
-Hence
-\[ P(C_2 \mid H_3) = \frac{P(C_2 \cap H_3)}{P(H_3)} = \frac{1/3}{1/2} = \alert{\frac23}
-   \quad \text{and} \quad
-   P(C_1 \mid H_3) = \frac{1/6}{1/2} = \frac13. \]
+\vspace{6pt}
+\onslide<2->{Let $C_i$ = \qq{car is behind door $i$} and $H_3$ = \qq{host opens door 3}.  We want to compute $P(C_2 \mid H_3)$.  If it's greater than 50\%, we should switch!}
+\end{column}
+\begin{column}{0.38\textwidth}
+\centering
+\begin{tikzpicture}[x=1cm, y=1cm]
+  \foreach \x/\n/\lab in {0/1/we pick, 1.3/2/car here?, 2.6/3/host opens} {
+    \draw[thick, fill=brown!35, rounded corners=1pt] (\x,0) rectangle (\x+1,1.35);
+    \node[font=\footnotesize\bfseries] at (\x+0.5,0.8) {\n};
+    \fill (\x+0.82,0.6) circle (0.05);
+    \node[font=\scriptsize] at (\x+0.5,-0.2) {\lab};
+  }
+\end{tikzpicture}
+\end{column}
+\end{columns}
 
-\onslide<13->
-\textbf{Answer.} Switch!  Switching wins $\frac23$ of the time; staying wins only $\frac13$.
+\vfill
+
+\onslide<3->
+\begin{align*}
+P(C_2 \mid H_3) &= \frac{P(H_3 \mid C_2)\,P(C_2)}{P(H_3)} \\
+\onslide<6->{&= \frac{P(H_3 \mid C_2)\,P(C_2)}{P(H_3 \mid C_1)P(C_1) + P(H_3 \mid C_2)P(C_2) + P(H_3 \mid C_3)P(C_3)}} \\
+\onslide<7->{\alert{\text{What are these numbers?}}} &\uncover<8->{= \frac{\uncover<8->{1}\;\uncover<9->{\big(\tfrac13\big)}}{\uncover<10->{\tfrac12}\;\uncover<11->{\big(\tfrac13\big)} \uncover<12->{+\, 1}\;\uncover<13->{\big(\tfrac13\big)} \uncover<14->{+\, 0}\;\uncover<15->{\big(\tfrac13\big)}}} \uncover<16->{= \alert{\frac23}} \uncover<17->{\qquad \alert{\text{Switch!}}}
+\end{align*}
+
+\vfill
+
+\onslide<4->
+\begin{mygreenbox}[title=\text{Aside: Law of Total Probability}]
+Since the $C_i$ are disjoint, the \qq{law of total probability} says
+\begin{align*}
+P(H_3) &= P(H_3 \cap C_1) + P(H_3 \cap C_2) + P(H_3 \cap C_3) \\
+\onslide<5->{&= P(H_3 \mid C_1)\,P(C_1) + P(H_3 \mid C_2)\,P(C_2) + P(H_3 \mid C_3)\,P(C_3)}
+\end{align*}
+\end{mygreenbox}
 \end{frame}
 
 
@@ -369,9 +466,11 @@ Just before the host opens one of the closed doors, there is no information abou
 \end{frame}
 
 \begin{frame}{The probability of multiple events: Conner's observation}
-\small 
-\colorbox{blue!30}{\textbf{Review.}} Last time, we  found the probability of drawing the hand $H=\set{6 \clubsuit, K \heartsuit, 3 \diamondsuit, A \spadesuit, 7 \clubsuit}$ in poker as $P(H) = \frac{1}{\binom{52}{5}} = \frac{1}{2,598,960}.$
-\vfill 
+\footnotesize
+\colorbox{yellow!30}{\textbf{Poll.}} Last time, we  found the probability of drawing the hand $H=\set{6 \clubsuit, K \heartsuit, 3 \diamondsuit, A \spadesuit, 7 \clubsuit}$ in poker as $P(H) = \frac{1}{\binom{52}{5}} = \frac{1}{2,598,960}.$ However, Conner (Fall '25) reasoned:
+\[ P(H)  = \frac{5}{52} \cdot \frac{4}{51}  \cdot \frac{3}{50} \cdot \frac{2}{49} \cdot \frac{1}{48}. \]
+What gives?
+\vfill  
 \pause 
 \colorbox{blue!30}{\textbf{Remark.}} We can connect this to Conner's solution via factorial math:
 \[P(H)  = \frac{1}{\binom{52}{5}}   = \frac{1}{\frac{52!}{5!47!}} = \frac{5!}{(52)_5} = \frac{5}{52} \cdot \frac{4}{51}  \cdot \frac{3}{50} \cdot \frac{2}{49} \cdot \frac{1}{48} \]
@@ -428,16 +527,134 @@ Let $A$ and $B$ be events in a sample space. Here are three equivalent ways to c
 
 \end{frame}
 
-\begin{frame}
-\small 
-\colorbox{yellow!30}{\textbf{Subpoll.}}   Consider the two scenarios below, where we represent probabilities as areas.  In both cases $P(A)=P(B) = \frac{1}{16}$. But in one case $A,B$ are independent, and in the other they are dependent.  Which is which?  Why?
+
+\begin{frame}{Independent or Dependent?}
+
+\colorbox{green!30}{\textbf{Check.}} $A$ and $B$ are independent exactly when $P(B \mid A) = P(B)$.
+
+\vfill
+
+\colorbox{yellow!30}{\textbf{Poll.}} For each pair of events: independent or dependent?
+
+\vfill
+
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.7}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lllccl}
+\hline
+\textbf{Experiment} & $A$ & $B$ & $P(B)$ & $P(B \mid A)$ & \textbf{Verdict} \\
+\hline
+\uncover<1->{Two coins} & \uncover<1->{First is heads} & \uncover<1->{Second is heads} & \uncover<2->{$\frac12$} & \uncover<2->{$\frac12$} & \uncover<2->{\textcolor{green!50!black}{\textbf{Independent}}} \\
+\uncover<3->{Two dice} & \uncover<3->{First die is 6} & \uncover<3->{Sum is 7} & \uncover<4->{$\frac16$} & \uncover<4->{$\frac16$} & \uncover<4->{\textcolor{green!50!black}{\textbf{Independent}}} \\
+\uncover<5->{Two dice} & \uncover<5->{First die is 6} & \uncover<5->{Sum is 12} & \uncover<6->{$\frac{1}{36}$} & \uncover<6->{$\frac16$} & \uncover<6->{\textcolor{red!70!black}{\textbf{Dependent}}} \\
+\uncover<7->{One coin} & \uncover<7->{Heads} & \uncover<7->{Tails} & \uncover<8->{$\frac12$} & \uncover<8->{$0$} & \uncover<8->{\textcolor{red!70!black}{\textbf{Dependent}}} \\
+\hline
+\end{tabular}
+
+\vfill
+\vfill 
+\only<9->{\colorbox{blue!30}{\textbf{Remark.}} The final row shows the problem with the student's proposal on the last slide that the identity $P(A \cap B) = P(A) \, P(B)$ holds when $P(A)$ and $P(B)$ have the same probability of happening, such as $P(A)=1/2$ and $P(B)=1/2$.}
+\end{frame}
+
+%\begin{frame}
+%\small 
+%\colorbox{yellow!30}{\textbf{Poll.}}   Consider the two scenarios below, where we represent probabilities as areas.  In both cases $P(A)=P(B) = \frac{1}{16}$. But in one case $A,B$ are independent, and in the other they are dependent.  Which is which?  Why?
+%
+%\vfill 
+%
+%\begin{minipage}{.45\textwidth}
+%
+%
+%\begin{tikzpicture}
+%
+%% Draw the sample space S as a large square
+%\draw[thick] (0,0) rectangle (4,4);
+%\node at (2, 4.2) {Sample Space \( S \)};
+%
+%% Draw event A as a smaller square inside S
+%\draw[thick, fill=blue, opacity=0.3] (1.25, 1.25) rectangle (2.25, 2.25);
+%\node at (1.75, 1.0) {Event \( A \)};
+%
+%% Draw event B as another smaller square inside S
+%\draw[thick, fill=red, opacity=0.3] (2, 2) rectangle (3, 3);
+%\node at (2.5, 3.25) {Event \( B \)};
+%
+%% Show intersection area A ∩ B
+%\draw[thick, fill=purple, opacity=0.3] (2, 2) rectangle (2.25, 2.25);
+%%\node at (2, 2) {\small $A \cap B$};
+%
+%\end{tikzpicture}
+%\end{minipage} %
+%\hfill 
+%\begin{minipage}{.45\textwidth}
+%
+%\begin{tikzpicture}
+%
+%% Draw the sample space S as a large square
+%\draw[thick] (0,0) rectangle (4,4);
+%\node at (2, 4.2) {Sample Space \( S \)};
+%
+%% Draw event A as a smaller square inside S
+%\draw[thick, fill=blue, opacity=0.3] (0.5, 1.5) rectangle (1.5, 2.5);
+%\node at (1, 3) {Event \( A \)};
+%
+%% Draw event B 
+%\draw[thick, fill=red, opacity=0.3] (2.5, 1.5) rectangle (3.5, 2.5);
+%\node at (3, 3) {Event \( B \)};
+%
+%%% Show intersection area A ∩ B
+%%\draw[thick, fill=purple, opacity=0.3] (1.5, 1.5) rectangle (2.5, 2.5);
+%%\node at (2, 2) {$A \cap B$};
+%
+%\end{tikzpicture}
+%\end{minipage} %
+%
+%\vfill 
+%\pause 
+%
+%\begin{minipage}{.45\textwidth}
+%\begin{center}
+%These events are \textbf{independent}.
+%
+%\begin{align*}
+%P(A \cap B) &= P(A) \; P(B) \\
+%&= \frac{1}{16} \cdot \frac{1}{16}   = \frac{1}{256} 
+%\end{align*}
+%\end{center}
+%\end{minipage} %
+%\hfill 
+%\pause 
+%\begin{minipage}{.45\textwidth}
+%
+%These events are \textbf{dependent}.
+%
+%\begin{align*}
+%P(A \cap B) &= 0  \\
+%& \neq  P(A) \; P(B) = \frac{1}{16} \cdot \frac{1}{16}
+%\end{align*}
+%\end{minipage} %
+%\vfill 
+%\pause 
+%\colorbox{orange!30}{\textbf{Remark.}} Dependence doesn't need to be so extreme. The left  figure would depict dependence even if we just pulled the blue and red squares apart from each other ever so slightly.  Likewise if we pushed them closer together slightly.
+%\end{frame}
+
+
+
+\begin{frame}{Independence: A Visual Perspective}
+\footnotesize 
+\setlength{\abovedisplayskip}{2pt}
+\setlength{\belowdisplayskip}{2pt}
+\colorbox{yellow!30}{\textbf{Poll.}}   Consider the two scenarios below, where we represent probabilities as areas.  In both cases $P(A)=P(B) = \frac{1}{16}$. But in one case $A,B$ are independent, and in the other they are dependent.  Which is which?  Why?
 
 \vfill 
 
 \begin{minipage}{.45\textwidth}
 
 
-\begin{tikzpicture}
+\centering
+\begin{tikzpicture}[scale=0.68, every node/.style={font=\footnotesize}]
 
 % Draw the sample space S as a large square
 \draw[thick] (0,0) rectangle (4,4);
@@ -460,7 +677,8 @@ Let $A$ and $B$ be events in a sample space. Here are three equivalent ways to c
 \hfill 
 \begin{minipage}{.45\textwidth}
 
-\begin{tikzpicture}
+\centering
+\begin{tikzpicture}[scale=0.68, every node/.style={font=\footnotesize}]
 
 % Draw the sample space S as a large square
 \draw[thick] (0,0) rectangle (4,4);
@@ -485,19 +703,18 @@ Let $A$ and $B$ be events in a sample space. Here are three equivalent ways to c
 \pause 
 
 \begin{minipage}{.45\textwidth}
-\begin{center}
+\centering
 These events are \textbf{independent}.
 
 \begin{align*}
 P(A \cap B) &= P(A) \; P(B) \\
 &= \frac{1}{16} \cdot \frac{1}{16}   = \frac{1}{256} 
 \end{align*}
-\end{center}
 \end{minipage} %
 \hfill 
 \pause 
 \begin{minipage}{.45\textwidth}
-
+\centering
 These events are \textbf{dependent}.
 
 \begin{align*}
@@ -509,7 +726,6 @@ P(A \cap B) &= 0  \\
 \pause 
 \colorbox{orange!30}{\textbf{Remark.}} Dependence doesn't need to be so extreme. The left  figure would depict dependence even if we just pulled the blue and red squares apart from each other ever so slightly.  Likewise if we pushed them closer together slightly.
 \end{frame}
-
 
 
 \begin{frame}[standout]
