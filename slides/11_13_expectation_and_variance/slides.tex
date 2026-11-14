@@ -111,69 +111,73 @@ Quizzes are in the front of the room, grouped into four bins (A-G, H-L, M-R, S-Z
 %%%%%%%%%%%%%%%
 \agendaframe{overview}
 
+%
+%\begin{frame}{Expectations and variances in real life (1/2)}
+%	
+%\small 
+%\textbf{Expectation} tells you the average value of a random variable.
+%\vfill 
+%\pause 
+%\begin{myyellowbox}[title= Example of how expectations are useful]
+%Two companies offer LSAT preparation for law school. You may want to choose the company that offers a larger expected increase in LSAT scores.
+%\end{myyellowbox}
+%
+%
+%\vfill 
+%\pause 
+%
+%\textbf{Variance} tells you how much spread (or uncertainty) there is about a random variable.
+%\vfill 
+%\pause 
+%
+%
+%\begin{mybluebox}[title= Example of how variances are useful]
+% Two companies offer LSAT preparation for law school.  Both offer the same expected increase in LSAT score.   However, they differ in the variability of increases in LSAT scores.  (Company A has a larger spread in score boosts than company B.) 
+% \begin{itemize}
+% 	\item  If you want to minimize risk, you may want to choose company A.
+% 	\item If you want to maximize potential gain, you may want to choose company B.
+% \end{itemize}
+%
+%\end{mybluebox}
+%
+%\end{frame}
+
+%\begin{frame}{Expectations and variances in real life (1/2)}
+%
+%\small 
+%\textbf{Expectation} tells you the average value of a random variable.
+%\vfill 
+%\begin{myyellowbox}[title= Example of how expectations are useful]
+%You can drive to campus by two routes.  You may want to choose the route with the shorter expected travel time.
+%\end{myyellowbox}
+%
+%
+%\vfill 
+%\pause 
+%
+%\textbf{Variance} tells you how much spread (or uncertainty) there is about a random variable.
+%\vfill 
+%\pause 
+%
+%
+%\begin{mybluebox}[title= Example of how variances are useful]
+% Two routes both take 25 minutes on average.  But the highway usually takes 20 minutes and sometimes takes 45 (when there's an accident), while the back roads always take 24--26 minutes.  So the highway has a larger variance.
+% \vspace{-.2cm}
+% \begin{itemize}
+% 	\item If you can't be late (e.g., for an exam), you may want to take the back roads.
+% 	\item If you're willing to gamble for a quicker trip, you may want to take the highway.
+% \end{itemize}
+%
+%\end{mybluebox}
+%
+%
+%	
+%\end{frame}
+
 
 
 
 \begin{frame}{Expectations and variances in real life (1/2)}
-	
-\small 
-\textbf{Expectation} tells you the average value of a random variable.
-\vfill 
-\pause 
-\begin{myyellowbox}[title= Example of how expectations are useful]
-Two companies offer LSAT preparation for law school. You may want to choose the company that offers a larger expected increase in LSAT scores.
-\end{myyellowbox}
-
-
-\vfill 
-\pause 
-
-\textbf{Variance} tells you how much spread (or uncertainty) there is about a random variable.
-\vfill 
-\pause 
-
-
-\begin{mybluebox}[title= Example of how variances are useful]
- Two companies offer LSAT preparation for law school.  Both offer the same expected increase in LSAT score.   However, they differ in the variability of increases in LSAT scores.  (Company A has a larger spread in score boosts than company B.) 
- \begin{itemize}
- 	\item  If you want to minimize risk, you may want to choose company A.
- 	\item If you want to maximize potential gain, you may want to choose company B.
- \end{itemize}
-
-\end{mybluebox}
-
-\end{frame}
-
-%\begin{frame}{Expectations and variances in real life (2/2)}
-%	
-%\small 
-%
-%\begin{itemize}
-%\item \textbf{Expectation} tells you the average value of a random variable.	
-%\item \textbf{Variance} tells you how much spread (or uncertainty) there is about a random variable.
-%\end{itemize}
-%
-%
-%\begin{myyellowbox}[title= \text{Example: Reasoning with expectations and variances}]
-%
-%Consider two former NFL wide receivers. They both average around 9 years per target. However, the plays involving them have  different variances: 
-%\begin{itemize}
-%	\item Barry Sanders was known for making big explosive runs by evading tackles. He had some very long runs, lots of moderate runs, and occasional negative runs.
-%	\item Adrian Peterson was more of a power-runner who ran behind a strong line and tended to produce more consistent gains, suggesting lower variance (a steadier stream of 4-6 yard carries with fewer extreme swings).
-%\end{itemize}
-%
-%\end{myyellowbox}
-%\end{frame}
-%
-%
-%\begin{frame}{Expectations and variances in real life (2/2)}
-%
-%\begin{center}
-%\includegraphics[width=.9\textwidth]{images/yards_per_target_gonzalez_smith.png}	
-%\end{center}
-%\end{frame}
-
-\begin{frame}{Expectations and variances in real life (2/2)}
 \footnotesize
 
 \begin{itemize}
@@ -181,16 +185,71 @@ Two companies offer LSAT preparation for law school. You may want to choose the 
 \item \textbf{Variance} tells you how much spread (or uncertainty) there is about a random variable.
 \end{itemize}
 
-\begin{myyellowbox}[title= \text{Example: Reasoning with expectations and variances}]
-Tony Gonzalez and Torrey Smith both averaged about 8 yards per target, but Smith's boom-or-bust gains had about 3.5 times the variance.
+\begin{myyellowbox}[title= \text{Example: The National Football League}]
+Tight end Tony Gonzalez and wide receiver Torrey Smith both averaged about 8 yards per target. But Smith's boom-or-bust gains had about 3.5 times the variance.
 \vfill \vfill 
 \centering
-\includegraphics[width=\textwidth]{images/yards_per_target_gonzalez_smith_wide.png}
+\begin{minipage}{0.85\linewidth}
+% photos centered over the player names (at 29.0% and 76.4% of the plot's width)
+\begin{tikzpicture}[x=\linewidth]
+  \useasboundingbox (0,-0.425cm) rectangle (1,0.425cm);
+  \node[inner sep=0] at (0.290,0) {\includegraphics[height=0.85cm]{images/tony_gonzalez.jpeg}};
+  \node[inner sep=0] at (0.764,0) {\includegraphics[height=0.85cm]{images/torrey.jpeg}};
+\end{tikzpicture}
+
+\includegraphics[width=\linewidth]{images/yards_per_target_gonzalez_smith_wide.png}
+\end{minipage}
 \vfill
 \end{myyellowbox}
 \pause 
 Today, we'll practice computing these quantities from data.
 \end{frame}
+
+
+
+\begin{frame}{Expectations and variances in real life (2/2)}
+
+\footnotesize
+
+
+
+\begin{itemize}
+\item \textbf{Expectation} tells you the average value of a random variable.
+\item \textbf{Variance} tells you how much spread (or uncertainty) there is about a random variable.
+\end{itemize}
+
+
+
+
+
+\begin{myyellowbox}[title= \text{Example: Parking at MSU}]
+
+\begin{minipage}{0.48\linewidth}
+
+\begin{center}
+\includegraphics[width=.85\linewidth]{images/parking_lot_map}
+\end{center}
+\end{minipage} %
+\begin{minipage}{0.48\linewidth}
+\scriptsize 
+Should I park in lot 18 or lot 3?   Lot 3 is closer to my destinations, but usually there's no parking spot open.  So I'll probably have to circle around for a long time.   
+\begin{itemize}
+\item My trip time has smaller expectation and smaller variance if I park at lot 18. So that's where I usually park. 
+\item However, sometimes if I'm running late, I'll choose lot 3 \textbf{because} it has higher variance... Maybe I'll get lucky and make it on time.
+\end{itemize}
+
+	
+\end{minipage} %
+
+
+
+\end{myyellowbox}
+
+
+	
+\end{frame}
+
+
 
 
 %%%%%%%%%%%%%%%
