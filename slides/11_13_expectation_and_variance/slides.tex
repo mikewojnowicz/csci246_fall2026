@@ -20,7 +20,7 @@
 \agendatopic[overview]{Overview}
 \agendatopic[expectation]{Expectation}
 \agendatopic[variance]{Variance}
-
+\agendatopic[summary]{Summary}
 
 
 
@@ -619,6 +619,44 @@ When computing the variance, we can use
 
 
 
+\agendaframe{summary}
+
+\begin{frame}{Summary}
+\footnotesize 
+
+\begin{columns}[T]
+\begin{column}{0.6\textwidth}
+\colorbox{green!30}{\textbf{Expectation.}}
+\[ \E[X] = \sum_{x} x \; P(X=x) \]
+ The expectation is the weighted average, where the weights are given by probabilities.
+\end{column}
+\begin{column}{0.35\textwidth}
+\colorbox{red!30}{\textbf{Notation.}} Here we use the common notation that $X$ is a random variable and $x$ is a possible realization.
+\end{column}
+\end{columns}
+
+\vspace{0.4cm}
+\onslide<2->
+\begin{columns}[T]
+\begin{column}{0.6\textwidth}
+\colorbox{green!30}{\textbf{Variance.}}
+\[\Var[X] = \sum_{x}  (x - \mu)^2 \; P(X=x) \]
+The variance is the weighted sum of squared distances from the mean, where the weights are given by probabilities.
+\end{column}
+\begin{column}{0.35\textwidth}
+\colorbox{red!30}{\textbf{Notation.}} Here we also use the notation $\mu = E[X]$, where $\mu$ refers to the \qq{mean} (another name for expectation).
+\end{column}
+\end{columns}
+
+\onslide<1->
+\begin{figure}
+\includegraphics[width=.6\textwidth]{images/center_of_mass}
+\end{figure}
+
+\end{frame}
+
+
+
 
 
 
@@ -879,11 +917,11 @@ Vath, Ethan: 12 \\\end{column}
    &= (5)(9.7)  + 20(0.5)^2 && \scripttext{(using previous parts)}\\
    &= 53.5
    \end{align*}
-
+%
 Hence,
   \[ Var[X_5] = E[X_5^2] - E[X_5]^2 = 53.5 - 6.25 = 47.25 \]
 \vfill \vfill 
-\textbf{Remark.} This problem is much simpler if we use a fact (not presented in the text) that 
+\colorbox{red!30}{\textbf{Remark.}} This problem is much simpler if we use a fact (not presented in the text) that 
 \[ Var(X_5) = Var(Y_1) + \hdots Var(Y_5)\]
 because the $Y_j$'s are independent.
 \end{frame}
