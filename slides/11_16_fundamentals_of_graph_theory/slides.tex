@@ -422,8 +422,8 @@ Some examples:
 \setlength{\belowdisplayskip}{3pt}
 
 \only<1-4>{By the \textbf{chain rule}, any joint distribution can be factored as follows, corresponding to the \textit{complete} graph:}%
-\only<5>{An example of a Bayesian network is given in Figure \ref{fig:example_bayesian_network}.  Its missing edges let us drop terms from the conditioning sets:}%
-\only<6->{An example of a Bayesian network is given in Figure \ref{fig:example_bayesian_network}, corresponding to the factorization}
+\only<5>{In many problems, some variables can be dropped from the conditioning set.  Correspondingly, we can drop some edges from the graph.}%
+\only<6->{The strategy of representing probability distributions as graphs is called \textbf{probabilistic graphical models}.}
 
 {\small
 \only<1-4>{%
@@ -436,11 +436,17 @@ p(\+x) &= p(x_1) \, p(x_2 \cond x_1) \, p(x_3 \cond x_1, x_2) \, p(x_4 \cond x_1
 p(\+x) &= p(x_1) \, p(x_2 \cond x_1) \, p(x_3 \cond x_1, \cancel{x_2}) \, p(x_4 \cond \cancel{x_1}, x_2, \cancel{x_3}) \\
 &\quad \times p(x_5 \cond \cancel{x_1}, \cancel{x_2}, x_3, \cancel{x_4}) \, p(x_6 \cond \cancel{x_1}, x_2, \cancel{x_3}, \cancel{x_4}, x_5)
 \end{align*}}%
-\only<6->{%
+\only<6-7>{%
 \begin{align*}
-p(\+x) &= p(x_1) \, p(x_2 \cond x_1) \, p(x_3 \cond x_1) \, p(x_4 \cond x_2) \\
-&\quad \times p(x_5 \cond x_3) \, p(x_6 \cond x_2, x_5)
-\end{align*}}}
+\setlength{\fboxsep}{1.5pt}
+p(\+x) &= p(x_1) \, p(x_2 \cond \colorbox{blue!20}{$x_1$}) \, p(x_3 \cond \colorbox{blue!20}{$x_1$}) \, p(x_4 \cond \colorbox{blue!20}{$x_2$}) \, p(x_5 \cond \colorbox{blue!20}{$x_3$}) \, p(x_6 \cond \colorbox{blue!20}{$x_2, x_5$})
+%p(\+x) &= p(x_1) \, p(x_2 \cond \blue{x_1}) \, p(x_3 \cond \blue{x_1}) \, p(x_4 \cond \blue{x_2}) \, p(x_5 \cond \blue{x_3}) \, p(x_6 \cond \blue{x_2, x_5})
+\end{align*}}
+\only<8->{%
+\begin{align*}
+p(\+x) &= p(x_1) \, p(x_2 \cond x_1) \, p(x_3 \cond x_1) \, p(x_4 \cond x_2) \, p(x_5 \cond x_3) \, p(x_6 \cond x_2, x_5)
+\end{align*}}
+}
 
 \begin{figure}[H]
   \centering
@@ -461,7 +467,7 @@ p(\+x) &= p(x_1) \, p(x_2 \cond x_1) \, p(x_3 \cond x_1) \, p(x_4 \cond x_2) \\
     \edge{x3}{x5};
     \edge{x5}{x6};
     % extra edges of the complete graph (chain rule), shown only on the first reveal
-    \only<1-3>{
+    \only<1-4>{
     \begin{scope}[->, >={triangle 45}, gray]
       \draw (x1) -- (x4);
       \draw (x1) -- (x5);
@@ -481,12 +487,13 @@ p(\+x) &= p(x_1) \, p(x_2 \cond x_1) \, p(x_3 \cond x_1) \, p(x_4 \cond x_2) \\
 \raggedright\small
 \only<2-3>{\alert{What is a complete graph?}}
 \only<3>{A \textbf{complete graph} is a graph in which every pair of distinct vertices is joined by an edge.}
-\only<4>{\colorbox{red!30}{\textbf{Hot tip.}} Think of these factorizations in terms of what is required to \underline{simulate} data from the model.}
+\only<4-5>{\colorbox{red!30}{\textbf{Hot tip.}} Think of these factorizations in terms of steps you can take to \underline{simulate} data from the model.}
+\only<6-7>{\colorbox{blue!30}{\textbf{Terminology.}} The variables in the conditioning set of $X_i$ are called the \blue{parents} of $X_i$.} \only<7>{The parents of $X_i$ are the variables whose edges point into $X_i$.}
+\only<8-9>{\colorbox{green!30}{\textbf{Key Point.}} These graphs capture dependence/independence relationships between the variables.} \only<9>{However, there are some nuances!}
 \end{minipage}
 
 
-
-\only<5->{\caption{An example Bayesian network}}
+%\only<5->{\caption{An example Bayesian network}}
 \label{fig:example_bayesian_network}
 \end{figure}
 
@@ -496,87 +503,116 @@ p(\+x) &= p(x_1) \, p(x_2 \cond x_1) \, p(x_3 \cond x_1) \, p(x_4 \cond x_2) \\
 \end{frame}
 
 
-\begin{frame}{Probabilistic Graphical Models: General case}
-
-\only<1->{
-\begin{definition}
-A \textit{Bayesian network} (also known as a belief network) is a representation of a joint probability distribution that specifies the conditional dependencies among random variables via a directed acyclic graph (DAG).
-\end{definition}
-}
-
-\onslide<2->{
-Let us represent the joint density of our model as follows:
-
-\begin{align}
- p(x_1, ..., x_n) = \ds\prod_{i=1}^n p(x_i \cond \parents_i )
-\label{eqn:joint_factorization_for_bayes_net} 
-\end{align}
-where $\parents_i$ refers to random variable $i$'s conditioning set, which is called the \textit{parents} of node $i$.
-}
- 
-
-\only<3>{
-Equation \eqref{eqn:joint_factorization_for_bayes_net} simplifies the factorization which is \textit{always} true, by the chain rule of probability:
-
-\[ p(x_1, ..., x_n) = \ds\prod_{i=1}^n p(x_i \cond x_1, .., x_{i-1} ) \]
-}
-
-\only<4->{
-We represent our model in \Eqref{eqn:joint_factorization_for_bayes_net} as a DAG by  
- identifying each random variable with a node, and drawing a directed edge from $X_j$ to $X_i$ if $X_j$ is a parent of $X_i$.
- } 
-\end{frame}
 
 
-
-
-
-\begin{frame}{Conditional vs. marginal independence}
+\begin{frame}[t]{Conditional vs. marginal independence}
 
 \small 
 
 \colorbox{green!30}{\textbf{Key point.}} Whether two variables are dependent can depend on whether a \textbf{third} variable is observed! \only<2->{\alert{Any examples?}}
 
-\vfill 
+\vspace{0.3cm}
 
-\only<3->{
-\colorbox{blue!30}{\textbf{Example.}}} 
-\only<3->{Consider the binary random variables: $E = \texttt{earthquake}$, $B = \texttt{burglary}$,  $C = \texttt{car alarm}$.}
+\begin{columns}[T]
+\begin{column}{0.70\textwidth}
+\footnotesize
+\onslide<3->{\colorbox{blue!30}{\textbf{Example.}}} %Consider the random variables: $I = \texttt{ice cream sales}$, $D = \texttt{drownings}$,  $C = \texttt{calendar date}$.}
 
-\only<8->{
-\begin{figure}
+\vspace{0.2cm}
+\begin{itemize}\setlength{\itemsep}{3pt}
+	\item<4-> Oddly, the \texttt{number of ice cream sales} $I$ and \texttt{number of drownings} $D$ are \alert{dependent} (positively correlated). \only<8->{$\bluemathbox{P(D \mid I) \neq P(D)}$}
+	\item<5-> Why? \only<6>{Because both go up in the summer (or on the weekends).}
+	\item<7-> A third variable, the \texttt{calendar date} $C$, explains away the dependence.
+	\only<8->{So $D$ and $I$ are \alert{conditionally independent} (conditional on $C$).} \only<10->{$\bluemathbox{P(D \mid I, C) = P(D \mid C)}.$}
+\end{itemize}
+\end{column}
+\begin{column}{0.27\textwidth}
 \centering
+\onslide<3->{\includegraphics[width=.5\linewidth]{images/ice_cream}\\[1pt]{\scriptsize You live on the beach}}
+
+\vspace{0.3cm}
+\onslide<12->{%
 \tikzset{
   cnode/.style = {latent, minimum size=0.9cm, line width=1.0pt, font=\large},
   cedge/.style = {->, >=latex, line width=1.0pt},
 }
-\resizebox{0.13\textwidth}{!}{%
+\resizebox{0.5\linewidth}{!}{%
+  \begin{tikzpicture}
+    \node[cnode] (x) at (-1, -2)  {$I$};
+    \node[cnode] (y) at ( 1, -2)  {$D$};
+    \alt<13>{\node[cnode, fill=gray!40] (z) at ( 0,0) {$C$};}{\node[cnode] (z) at ( 0,0) {$C$};}
+    \draw[cedge] (z) -- (x);
+    \draw[cedge] (z) -- (y);
+  \end{tikzpicture}%
+  }}
+\end{column}
+\end{columns}
+
+\vfill
+\only<11>{
+\colorbox{red!30}{\textbf{Terminology.}} $I$ and $D$ are \textbf{marginally} dependent but \textbf{conditionally} independent (given $C$).
+}
+
+\only<12->{
+\colorbox{yellow!30}{\textbf{Graphical View.}} The graph is drawn above.  $I$ and $D$ are dependent unless we observe $C$.
+}
+
+
+\end{frame}
+
+\begin{frame}[t]{Conditional vs. marginal independence: Another Example}
+
+\small 
+
+\colorbox{green!30}{\textbf{Key point.}} Whether two variables are dependent can depend on whether a \textbf{third} variable is observed! %\only<2->{\alert{Any examples?}}
+
+\vspace{0.3cm}
+
+\begin{columns}[T]
+\begin{column}{0.70\textwidth}
+\footnotesize
+\onslide<2->{\colorbox{blue!30}{\textbf{Example.}} Consider the binary random variables: $E = \texttt{earthquake}$, $B = \texttt{burglary}$,  $C = \texttt{car alarm}$.}
+
+\vspace{0.2cm}
+\begin{itemize}\setlength{\itemsep}{3pt}
+	\item<3-> A priori, in S.F., earthquakes $E$ and burglaries $B$ are (approximately) \alert{independent}. \only<6->{$\bluemathbox{P(E \mid B=1) = P(E)}$}
+	\item<4-> Now your car alarm $C$ goes off.  Given that, the probability of $E$ or $B$ rises. 
+	\only<5->{  But if you hear there was an earthquake, the probability of a burglary goes back down, since the earthquake \alert{explains away} the burglary.}  \only<7->{So $E$ and $B$ are \alert{conditionally dependent}.} \only<7->{$\bluemathbox{P(E \mid C=1, B=1) \neq P(E \mid C=1)}$}
+\end{itemize}
+\end{column}
+\begin{column}{0.27\textwidth}
+\centering
+%\onslide<3->{\includegraphics[width=\linewidth]{images/san_fran.png}}
+\onslide<2->{\includegraphics[width=\linewidth]{images/san_fran.png}\\[1pt]{\scriptsize You live in S.F.}}
+
+\vspace{0.3cm}
+\onslide<9->{%
+\tikzset{
+  cnode/.style = {latent, minimum size=0.9cm, line width=1.0pt, font=\large},
+  cedge/.style = {->, >=latex, line width=1.0pt},
+}
+\resizebox{0.5\linewidth}{!}{%
   \begin{tikzpicture}
     \node[cnode] (x) at (-1, 0)  {$E$};
     \node[cnode] (y) at ( 1, 0)  {$B$};
-    \node[cnode] (z) at ( 0,-2)    {$C$};
+    %\node[cnode] (z) at ( 0,-2)    {$C$};
+    \alt<10>{\node[cnode, fill=gray!40] (z) at ( 0,-2) {$C$};}{\node[cnode] (z) at ( 0,-2) {$C$};}
     \draw[cedge] (x) -- (z);
     \draw[cedge] (y) -- (z);
-  \end{tikzpicture}
-  }
-\end{figure}
+  \end{tikzpicture}%
+  }}
+\end{column}
+\end{columns}
+
+\vfill
+\only<8>{
+\colorbox{red!30}{\textbf{Terminology.}} $E$ and $B$ are \textbf{marginally} independent but \textbf{conditionally} dependent (given $C$).
 }
-%
-\vspace{-.25cm}
- \small 
- \only<4->{
-\begin{itemize}
-	\item<4-> A priori, earthquakes $E$ and burglaries $B$ are independent. \only<8->{$\bluemathbox{P(E \mid B=1) = P(E)}$}
-	\item<5-> Your car alarm $C$ could be triggered by $E$ or $B$. 
-	\item<6-> Now your car alarm goes off.  Given that, the probability of $E$ or $B$ rises. %\only<9->{,$\bluemathbox{P(E \cup B \mid C=1) > P(E \cup B)}$.}
-	\only<7->{  But if you hear there was an earthquake, the probability of a burglary goes back down, since the earthquake \alert{explains away} the burglary.  So $E$ and $B$ are conditionally dependent.}\only<9->{$\bluemathbox{P(E \mid C=1, B=1) \neq P(E \mid C=1)}$}
-\end{itemize}
+
+\only<9->{
+\colorbox{yellow!30}{\textbf{Graphical View.}} The graph is drawn above.  $E$ and $B$ are independent unless we observe $C$.
 }
-%
-\vspace{-.34cm}
-\only<10>{
-\colorbox{red!30}{\textbf{Terminology.}} Here, we say $E$ and $B$ are \textbf{marginally} independent but \textbf{conditionally} dependent (on $C$).
-}
+
 
 \end{frame}
 
@@ -595,19 +631,6 @@ We represent our model in \Eqref{eqn:joint_factorization_for_bayes_net} as a DAG
   cedge/.style = {->, >=latex, line width=1pt},
 }
 \resizebox{0.9\textwidth}{!}{%
-
-\begin{subfigure}[b]{0.31\textwidth}
-  \centering
-  \begin{tikzpicture}
-    \node[cnode] (x) at (-1, 0)  {$X$};
-    \node[cnode] (y) at ( 1, 0)  {$Y$};
-    \node[cnode] (z) at ( 0,-2)    {$Z$};
-    \draw[cedge] (x) -- (z);
-    \draw[cedge] (y) -- (z);
-  \end{tikzpicture}
-  \caption{Collider}
-\end{subfigure}
-\hfill \pause
 \begin{subfigure}[b]{0.31\textwidth}
   \centering
   \begin{tikzpicture}
@@ -618,6 +641,18 @@ We represent our model in \Eqref{eqn:joint_factorization_for_bayes_net} as a DAG
     \draw[cedge] (z) -- (y);
   \end{tikzpicture}
   \caption{Fork} 
+\end{subfigure}
+\hfill \pause
+\begin{subfigure}[b]{0.31\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \node[cnode] (x) at (-1, 0)  {$X$};
+    \node[cnode] (y) at ( 1, 0)  {$Y$};
+    \node[cnode] (z) at ( 0,-2)    {$Z$};
+    \draw[cedge] (x) -- (z);
+    \draw[cedge] (y) -- (z);
+  \end{tikzpicture}
+  \caption{Collider}
 \end{subfigure}
 \hfill \pause 
 \begin{subfigure}[b]{0.31\textwidth}
@@ -631,9 +666,8 @@ We represent our model in \Eqref{eqn:joint_factorization_for_bayes_net} as a DAG
   \end{tikzpicture}
   \caption{Chain}
 \end{subfigure}
-
 }
-\caption{\textbf{PGM's: Three canonical graphs}}
+\caption{\textbf{Three canonical graphs}}
 \label{fig:three_canonical_graphs}
 \end{figure}
 }
@@ -648,19 +682,6 @@ We represent our model in \Eqref{eqn:joint_factorization_for_bayes_net} as a DAG
   cedge/.style = {->, >=latex, line width=1pt},
 }
 \resizebox{0.9\textwidth}{!}{%
-\hfill
-\begin{subfigure}[b]{0.31\textwidth}
-  \centering
-  \begin{tikzpicture}
-    \node[cnode] (x) at (-1, 0)  {$X$};
-    \node[cnode] (y) at ( 1, 0)  {$Y$};
-    \node[cnode] (z) at ( 0,-2)    {$Z$};
-    \draw[cedge] (x) -- (z);
-    \draw[cedge] (y) -- (z);
-  \end{tikzpicture}
-  \caption{Collider}
-\end{subfigure}
-\hfill 
 \begin{subfigure}[b]{0.31\textwidth}
   \centering
   \begin{tikzpicture}
@@ -676,6 +697,18 @@ We represent our model in \Eqref{eqn:joint_factorization_for_bayes_net} as a DAG
 \begin{subfigure}[b]{0.31\textwidth}
   \centering
   \begin{tikzpicture}
+    \node[cnode] (x) at (-1, 0)  {$X$};
+    \node[cnode] (y) at ( 1, 0)  {$Y$};
+    \node[cnode] (z) at ( 0,-2)    {$Z$};
+    \draw[cedge] (x) -- (z);
+    \draw[cedge] (y) -- (z);
+  \end{tikzpicture}
+  \caption{Collider}
+\end{subfigure}
+\hfill 
+\begin{subfigure}[b]{0.31\textwidth}
+  \centering
+  \begin{tikzpicture}
     \node[cnode] (x) at (0, 0)  {$X$};
     \node[cnode, fill=gray!30] (z) at (0,-2)  {$Z$};
     \node[cnode] (y) at (0,-4)  {$Y$};
@@ -684,7 +717,7 @@ We represent our model in \Eqref{eqn:joint_factorization_for_bayes_net} as a DAG
   \end{tikzpicture}
   \caption{Chain}
 \end{subfigure}
-
+\hfill
 }
 \caption{\textbf{Three canonical graphs}}
 \label{fig:three_canonical_graphs}
@@ -692,48 +725,54 @@ We represent our model in \Eqref{eqn:joint_factorization_for_bayes_net} as a DAG
 }
 
 
-\only<4->{\colorbox{yellow!30}{\textbf{Poll.}} When is $X$ independent of $Y$?}
+\only<4-7>{\colorbox{yellow!30}{\textbf{Poll.}} When is $X$ independent of $Y$?}
 %
-\only<5->{\colorbox{green!30}{\textbf{Solution.}} \only<5->{(a)  If $Z$ (and all of its descendants) are \textbf{not} observed.}  \only<6->{(b) If $Z$ is observed.}  \only<7->{(c) If $Z$ is observed.}}
+\only<5-7>{\colorbox{green!30}{\textbf{Solution.}}  \only<5-7>{(a) If $Z$ is observed.}  \only<6-7>{(b)  If $Z$ (and all of its descendants) are \textbf{not} observed.}  \only<7>{(c) If $Z$ is observed.}}
+
+\only<8>{\colorbox{green!30}{\textbf{The Big Idea.}} We can reason about independence in complicated probabilistic models by analyzing how paths between variables traverse through these three canonical graphs.}
+
+\only<9-10>{\small \colorbox{red!30}{\textbf{Who Cares?}}}\only<10>{\small \; Finding independencies can make computations easier (see Group Exercise 1d from expectation and variance) and algorithms more scalable.}
+
 \end{frame}
 
 
 
-\begin{frame}{Independence in Probabilistic Graphical Models: Example}
-\small
 
-A \textbf{Bayesian network} is a directed graph whose vertices are random events, and whose edges encode \textbf{dependence}.
-
-\vfill
-\begin{columns}[c,onlytextwidth]
-\begin{column}{0.39\textwidth}
-\centering
-\begin{tikzpicture}[
-    var/.style={rectangle, rounded corners=3pt, draw, thick, fill=blue!12, minimum height=7mm, align=center, font=\small},
-    >=latex, every edge/.style={draw, thick, ->}]
-  \node[var] (S) at (0,2.4) {Smoker ($S$)};
-  \node[var] (C) at (0,1.2) {Lung cancer ($C$)};
-  \node[var] (K) at (-1.15,0) {Cough ($K$)};
-  \node[var] (X) at (1.15,0) {Abnormal\\X-ray ($X$)};
-  \path (S) edge (C) (C) edge (K) (C) edge (X);
-\end{tikzpicture}
-\end{column}
-\begin{column}{0.58\textwidth}
-\footnotesize
-\begin{itemize}
-\item<1-> \textbf{An edge means direct dependence.}  Smoking changes the chance of cancer: $P(C \mid S) \neq P(C)$.
-\item<1-> \textbf{No edge doesn't mean independent.}  Smoker and Cough are dependent (smokers cough more), but only \textit{through} Lung cancer.
-\item<2-> \textbf{Common parent.}  Cough and X-ray are dependent (via cancer), but independent once we know about cancer. \only<3->{\alert{This is a fork.}}
-\item<4-> \textbf{Conditional independence.}  Once we know whether someone has cancer, smoking tells us nothing more about the cough: $P(K \mid C, S) = P(K \mid C)$. \only<5->{\alert{This is a chain.}}
-\end{itemize}
-\end{column}
-\end{columns}
-
-\vfill
-\onslide<1->{\colorbox{yellow!30}{\textbf{Factorization.}} $P(S, C, K, X) = P(S)\, P(C \mid S)\, P(K \mid C)\, P(X \mid C)$}
-\end{frame}
-
-
+%\begin{frame}{Independence in Probabilistic Graphical Models: Example}
+%\small
+%
+%A \textbf{Bayesian network} is a directed graph whose vertices are random events, and whose edges encode \textbf{dependence}.
+%
+%\vfill
+%\begin{columns}[c,onlytextwidth]
+%\begin{column}{0.39\textwidth}
+%\centering
+%\begin{tikzpicture}[
+%    var/.style={rectangle, rounded corners=3pt, draw, thick, fill=blue!12, minimum height=7mm, align=center, font=\small},
+%    >=latex, every edge/.style={draw, thick, ->}]
+%  \node[var] (S) at (0,2.4) {Smoker ($S$)};
+%  \node[var] (C) at (0,1.2) {Lung cancer ($C$)};
+%  \node[var] (K) at (-1.15,0) {Cough ($K$)};
+%  \node[var] (X) at (1.15,0) {Abnormal\\X-ray ($X$)};
+%  \path (S) edge (C) (C) edge (K) (C) edge (X);
+%\end{tikzpicture}
+%\end{column}
+%\begin{column}{0.58\textwidth}
+%\footnotesize
+%\begin{itemize}
+%\item<1-> \textbf{An edge means direct dependence.}  Smoking changes the chance of cancer: $P(C \mid S) \neq P(C)$.
+%\item<1-> \textbf{No edge doesn't mean independent.}  Smoker and Cough are dependent (smokers cough more), but only \textit{through} Lung cancer.
+%\item<2-> \textbf{Common parent.}  Cough and X-ray are dependent (via cancer), but independent once we know about cancer. \only<3->{\alert{This is a fork.}}
+%\item<4-> \textbf{Conditional independence.}  Once we know whether someone has cancer, smoking tells us nothing more about the cough: $P(K \mid C, S) = P(K \mid C)$. \only<5->{\alert{This is a chain.}}
+%\end{itemize}
+%\end{column}
+%\end{columns}
+%
+%\vfill
+%\onslide<1->{\colorbox{yellow!30}{\textbf{Factorization.}} $P(S, C, K, X) = P(S)\, P(C \mid S)\, P(K \mid C)\, P(X \mid C)$}
+%\end{frame}
+%
+%
 
 
 
@@ -1016,6 +1055,44 @@ Now if we connect two nodes by a new edge, we change the parity of the degrees a
 
 Thus if the number of nodes with odd degree was even before adding the new edge, it remained even after this step. This proves the theorem. (Note that this is a proof by induction on the number of edges.)
 
+\end{frame}
+
+
+\begin{frame}[standout]
+Appendix	
+\end{frame}
+
+
+
+\begin{frame}{Probabilistic Graphical Models: General case}
+
+\only<1->{
+\begin{definition}
+A \textit{Bayesian network} (also known as a belief network) is a representation of a joint probability distribution that specifies the conditional dependencies among random variables via a directed acyclic graph (DAG).
+\end{definition}
+}
+
+\onslide<2->{
+Let us represent the joint density of our model as follows:
+
+\begin{align}
+ p(x_1, ..., x_n) = \ds\prod_{i=1}^n p(x_i \cond \parents_i )
+\label{eqn:joint_factorization_for_bayes_net} 
+\end{align}
+where $\parents_i$ refers to random variable $i$'s conditioning set, which is called the \textit{parents} of node $i$.
+}
+ 
+
+\only<3>{
+Equation \eqref{eqn:joint_factorization_for_bayes_net} simplifies the factorization which is \textit{always} true, by the chain rule of probability:
+
+\[ p(x_1, ..., x_n) = \ds\prod_{i=1}^n p(x_i \cond x_1, .., x_{i-1} ) \]
+}
+
+\only<4->{
+We represent our model in \Eqref{eqn:joint_factorization_for_bayes_net} as a DAG by  
+ identifying each random variable with a node, and drawing a directed edge from $X_j$ to $X_i$ if $X_j$ is a parent of $X_i$.
+ } 
 \end{frame}
 
 \end{document}
